@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+	  <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <TargetFramework>net5.0</TargetFramework>
+    <RootNamespace>E_Auction_Api_Gate_Way</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MMLib.SwaggerForOcelot" Version="4.9.0" />
+    <PackageReference Include="Ocelot" Version="17.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+  </ItemGroup>
+
+</Project>

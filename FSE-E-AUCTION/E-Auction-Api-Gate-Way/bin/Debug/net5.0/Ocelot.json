@@ -1,0 +1,102 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/e-auction/api/v1/seller/delete/{productId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26045
+        }
+      ],
+      "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/delete/{productId}",
+      "UpstreamHttpMethod": [ "DELETE" ],
+      "SwaggerKey": "seller"
+    },
+    {
+      "DownstreamPathTemplate": "/e-auction/api/v1/seller/add-product",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26045
+        }
+      ],
+      "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/add-product",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "seller"
+    },
+    {
+      "DownstreamPathTemplate": "/e-auction/api/v1/seller/show-bids/{productId}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 26045
+        }
+      ],
+      "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/show-bids/{productId}",
+      "UpstreamHttpMethod": [ "GET" ],
+      "SwaggerKey": "seller"
+    },
+    {
+      "DownstreamPathTemplate": "/e-auction/api/v1/Buyer/place-bid",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2016
+        }
+      ],
+      "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/buyer/place-bid",
+      "UpstreamHttpMethod": [ "POST" ],
+      "SwaggerKey": "buyer"
+    },
+    {
+      "DownstreamPathTemplate": "/e-auction/api/v1/buyer/update-bid/{productId}/{buyerEmailId}/{newBidAmount}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 2016
+        }
+      ],
+      "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/buyer/update-bid/{productId}/{buyerEmailId}/{newBidAmount}",
+      "UpstreamHttpMethod": [ "PUT" ],
+      "SwaggerKey": "buyer"
+    }
+  ],
+  "SwaggerEndPoints": [
+    {
+      "TakeServersFromDownstreamService": true,
+      "Key": "seller",
+      "Config": [
+        {
+          "Name": "Seller API",
+          "Version": "v1",
+          "Url": "http://localhost:26045/swagger/v1/swagger.json"
+        }
+      ]
+    },
+    {
+      "TakeServersFromDownstreamService": true,
+      "Key": "buyer",
+      "Config": [
+        {
+          "Name": "Buyer API",
+          "Version": "v1",
+          "Url": "http://localhost:2016/swagger/v1/swagger.json"
+        }
+      ]
+    }
+  ],
+  "RateLimitOptions": {
+    "EnableRateLimiting": true,
+    "Period": "10s",
+    "PeriodTimespan": 10,
+    "Limit": 3
+  },
+  "globalconfiguration": {
+    "BaseUrl": "http://localhost:45035"
+  }
+}
