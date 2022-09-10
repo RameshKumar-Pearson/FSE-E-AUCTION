@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SellerApi", "SellerApi\Sell
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuyerApi", "BuyerApi\BuyerApi.csproj", "{2DDE23D6-A427-4198-87C3-BC4F57D90CED}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-Auction-Api-Gate-Way", "E-Auction-Api-Gate-Way\E-Auction-Api-Gate-Way.csproj", "{E33D7365-B893-4098-94AF-9A4E4AA17F68}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-Auction-Api-Gate-Way", "E-Auction-Api-Gate-Way\E-Auction-Api-Gate-Way.csproj", "{E33D7365-B893-4098-94AF-9A4E4AA17F68}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,5 +1,10 @@
 ﻿using BuyerApi.Models;
+using BuyerApi.RequestModels;
+using Microsoft.Extensions.Options;
+using MongoDB.Driver;
 using System;
+using System.Linq;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace BuyerApi.Repositories
@@ -9,15 +14,36 @@ namespace BuyerApi.Repositories
     /// </summary>
     public class BuyerRepository : IBuyerRepository
     {
-        ///<inheritdoc/>
-        public Task AddBid(BuyerDetails buyerDetails)
+        private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
+        private readonly DbConfiguration _settings;
+
+        public BuyerRepository(IOptions<DbConfiguration> settings)
         {
-            throw new NotImplementedException();
+            _settings = settings.Value;
+            var client = new MongoClient(_settings.ConnectionString);
+            var database = client.GetDatabase(_settings.DatabaseName);
+            _buyerCollection = database.GetCollection<SaveBuyerRequestModel>(_settings.CollectionName);
         }
 
-        public Task UpdateBid(string productId, string email, int newBid)
+        public async Task UpdateBid(string productId, string email, string newBid)
         {
-            throw new NotImplementedException();
+            var buyersList = await GetBuyerAsync();
+            var buyerDetails = buyersList.Where(x => x.Email == email && x.ProductId == productId).Select(o => o).FirstOrDefault();
+            if (buyerDetails != null)
+            {
+                buyerDetails.BidAmount = newBid;
+            }
+
+            await _buyerCollection.ReplaceOneAsync(x => x.Id == buyerDetails.Id, buyerDetails);
         }
+
+        #region
+
+        private async Task<List<SaveBuyerRequestModel>> GetBuyerAsync()
+        {
+            return await _buyerCollection.Find(c => true).ToListAsync();
+        }
+
+        #endregion
     }
 }

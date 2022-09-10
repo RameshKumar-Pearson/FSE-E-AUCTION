@@ -1,4 +1,6 @@
-﻿using BuyerApi.Models;
+﻿using BuyerApi.Contracts.CommandHandlers;
+using BuyerApi.Repositories;
+using BuyerApi.RequestModels;
 using System;
 using System.Threading.Tasks;
 
@@ -9,15 +11,16 @@ namespace BuyerApi.Directors
     /// </summary>
     public class BuyerDirector : IBuyerDirector
     {
-        ///<inheritdoc/>
-        public Task AddBid(BuyerDetails buyerDetails)
+        private readonly IBuyerRepository _buyerRepository;
+
+        public BuyerDirector(IBuyerRepository buyerRepository)
         {
-            throw new NotImplementedException();
+            _buyerRepository = buyerRepository;
         }
 
-        public Task UpdateBid(string productId, string emailId, int newBid)
+        public Task UpdateBid(string productId, string emailId, string newBid)
         {
-            throw new NotImplementedException();
+            return _buyerRepository.UpdateBid(productId, emailId, newBid);
         }
     }
 }

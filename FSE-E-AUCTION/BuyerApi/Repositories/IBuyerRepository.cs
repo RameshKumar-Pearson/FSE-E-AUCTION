@@ -1,4 +1,4 @@
-﻿using BuyerApi.Models;
+﻿using BuyerApi.RequestModels;
 using System.Threading.Tasks;
 
 namespace BuyerApi.Repositories
@@ -8,13 +8,6 @@ namespace BuyerApi.Repositories
     /// </summary>
     public interface IBuyerRepository
     {
-        /// <summary>
-        /// Method used add the buyer details
-        /// </summary>
-        /// <param name="buyerDetails">Specifies to gets the buyer details</param>
-        /// <returns>Awaitable task with no data</returns>
-        Task AddBid(BuyerDetails buyerDetails);
-
-        Task UpdateBid(string productId, string email, int newBid);
+        Task UpdateBid(string productId, string email, string newBid);
     }
 }

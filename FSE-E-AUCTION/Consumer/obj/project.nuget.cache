@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "AAQDugXRUI9/XjY/eYgARR4rTQXl++fmWhnJ6DwJaXALN4KZbECr24OAfEend3kFdqIzPSEQ4rMR6QCxjfwcdA==",
+  "success": true,
+  "projectFilePath": "D:\\FSE-E-AUCTION\\FSE-E-AUCTION\\Consumer\\Consumer.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\confluent.kafka\\1.9.2\\confluent.kafka.1.9.2.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\librdkafka.redist\\1.9.2\\librdkafka.redist.1.9.2.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}

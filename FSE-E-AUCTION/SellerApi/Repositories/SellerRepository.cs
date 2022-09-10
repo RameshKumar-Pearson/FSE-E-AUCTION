@@ -12,7 +12,6 @@ namespace SellerApi.Repositories
     /// </summary>
     public class SellerRepository : ISellerRepository
     {
-        private readonly IConfiguration _configuration;
         private readonly IMongoCollection<Product> _productCollection;
         private readonly IMongoCollection<SellerDetails> _sellerCollection;
         private readonly DbConfiguration _settings;

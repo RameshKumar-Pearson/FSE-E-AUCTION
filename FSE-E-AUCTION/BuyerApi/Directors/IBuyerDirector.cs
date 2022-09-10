@@ -8,8 +8,6 @@ namespace BuyerApi.Directors
     /// </summary>
     public interface IBuyerDirector
     {
-        Task AddBid(BuyerDetails buyerDetails);
-
-        Task UpdateBid(string productId, string email, int newBid);
+        Task UpdateBid(string productId, string email, string newBid);
     }
 }

@@ -11,9 +11,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BuyerApi.Directors;
 using BuyerApi.Repositories;
-using System.Data.Entity;
+using BuyerApi.Contracts.CommandHandlers;
+using BuyerApi.Handlers.CommandsHandlers;
+using BuyerApi.Models;
+using BuyerApi.Directors;
+using Confluent.Kafka;
 
 namespace BuyerApi
 {
@@ -29,8 +32,25 @@ namespace BuyerApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<IBuyerDirector, BuyerDirector>();
+            //Kafka Producer Config
+            var producerConfig = new ProducerConfig();
+            producerConfig.Acks = Acks.All;
+            producerConfig.MessageTimeoutMs= 3000;
+            producerConfig.MessageSendMaxRetries = 3;
+
+            Configuration.Bind("Producer", producerConfig);
+
+            //Kafka Consumer Config...
+            var consumerConfig = new ConsumerConfig();
+            consumerConfig.Acks = Acks.All;
+           
+            Configuration.Bind("Consumer", consumerConfig);
+
+            services.AddSingleton<ProducerConfig>(producerConfig);
+            services.AddSingleton<ConsumerConfig>(consumerConfig);
+            services.AddTransient<ISaveBuyerCommandHandler, SaveBuyerCommandHandler>();
             services.AddTransient<IBuyerRepository, BuyerRepository>();
+            services.AddTransient<IBuyerDirector, BuyerDirector>();
             services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
