@@ -10,13 +10,17 @@ using System.Threading.Tasks;
 namespace BuyerApi.Repositories
 {
     /// <summary>
-    /// Class used to manages the repository activities
+    /// Class used to manages the buyer activities
     /// </summary>
     public class BuyerRepository : IBuyerRepository
     {
         private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
         private readonly DbConfiguration _settings;
 
+        /// <summary>
+        /// Constructor for <see cref="BuyerRepository"/>
+        /// </summary>
+        /// <param name="settings">Specifies to gets the <see cref="DbConfiguration"/></param>
         public BuyerRepository(IOptions<DbConfiguration> settings)
         {
             _settings = settings.Value;

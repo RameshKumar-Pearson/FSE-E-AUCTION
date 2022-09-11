@@ -17,11 +17,24 @@ using BuyerApi.Handlers.CommandsHandlers;
 using BuyerApi.Models;
 using BuyerApi.Directors;
 using Confluent.Kafka;
+using MassTransit;
+using System.Net;
+using System.Reflection;
+using MassTransit.KafkaIntegration;
+using BuyerApi.KafkaConsumerService;
+using BuyerApi.Validation;
 
 namespace BuyerApi
 {
+    /// <summary>
+    /// StartUp Calss for Buyer Api
+    /// </summary>
     public class Startup
     {
+        /// <summary>
+        /// Constructor for <see cref="Startup"/>
+        /// </summary>
+        /// <param name="configuration">Specifies to gets the <see cref="IConfiguration"/></param>
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -29,33 +42,44 @@ namespace BuyerApi
 
         public IConfiguration Configuration { get; }
 
+        #region Public Methods
+
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //Kafka Producer Config
-            var producerConfig = new ProducerConfig();
-            producerConfig.Acks = Acks.All;
-            producerConfig.MessageTimeoutMs= 3000;
-            producerConfig.MessageSendMaxRetries = 3;
-
-            Configuration.Bind("Producer", producerConfig);
-
-            //Kafka Consumer Config...
-            var consumerConfig = new ConsumerConfig();
-            consumerConfig.Acks = Acks.All;
-           
-            Configuration.Bind("Consumer", consumerConfig);
-
-            services.AddSingleton<ProducerConfig>(producerConfig);
-            services.AddSingleton<ConsumerConfig>(consumerConfig);
             services.AddTransient<ISaveBuyerCommandHandler, SaveBuyerCommandHandler>();
             services.AddTransient<IBuyerRepository, BuyerRepository>();
             services.AddTransient<IBuyerDirector, BuyerDirector>();
+            services.AddTransient<IBuyerValidation, BuyerValidation>();
             services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BuyerApi", Version = "v1" });
+            });
+
+            services.AddMassTransit(x =>
+            {
+                x.UsingInMemory((context, config) => config.ConfigureEndpoints(context));
+
+                x.AddRider(rider =>
+                {
+                    rider.AddConsumer<BuyerEventConsumer>();
+                    rider.AddProducer<KafkaBuyerEventCreate>(nameof(KafkaBuyerEventCreate));
+
+                    rider.UsingKafka((context, k) =>
+                    {
+                        k.Host("localhost:9092");
+
+                        k.TopicEndpoint<KafkaBuyerEventCreate>(nameof(KafkaBuyerEventCreate), GetUniqueName(nameof(KafkaBuyerEventCreate)), e =>
+                        {
+                            // e.AutoOffsetReset = AutoOffsetReset.Latest;
+                            //e.ConcurrencyLimit = 3;
+                            e.CheckpointInterval = TimeSpan.FromSeconds(10);
+                            e.ConfigureConsumer<BuyerEventConsumer>(context);
+                        });
+                    });
+                });
             });
         }
 
@@ -78,5 +102,18 @@ namespace BuyerApi
                 endpoints.MapControllers();
             });
         }
+
+        #endregion
+
+        #region Private Methods
+
+        private static string GetUniqueName(string eventName)
+        {
+            string hostName = Dns.GetHostName();
+            string callingAssembly = Assembly.GetCallingAssembly().GetName().Name;
+            return $"{hostName}.{callingAssembly}.{eventName}";
+        }
+
+        #endregion
     }
 }
