@@ -1,4 +1,5 @@
-﻿using BuyerApi.Models;
+﻿using BuyerApi.Exceptions;
+using BuyerApi.Models;
 using BuyerApi.RequestModels;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
@@ -40,18 +41,19 @@ namespace BuyerApi.Validation
             var productDetails = existingProducts.Where(x => x.Id == saveBuyerRequestModel.ProductId).Select(o => o).FirstOrDefault();
             if (productDetails == null)
             {
-                throw new Exception("Product Id Is Not Exist");
+                throw new BuyerException("Product Id Is Not Exist");
             }
             else if (DateTime.Now > productDetails.BidEndDate)
             {
-                throw new Exception("Bid End Date Is Over");
+                throw new BuyerException("Bid End Date Is Over");
             }
             var existingBuyerList = await GetBuyerAsync();
             string existingBidAmount = existingBuyerList.Where(x => x.Email == saveBuyerRequestModel.Email && x.ProductId == saveBuyerRequestModel.ProductId).Select(o => o.BidAmount).FirstOrDefault();
             if (!string.IsNullOrWhiteSpace(existingBidAmount) && existingBidAmount != "0")
             {
-                throw new Exception("More than one bid on a product by same user (based on email ID) is not allowed");
+                throw new BuyerException("More than one bid on a product by same user (based on email ID) is not allowed");
             }
+
             return true;
         }
 

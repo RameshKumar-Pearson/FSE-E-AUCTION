@@ -17,17 +17,10 @@ namespace SellerApi.Directors
         Task AddProductAsync(ProductDetails productDetails);
 
         /// <summary>
-        /// Method used to gets the bids of the product
-        /// </summary>
-        /// <param name="ProductId">Specifies to gets the productId</param>
-        /// <returns>Awaitable task with no data</returns>
-        Task<Product> ShowBidsAsync(string ProductId);
-
-        /// <summary>
         /// Method used to deletes the product
         /// </summary>
         /// <param name="ProductId">Specifies to gets the productId</param>
         /// <returns></returns>
-        Task<DeleteResult> DeleteProductAsync(string ProductId);
+        Task<bool> DeleteProductAsync(string ProductId);
     }
 }

@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "vqsbVvOlHl5hDZMk7PV7ohfIF4j6dPyPhojqp3VIciJ7WqjJ4G77Isz0tO4aNcUCZ9Y6udqiUMNSscQ/AlXrEg==",
+  "dgSpecHash": "hEKn1f5uCVrM1AyxnXrV31Hcs+OlJQ+FE0gGAkpEv7rSwdo7f0M+SrVEph+h4Rau+jbi4c0XGdbHnN89fgXtbg==",
   "success": true,
   "projectFilePath": "D:\\FSE-E-AUCTION\\FSE-E-AUCTION\\BuyerApi\\BuyerApi.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\cogdotnet838\\.nuget\\packages\\confluent.kafka\\1.9.2\\confluent.kafka.1.9.2.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\confluent.kafka\\1.9.0\\confluent.kafka.1.9.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\dnsclient\\1.6.1\\dnsclient.1.6.1.nupkg.sha512",
-    "C:\\Users\\cogdotnet838\\.nuget\\packages\\librdkafka.redist\\1.9.2\\librdkafka.redist.1.9.2.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\librdkafka.redist\\1.9.0\\librdkafka.redist.1.9.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\masstransit\\8.0.6\\masstransit.8.0.6.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\masstransit.abstractions\\8.0.6\\masstransit.abstractions.8.0.6.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\masstransit.aspnetcore\\7.3.1\\masstransit.aspnetcore.7.3.1.nupkg.sha512",

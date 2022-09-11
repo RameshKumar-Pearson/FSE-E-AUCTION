@@ -24,15 +24,10 @@ namespace SellerApi.Directors
         }
 
         ///<inheritdoc/>
-        public async Task<Product> ShowBidsAsync(string ProductId)
+        public async Task<bool> DeleteProductAsync(string ProductId)
         {
-          return  await _sellerRepository.ShowBids(ProductId);
-        }
-
-        ///<inheritdoc/>
-        public async Task<DeleteResult> DeleteProductAsync(string ProductId)
-        {
-            return await _sellerRepository.DeleteProductAsync(ProductId);
+            await _sellerRepository.DeleteProductAsync(ProductId);
+            return true;
         }
     }
 }

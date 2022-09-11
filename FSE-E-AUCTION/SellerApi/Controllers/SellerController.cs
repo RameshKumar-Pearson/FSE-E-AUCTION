@@ -1,9 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
+using SellerApi.Contract.QueryHandlers;
 using SellerApi.Directors;
 using SellerApi.Exception;
 using SellerApi.Models;
+using SellerApi.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,9 +18,20 @@ namespace SellerApi.Controllers
     public class SellerController : ControllerBase
     {
         private readonly ISellerDirector _sellerDirector;
+        private readonly IQueryHandler _iqueryHandler;
+        private readonly ISellerValidation _isellerValidation;
 
-        public SellerController(ISellerDirector sellerDirector)
+        #region Public Methods
+
+        /// <summary>
+        /// constructor for <see cref="SellerController"/>
+        /// </summary>
+        /// <param name="sellerDirector">Specifies to gets the instance of <see cref="ISellerDirector"/></param>
+        /// <param name="queryHandler">Specifies to gets the instance of <see cref="IQueryHandler"/></param>
+        public SellerController(ISellerDirector sellerDirector, IQueryHandler queryHandler, ISellerValidation sellerValidation)
         {
+            _isellerValidation = sellerValidation;
+            _iqueryHandler = queryHandler;
             _sellerDirector = sellerDirector;
         }
 
@@ -29,9 +42,9 @@ namespace SellerApi.Controllers
         /// <returns>List of bids</returns>
         [Route("show-bids/{productId}")]
         [HttpGet]
-        public async Task<Product> ShowBids(string productId)
+        public async Task<ProductBids> ShowBids(string productId)
         {
-            return await _sellerDirector.ShowBidsAsync(productId);
+            return await _iqueryHandler.ShowBids(productId);
         }
 
         /// <summary>
@@ -42,19 +55,10 @@ namespace SellerApi.Controllers
         [HttpPost]
         public async Task AddProductAsync([FromBody] ProductDetails productDetails)
         {
-            if (productDetails.Details.BidEndDate < System.DateTime.Today.Date)
+            if (await _isellerValidation.AddProductValidation(productDetails))
             {
-                throw new InvalidBidDateException(productDetails.Details.BidEndDate);
+                await _sellerDirector.AddProductAsync(productDetails);
             }
-
-            string[] stringArray = { "Painting", "Sculptor", "Ornament" };
-            int pos = Array.IndexOf(stringArray, productDetails.Details.Category);
-            if (!(pos > -1))
-            {
-                throw new System.Exception("Invalid product category");
-            }
-
-            await _sellerDirector.AddProductAsync(productDetails);
         }
 
         /// <summary>
@@ -63,9 +67,16 @@ namespace SellerApi.Controllers
         /// <param name="productId">Specifies to gets the productId</param>
         [Route("delete/{productId}")]
         [HttpDelete]
-        public async Task<DeleteResult> Delete(string productId)
+        public async Task<bool> Delete(string productId)
         {
-           return await _sellerDirector.DeleteProductAsync(productId);
+            if (await _isellerValidation.DeleteProductValidation(productId))
+            {
+                await _sellerDirector.DeleteProductAsync(productId);
+            }
+
+            return true;
         }
+
+        #endregion
     }
 }

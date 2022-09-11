@@ -6,12 +6,17 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using SellerApi.Contract.QueryHandlers;
 using SellerApi.Directors;
+using SellerApi.Handlers.QueryHandlers;
 using SellerApi.Models;
 using SellerApi.Repositories;
+using SellerApi.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Reflection;
 using System.Threading.Tasks;
 
 namespace SellerApi
@@ -30,6 +35,8 @@ namespace SellerApi
         {
             services.AddTransient<ISellerDirector, SellerDirector>();
             services.AddTransient<ISellerRepository, SellerRepository>();
+            services.AddTransient<IQueryHandler, ShowBidsQueryHandler>();
+            services.AddTransient<ISellerValidation, SellerValidation>();
             services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
@@ -56,6 +63,13 @@ namespace SellerApi
             {
                 endpoints.MapControllers();
             });
+        }
+
+        private static string GetUniqueName(string eventName)
+        {
+            string hostName = Dns.GetHostName();
+            string callingAssembly = Assembly.GetCallingAssembly().GetName().Name;
+            return $"{hostName}.{callingAssembly}.{eventName}";
         }
     }
 }

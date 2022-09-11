@@ -3,6 +3,7 @@ using Microsoft.Extensions.Configuration;
 using System.Threading.Tasks;
 using SellerApi.Models;
 using MongoDB.Driver;
+using System.Linq;
 using Microsoft.Extensions.Options;
 
 namespace SellerApi.Repositories
@@ -12,6 +13,7 @@ namespace SellerApi.Repositories
     /// </summary>
     public class SellerRepository : ISellerRepository
     {
+        private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
         private readonly IMongoCollection<Product> _productCollection;
         private readonly IMongoCollection<SellerDetails> _sellerCollection;
         private readonly DbConfiguration _settings;
@@ -25,6 +27,7 @@ namespace SellerApi.Repositories
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
+            _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
             _productCollection = database.GetCollection<Product>("Product_Details");
             _sellerCollection = database.GetCollection<SellerDetails>(_settings.CollectionName);
         }
@@ -38,15 +41,10 @@ namespace SellerApi.Repositories
         }
 
         ///<inheritdoc/>
-        public async Task<Product> ShowBids(string ProductId)
+        public async Task<bool> DeleteProductAsync(string ProductId)
         {
-            return await _productCollection.Find(c => c.Id == ProductId).FirstOrDefaultAsync().ConfigureAwait(false);
-        }
-
-        ///<inheritdoc/>
-        public async Task<DeleteResult> DeleteProductAsync(string ProductId)
-        {
-            return await _productCollection.DeleteOneAsync(c => c.Id == ProductId);
+            await _productCollection.DeleteOneAsync(c => c.Id == ProductId);
+            return true;
         }
     }
 }
