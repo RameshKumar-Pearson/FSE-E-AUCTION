@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Azure.Messaging.ServiceBus.Administration;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MongoDB.Driver;
 using SellerApi.Contract.QueryHandlers;
 using SellerApi.Directors;
 using SellerApi.Exception;
+using SellerApi.MessagePublishers;
 using SellerApi.Models;
 using SellerApi.Validation;
 using System;
@@ -18,8 +20,10 @@ namespace SellerApi.Controllers
     public class SellerController : ControllerBase
     {
         private readonly ISellerDirector _sellerDirector;
+        private readonly IMessagePublisher _messagePublisher;
         private readonly IQueryHandler _iqueryHandler;
         private readonly ISellerValidation _isellerValidation;
+        const string Topic = "e_auction";
 
         #region Public Methods
 
@@ -28,11 +32,12 @@ namespace SellerApi.Controllers
         /// </summary>
         /// <param name="sellerDirector">Specifies to gets the instance of <see cref="ISellerDirector"/></param>
         /// <param name="queryHandler">Specifies to gets the instance of <see cref="IQueryHandler"/></param>
-        public SellerController(ISellerDirector sellerDirector, IQueryHandler queryHandler, ISellerValidation sellerValidation)
+        public SellerController(ISellerDirector sellerDirector, IQueryHandler queryHandler, ISellerValidation sellerValidation, IMessagePublisher messagePublisher)
         {
             _isellerValidation = sellerValidation;
             _iqueryHandler = queryHandler;
             _sellerDirector = sellerDirector;
+            _messagePublisher = messagePublisher;
         }
 
         /// <summary>
@@ -69,11 +74,10 @@ namespace SellerApi.Controllers
         [HttpDelete]
         public async Task<bool> Delete(string productId)
         {
-            if (await _isellerValidation.DeleteProductValidation(productId))
-            {
-                await _sellerDirector.DeleteProductAsync(productId);
-            }
-
+            //if (await _isellerValidation.DeleteProductValidation(productId))
+            //{
+                await _messagePublisher.PublisherAsync(productId);
+            //}
             return true;
         }
 

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "hEKn1f5uCVrM1AyxnXrV31Hcs+OlJQ+FE0gGAkpEv7rSwdo7f0M+SrVEph+h4Rau+jbi4c0XGdbHnN89fgXtbg==",
+  "dgSpecHash": "C4Fo8CwvjYRrRkIHOyagy6ZaD1otIHS6Cvdm3VwPQamGl8ESAe61gp/9XhDQl0BXJRtDM5EaDpxAZ0WRuOYklA==",
   "success": true,
   "projectFilePath": "D:\\FSE-E-AUCTION\\FSE-E-AUCTION\\BuyerApi\\BuyerApi.csproj",
   "expectedPackageFiles": [
@@ -37,7 +37,7 @@
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\swashbuckle.aspnetcore.swaggerui\\6.1.4\\swashbuckle.aspnetcore.swaggerui.6.1.4.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.diagnostics.diagnosticsource\\6.0.0\\system.diagnostics.diagnosticsource.6.0.0.nupkg.sha512",
-    "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.memory\\4.5.0\\system.memory.4.5.0.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.memory\\4.5.4\\system.memory.4.5.4.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.reflection.emit.lightweight\\4.7.0\\system.reflection.emit.lightweight.4.7.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\system.runtime.compilerservices.unsafe\\6.0.0\\system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",

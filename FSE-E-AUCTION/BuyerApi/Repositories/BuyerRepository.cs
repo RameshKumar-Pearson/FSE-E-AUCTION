@@ -17,6 +17,8 @@ namespace BuyerApi.Repositories
         private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
         private readonly DbConfiguration _settings;
 
+        #region Public Methods
+
         /// <summary>
         /// Constructor for <see cref="BuyerRepository"/>
         /// </summary>
@@ -29,6 +31,7 @@ namespace BuyerApi.Repositories
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>(_settings.CollectionName);
         }
 
+        /// <inheritdoc/>
         public async Task UpdateBid(string productId, string email, string newBid)
         {
             var buyersList = await GetBuyerAsync();
@@ -41,8 +44,14 @@ namespace BuyerApi.Repositories
             await _buyerCollection.ReplaceOneAsync(x => x.Id == buyerDetails.Id, buyerDetails);
         }
 
-        #region
+        #endregion
 
+        #region Private Methods
+
+        /// <summary>
+        /// Method used to gets the buyer details
+        /// </summary>
+        /// <returns><see cref="SaveBuyerRequestModel"/></returns>
         private async Task<List<SaveBuyerRequestModel>> GetBuyerAsync()
         {
             return await _buyerCollection.Find(c => true).ToListAsync();
