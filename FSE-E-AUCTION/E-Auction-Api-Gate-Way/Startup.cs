@@ -37,22 +37,16 @@ namespace E_Auction_Api_Gate_Way
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             app.UsePathBase("/gateway");
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-               
-            }
+            app.UseDeveloperExceptionPage();
+            app.UseSwagger();
 
             app.UseRouting();
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapGet("/", async context =>
-                {
-                    await context.Response.WriteAsync("Hello World!");
-                });
+                endpoints.MapControllers();
             });
+
             app.UseSwaggerForOcelotUI(opt =>
             {
                 opt.DownstreamSwaggerEndPointBasePath = "/gateway/swagger/docs";
