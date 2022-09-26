@@ -1,10 +1,11 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
 namespace SellerApi.Models
 {
-    public class SellerDetails
+    public class MongoSeller
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

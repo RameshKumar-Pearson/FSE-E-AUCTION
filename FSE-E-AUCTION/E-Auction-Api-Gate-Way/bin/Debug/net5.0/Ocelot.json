@@ -2,11 +2,11 @@
   "Routes": [
     {
       "DownstreamPathTemplate": "/e-auction/api/v1/seller/delete/{productId}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 26045
+          "Host": "sellerapi.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/delete/{productId}",
@@ -15,11 +15,11 @@
     },
     {
       "DownstreamPathTemplate": "/e-auction/api/v1/seller/add-product",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 26045
+          "Host": "sellerapi.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/add-product",
@@ -28,11 +28,11 @@
     },
     {
       "DownstreamPathTemplate": "/e-auction/api/v1/seller/show-bids/{productId}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 26045
+          "Host": "sellerapi.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/show-bids/{productId}",
@@ -41,11 +41,11 @@
     },
     {
       "DownstreamPathTemplate": "/e-auction/api/v1/Buyer/place-bid",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 2016
+          "Host": "buyerapi-fse.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/buyer/place-bid",
@@ -54,11 +54,11 @@
     },
     {
       "DownstreamPathTemplate": "/e-auction/api/v1/buyer/update-bid/{productId}/{buyerEmailId}/{newBidAmount}",
-      "DownstreamScheme": "http",
+      "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "localhost",
-          "Port": 2016
+          "Host": "buyerapi-fse.azurewebsites.net",
+          "Port": 443
         }
       ],
       "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/buyer/update-bid/{productId}/{buyerEmailId}/{newBidAmount}",
@@ -74,7 +74,7 @@
         {
           "Name": "Seller API",
           "Version": "v1",
-          "Url": "http://localhost:26045/swagger/v1/swagger.json"
+          "Url": "https://sellerapi.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     },
@@ -85,7 +85,7 @@
         {
           "Name": "Buyer API",
           "Version": "v1",
-          "Url": "http://localhost:2016/swagger/v1/swagger.json"
+          "Url": "https://buyerapi-fse.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     }

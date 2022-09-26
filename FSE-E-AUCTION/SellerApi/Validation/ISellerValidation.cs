@@ -16,7 +16,7 @@ namespace SellerApi.Validation
         /// </summary>
         /// <param name="productDetails">Specifies to gets the <see cref="ProductDetails"/></param>
         /// <returns>If the validation is successfully done it returns true, otherwise false </returns>
-        Task<bool> AddProductValidation(ProductDetails productDetails);
+        Task<bool> IsValidProduct(ProductDetails productDetails);
 
         /// <summary>
         /// Method used to delete the product

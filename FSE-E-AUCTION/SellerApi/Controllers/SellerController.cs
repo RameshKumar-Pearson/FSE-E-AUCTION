@@ -60,7 +60,7 @@ namespace SellerApi.Controllers
         [HttpPost]
         public async Task AddProductAsync([FromBody] ProductDetails productDetails)
         {
-            if (await _isellerValidation.AddProductValidation(productDetails))
+            if (await _isellerValidation.IsValidProduct(productDetails))
             {
                 await _sellerDirector.AddProductAsync(productDetails);
             }

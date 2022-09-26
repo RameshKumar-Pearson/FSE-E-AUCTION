@@ -41,6 +41,7 @@ namespace SellerApi
             services.AddTransient<ISellerValidation, SellerValidation>();
             services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
+            services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SellerApi", Version = "v1" });
@@ -66,6 +67,7 @@ namespace SellerApi
             {
                 endpoints.MapControllers();
             });
+            app.UseCors(x=>x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:26045/"));
         }
 
         private static string GetUniqueName(string eventName)

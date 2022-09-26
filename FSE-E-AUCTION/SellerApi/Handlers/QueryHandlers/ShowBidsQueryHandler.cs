@@ -14,7 +14,7 @@ namespace SellerApi.Handlers.QueryHandlers
     /// </summary>
     public class ShowBidsQueryHandler : IQueryHandler
     {
-        private readonly IMongoCollection<Product> _productCollection;
+        private readonly IMongoCollection<MongoProduct> _productCollection;
         private readonly DbConfiguration _settings;
         private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
 
@@ -29,7 +29,7 @@ namespace SellerApi.Handlers.QueryHandlers
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
-            _productCollection = database.GetCollection<Product>("Product_Details");
+            _productCollection = database.GetCollection<MongoProduct>("Product_Details");
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
         }
 

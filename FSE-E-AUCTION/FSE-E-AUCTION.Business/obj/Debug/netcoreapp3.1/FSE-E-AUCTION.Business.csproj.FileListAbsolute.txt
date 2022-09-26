@@ -7,3 +7,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\FSE-E-AUCTION.Business\obj\Debug\netcoreapp3.1\FS
 D:\FSE-E-AUCTION\FSE-E-AUCTION\FSE-E-AUCTION.Business\obj\Debug\netcoreapp3.1\FSE-E-AUCTION.Business.csproj.CoreCompileInputs.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\FSE-E-AUCTION.Business\obj\Debug\netcoreapp3.1\FSE-E-AUCTION.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\FSE-E-AUCTION.Business\obj\Debug\netcoreapp3.1\FSE-E-AUCTION.Business.pdb
+D:\FSE-E-AUCTION\FSE-E-AUCTION\FSE-E-AUCTION.Business\obj\Debug\netcoreapp3.1\FSE-E-AUCTION.Business.csproj.AssemblyReference.cache

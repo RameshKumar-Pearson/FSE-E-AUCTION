@@ -14,7 +14,7 @@ namespace SellerApi.Validation
     /// </summary>
     public class SellerValidation : ISellerValidation
     {
-        private readonly IMongoCollection<Product> _productCollection;
+        private readonly IMongoCollection<MongoProduct> _productCollection;
         private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
         private readonly DbConfiguration _settings;
 
@@ -29,23 +29,23 @@ namespace SellerApi.Validation
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
-            _productCollection = database.GetCollection<Product>("Product_Details");
+            _productCollection = database.GetCollection<MongoProduct>("Product_Details");
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
         }
 
         ///<inheritdoc/>
-        public async Task<bool> AddProductValidation(ProductDetails productDetails)
+        public async Task<bool> IsValidProduct(ProductDetails productDetails)
         {
-            if (productDetails.Details.BidEndDate < System.DateTime.Today.Date)
+            if (productDetails.BidEndDate < System.DateTime.Today.Date)
             {
-                throw new SellerException(productDetails.Details.BidEndDate);
+                throw new SellerException(productDetails.BidEndDate);
             }
 
             string[] stringArray = { "Painting", "Sculptor", "Ornament" };
-            int pos = Array.IndexOf(stringArray, productDetails.Details.Category);
+            int pos = Array.IndexOf(stringArray, productDetails.Category);
             if (!(pos > -1))
             {
-                throw new System.Exception("Invalid product category");
+                throw new System.Exception("Invalid product category, Product category must be one of the following : Painting, Sculptor, Ornament");
             }
 
             return true;
@@ -81,8 +81,8 @@ namespace SellerApi.Validation
         /// <summary>
         /// Method used to gets the all list of existing product details
         /// </summary>
-        /// <returns><see cref="List<<see cref="Product"/>>"/></returns>
-        private async Task<List<Product>> GetProductsAsync()
+        /// <returns><see cref="List<<see cref="MongoProduct"/>>"/></returns>
+        private async Task<List<MongoProduct>> GetProductsAsync()
         {
             return await _productCollection.Find(_ => true).ToListAsync().ConfigureAwait(false);
         }
@@ -90,7 +90,7 @@ namespace SellerApi.Validation
         /// <summary>
         /// Method used to gets the all list of buyers details
         /// </summary>
-        /// <returns><see cref="List<<see cref="Product"/>>"/></returns>
+        /// <returns><see cref="List<<see cref="MongoProduct"/>>"/></returns>
         private async Task<List<SaveBuyerRequestModel>> GetBuyersAsync()
         {
             return await _buyerCollection.Find(_ => true).ToListAsync().ConfigureAwait(false);

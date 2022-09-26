@@ -1,5 +1,6 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace SellerApi.Models
 {
-    public class Product
+    public class MongoProduct
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
@@ -17,7 +18,7 @@ namespace SellerApi.Models
         /// <summary>
         /// Gets (or) Sets the name of the product
         /// </summary>
-        [Required(ErrorMessage = "Product Name Should Not Empty")]
+        [Required(ErrorMessage = "Product Name Should Not Be Empty")]
         [StringLength(maximumLength: 30, MinimumLength = 5, ErrorMessage = "Product Name Should Have Minimum Length 5 and Maximum Length 30")]
         public string Name { get; set; }
 
@@ -37,9 +38,9 @@ namespace SellerApi.Models
         public string Category { get; set; }
 
         /// <summary>
-        /// Gets (or) Sets the starting price ofr the product
+        /// Gets (or) Sets the starting price of the product
         /// </summary>
-        [RegularExpression(@"-?\d+(?:\.\d+)?", ErrorMessage = "Please enter valid minimum price (e.g. 20.00)")]
+        [RegularExpression(@"-?\d+(?:\.\d+)?", ErrorMessage = "Please enter valid price")]
         public int StartingPrice { get; set; }
 
         /// <summary>
