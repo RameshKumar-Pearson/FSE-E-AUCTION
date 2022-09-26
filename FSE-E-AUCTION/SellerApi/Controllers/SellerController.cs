@@ -47,9 +47,11 @@ namespace SellerApi.Controllers
         /// <returns>List of bids</returns>
         [Route("show-bids/{productId}")]
         [HttpGet]
-        public async Task<ProductBids> ShowBids(string productId)
+        public async Task<IActionResult> ShowBids(string productId)
         {
-            return await _iqueryHandler.ShowBids(productId);
+            var response = await _iqueryHandler.ShowBids(productId);
+
+            return Ok(response);
         }
 
         /// <summary>
@@ -58,12 +60,15 @@ namespace SellerApi.Controllers
         /// <param name="productDetails">Specifies to gets the product details</param>
         [Route("add-product")]
         [HttpPost]
-        public async Task AddProductAsync([FromBody] ProductDetails productDetails)
+        public async Task<IActionResult> AddProductAsync([FromBody] ProductDetails productDetails)
         {
+            var response = new ProductResponse();
             if (await _isellerValidation.IsValidProduct(productDetails))
             {
-                await _sellerDirector.AddProductAsync(productDetails);
+                response = await _sellerDirector.AddProductAsync(productDetails);
             }
+
+            return Ok(response);
         }
 
         /// <summary>
@@ -74,10 +79,7 @@ namespace SellerApi.Controllers
         [HttpDelete]
         public async Task<bool> Delete(string productId)
         {
-            //if (await _isellerValidation.DeleteProductValidation(productId))
-            //{
-                await _messagePublisher.PublisherAsync(productId);
-            //}
+            await _messagePublisher.PublisherAsync(productId);
             return true;
         }
 

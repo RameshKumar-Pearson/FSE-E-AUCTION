@@ -18,9 +18,9 @@ namespace SellerApi.Directors
         }
 
         ///<inheritdoc/>
-        public async Task AddProductAsync(ProductDetails productDetails)
+        public async Task<ProductResponse> AddProductAsync(ProductDetails productDetails)
         {
-            await _sellerRepository.AddProduct(productDetails);
+          return  await _sellerRepository.AddProduct(productDetails);
         }
 
         ///<inheritdoc/>

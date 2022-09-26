@@ -14,7 +14,7 @@ namespace SellerApi.Directors
         /// </summary>
         /// <param name="productDetails">Specifies to gets the product details</param>
         /// <returns>Awaitable task with no data</returns>
-        Task AddProductAsync(ProductDetails productDetails);
+        Task<ProductResponse> AddProductAsync(ProductDetails productDetails);
 
         /// <summary>
         /// Method used to deletes the product

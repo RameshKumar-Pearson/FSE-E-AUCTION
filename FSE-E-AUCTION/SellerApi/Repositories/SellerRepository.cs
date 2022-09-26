@@ -33,7 +33,7 @@ namespace SellerApi.Repositories
         }
 
         ///<inheritdoc/>
-        public async Task AddProduct(ProductDetails productDetails)
+        public async Task<ProductResponse> AddProduct(ProductDetails productDetails)
         {
             var sellerDetails = new MongoSeller
             {
@@ -62,6 +62,8 @@ namespace SellerApi.Repositories
             await _sellerCollection.InsertOneAsync(sellerDetails).ConfigureAwait(false);
 
             await _productCollection.InsertOneAsync(product);
+
+            return new ProductResponse { ProductId = product.Id, SellerId = product.SellerId };
         }
 
         ///<inheritdoc/>

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "iOBrzU1gc0tHTs4Z/8cnPdtZSveA6oQj7FauOb1dJvG0h2YDnnlLxGtklrgW0UhT5i/teEQEjueQQdiD1+g4kg==",
+  "dgSpecHash": "xdtYIKswtokmaCjIkNaz1CISka5Z91DMWMlkHFDCZDcAHqCD5ShckJ1z5Xc0s3LORkuEE7OpH5o4hf0iRJlwBg==",
   "success": true,
   "projectFilePath": "D:\\FSE-E-AUCTION\\FSE-E-AUCTION\\SellerApi\\SellerApi.csproj",
   "expectedPackageFiles": [
@@ -12,6 +12,8 @@
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.aspnetcore.http.extensions\\2.2.0\\microsoft.aspnetcore.http.extensions.2.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.aspnetcore.mvc.abstractions\\2.2.0\\microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.aspnetcore.routing.abstractions\\2.2.0\\microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.azure.amqp\\2.5.10\\microsoft.azure.amqp.2.5.10.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.azure.servicebus\\5.2.0\\microsoft.azure.servicebus.5.2.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.azure.services.appauthentication\\1.0.3\\microsoft.azure.services.appauthentication.1.0.3.nupkg.sha512",

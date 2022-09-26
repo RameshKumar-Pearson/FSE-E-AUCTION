@@ -14,7 +14,7 @@ namespace SellerApi.Repositories
         /// </summary>
         /// <param name="productDetails">Specifies to gets the product details</param>
         /// <returns>Awaitable task with no data</returns>
-        Task AddProduct(ProductDetails productDetails);
+        Task<ProductResponse> AddProduct(ProductDetails productDetails);
 
         /// <summary>
         /// Method used to deletes the product
