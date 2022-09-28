@@ -33,8 +33,9 @@
         "dependencies": {
           "Azure.Messaging.ServiceBus": "7.10.0",
           "Microsoft.AspNetCore.Cors": "2.2.0",
+          "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.Azure.ServiceBus": "5.2.0",
-          "MongoDB.Driver": "2.17.1",
+          "MongoDB.Driver": "2.16.1",
           "Swashbuckle.AspNetCore": "5.6.3",
           "Microsoft.AspNetCore.Antiforgery": "3.1.0.0",
           "Microsoft.AspNetCore.Authentication.Abstractions": "3.1.0.0",
@@ -78,7 +79,7 @@
           "Microsoft.AspNetCore.Localization": "3.1.0.0",
           "Microsoft.AspNetCore.Localization.Routing": "3.1.0.0",
           "Microsoft.AspNetCore.Metadata": "3.1.0.0",
-          "Microsoft.AspNetCore.Mvc.Abstractions": "3.1.0.0",
+          "Microsoft.AspNetCore.Mvc.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Mvc.ApiExplorer": "3.1.0.0",
           "Microsoft.AspNetCore.Mvc.Core": "3.1.0.0",
           "Microsoft.AspNetCore.Mvc.Cors": "3.1.0.0",
@@ -97,7 +98,7 @@
           "Microsoft.AspNetCore.ResponseCaching": "3.1.0.0",
           "Microsoft.AspNetCore.ResponseCompression": "3.1.0.0",
           "Microsoft.AspNetCore.Rewrite": "3.1.0.0",
-          "Microsoft.AspNetCore.Routing.Abstractions": "3.1.0.0",
+          "Microsoft.AspNetCore.Routing.Abstractions.Reference": "3.1.0.0",
           "Microsoft.AspNetCore.Routing": "3.1.0.0",
           "Microsoft.AspNetCore.Server.HttpSys": "3.1.0.0",
           "Microsoft.AspNetCore.Server.IIS": "3.1.0.0",
@@ -414,6 +415,17 @@
           "Microsoft.Extensions.Primitives": "2.2.0"
         }
       },
+      "Microsoft.AspNetCore.Mvc.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Routing.Abstractions": "2.2.0",
+          "Microsoft.Net.Http.Headers": "2.2.0"
+        }
+      },
+      "Microsoft.AspNetCore.Routing.Abstractions/2.2.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Http.Abstractions": "2.2.0"
+        }
+      },
       "Microsoft.Azure.Amqp/2.5.10": {
         "runtime": {
           "lib/netstandard2.0/Microsoft.Azure.Amqp.dll": {
@@ -646,48 +658,48 @@
           "ref/netstandard2.0/Microsoft.Win32.Registry.dll": {}
         }
       },
-      "MongoDB.Bson/2.17.1": {
+      "MongoDB.Bson/2.16.1": {
         "dependencies": {
           "System.Runtime.CompilerServices.Unsafe": "5.0.0"
         },
         "runtime": {
           "lib/netstandard2.1/MongoDB.Bson.dll": {
-            "assemblyVersion": "2.17.1.0",
-            "fileVersion": "2.17.1.0"
+            "assemblyVersion": "2.16.1.0",
+            "fileVersion": "2.16.1.0"
           }
         },
         "compile": {
           "lib/netstandard2.1/MongoDB.Bson.dll": {}
         }
       },
-      "MongoDB.Driver/2.17.1": {
+      "MongoDB.Driver/2.16.1": {
         "dependencies": {
-          "MongoDB.Bson": "2.17.1",
-          "MongoDB.Driver.Core": "2.17.1",
-          "MongoDB.Libmongocrypt": "1.5.5"
+          "MongoDB.Bson": "2.16.1",
+          "MongoDB.Driver.Core": "2.16.1",
+          "MongoDB.Libmongocrypt": "1.5.3"
         },
         "runtime": {
           "lib/netstandard2.1/MongoDB.Driver.dll": {
-            "assemblyVersion": "2.17.1.0",
-            "fileVersion": "2.17.1.0"
+            "assemblyVersion": "2.16.1.0",
+            "fileVersion": "2.16.1.0"
           }
         },
         "compile": {
           "lib/netstandard2.1/MongoDB.Driver.dll": {}
         }
       },
-      "MongoDB.Driver.Core/2.17.1": {
+      "MongoDB.Driver.Core/2.16.1": {
         "dependencies": {
           "DnsClient": "1.6.1",
-          "MongoDB.Bson": "2.17.1",
-          "MongoDB.Libmongocrypt": "1.5.5",
+          "MongoDB.Bson": "2.16.1",
+          "MongoDB.Libmongocrypt": "1.5.3",
           "SharpCompress": "0.30.1",
           "System.Buffers": "4.5.1"
         },
         "runtime": {
           "lib/netstandard2.1/MongoDB.Driver.Core.dll": {
-            "assemblyVersion": "2.17.1.0",
-            "fileVersion": "2.17.1.0"
+            "assemblyVersion": "2.16.1.0",
+            "fileVersion": "2.16.1.0"
           }
         },
         "runtimeTargets": {
@@ -731,11 +743,11 @@
           "lib/netstandard2.1/MongoDB.Driver.Core.dll": {}
         }
       },
-      "MongoDB.Libmongocrypt/1.5.5": {
+      "MongoDB.Libmongocrypt/1.5.3": {
         "runtime": {
           "lib/netstandard2.1/MongoDB.Libmongocrypt.dll": {
-            "assemblyVersion": "1.5.5.0",
-            "fileVersion": "1.5.5.0"
+            "assemblyVersion": "1.5.3.0",
+            "fileVersion": "1.5.3.0"
           }
         },
         "runtimeTargets": {
@@ -2056,7 +2068,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Mvc.Abstractions/3.1.0.0": {
+      "Microsoft.AspNetCore.Mvc.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Mvc.Abstractions.dll": {}
         },
@@ -2170,7 +2182,7 @@
         },
         "compileOnly": true
       },
-      "Microsoft.AspNetCore.Routing.Abstractions/3.1.0.0": {
+      "Microsoft.AspNetCore.Routing.Abstractions.Reference/3.1.0.0": {
         "compile": {
           "Microsoft.AspNetCore.Routing.Abstractions.dll": {}
         },
@@ -3524,6 +3536,20 @@
       "path": "microsoft.aspnetcore.http.features/2.2.0",
       "hashPath": "microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512"
     },
+    "Microsoft.AspNetCore.Mvc.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-ET6uZpfVbGR1NjCuLaLy197cQ3qZUjzl7EG5SL4GfJH/c9KRE89MMBrQegqWsh0w1iRUB/zQaK0anAjxa/pz4g==",
+      "path": "microsoft.aspnetcore.mvc.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.mvc.abstractions.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Routing.Abstractions/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-lRRaPN7jDlUCVCp9i0W+PB0trFaKB0bgMJD7hEJS9Uo4R9MXaMC8X2tJhPLmeVE3SGDdYI4QNKdVmhNvMJGgPQ==",
+      "path": "microsoft.aspnetcore.routing.abstractions/2.2.0",
+      "hashPath": "microsoft.aspnetcore.routing.abstractions.2.2.0.nupkg.sha512"
+    },
     "Microsoft.Azure.Amqp/2.5.10": {
       "type": "package",
       "serviceable": true,
@@ -3678,33 +3704,33 @@
       "path": "microsoft.win32.registry/5.0.0",
       "hashPath": "microsoft.win32.registry.5.0.0.nupkg.sha512"
     },
-    "MongoDB.Bson/2.17.1": {
+    "MongoDB.Bson/2.16.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-IBr5w6ygeUCTobiS4J2UlYeIsnjSJvOOf31g60EkRa3NIeyrYs7Y51HeOvJ8r6NPcKv1hLj8xwoop6hDTetAdA==",
-      "path": "mongodb.bson/2.17.1",
-      "hashPath": "mongodb.bson.2.17.1.nupkg.sha512"
+      "sha512": "sha512-d647KTPQ7hWqJmvCg80iiVdm239llaUwMyIeRF/0zKpN+ddRWh9jT/g6R6WQrmi4qd7yodvv/Jn0rpEqh4QN8g==",
+      "path": "mongodb.bson/2.16.1",
+      "hashPath": "mongodb.bson.2.16.1.nupkg.sha512"
     },
-    "MongoDB.Driver/2.17.1": {
+    "MongoDB.Driver/2.16.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-A5Yvm3RUdkSYnvKWVb/bZfvhzG+L+t0n80JuUXf0p2QG1TbtqHE9hX/FBK+BoF7sw9rzUTw8VHYeqX5rT0rxdA==",
-      "path": "mongodb.driver/2.17.1",
-      "hashPath": "mongodb.driver.2.17.1.nupkg.sha512"
+      "sha512": "sha512-LqDWfRG7gM1tZKcG9Q/vuQGYF5GsBuxUF5KcOgvWrE6P7pSkOSL9xGZ7ABZ6XRVECGEQs+N6GyU1E4ViI4lh+g==",
+      "path": "mongodb.driver/2.16.1",
+      "hashPath": "mongodb.driver.2.16.1.nupkg.sha512"
     },
-    "MongoDB.Driver.Core/2.17.1": {
+    "MongoDB.Driver.Core/2.16.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lfuuQvCXcco6mG096PL8xRO+dBdHsDTR3DiYfK/ICHgFlL5RfKlBuE0xClEGKtaZ4Spe28/fF/GUcrrA/yfoAQ==",
-      "path": "mongodb.driver.core/2.17.1",
-      "hashPath": "mongodb.driver.core.2.17.1.nupkg.sha512"
+      "sha512": "sha512-oJZnXHnAyTd/haHYdbfKMRmPEZ1fFrndv8xhorHeTkUDeGgsPA89vpGMHcjppUyHMYBpLgHbn6GoMkleHKsTHg==",
+      "path": "mongodb.driver.core/2.16.1",
+      "hashPath": "mongodb.driver.core.2.16.1.nupkg.sha512"
     },
-    "MongoDB.Libmongocrypt/1.5.5": {
+    "MongoDB.Libmongocrypt/1.5.3": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-0DV4l2PjXirSJHD/b+LpOK3IfUDvkbpvvZBM2w1aYL6E/4vbhfyr/FP5laDNx2zRylqN1hIZO+EL7NgO/5GpVg==",
-      "path": "mongodb.libmongocrypt/1.5.5",
-      "hashPath": "mongodb.libmongocrypt.1.5.5.nupkg.sha512"
+      "sha512": "sha512-OWWxuyuxbjAmOLPoaoUEYnIW4F7qexS6XYOdu6absxyGAqLBWEY+M4WY2Y0km2UUG1+QOPdebpb/7cg5BIEbdw==",
+      "path": "mongodb.libmongocrypt/1.5.3",
+      "hashPath": "mongodb.libmongocrypt.1.5.3.nupkg.sha512"
     },
     "NETStandard.Library/1.6.1": {
       "type": "package",
@@ -4644,7 +4670,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Mvc.Abstractions/3.1.0.0": {
+    "Microsoft.AspNetCore.Mvc.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
@@ -4739,7 +4765,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Microsoft.AspNetCore.Routing.Abstractions/3.1.0.0": {
+    "Microsoft.AspNetCore.Routing.Abstractions.Reference/3.1.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

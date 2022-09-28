@@ -28,7 +28,7 @@ namespace SellerApi.Repositories
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
-            _productCollection = database.GetCollection<MongoProduct>("Product_Details");
+            _productCollection = database.GetCollection<MongoProduct>("product_details");
             _sellerCollection = database.GetCollection<MongoSeller>(_settings.CollectionName);
         }
 

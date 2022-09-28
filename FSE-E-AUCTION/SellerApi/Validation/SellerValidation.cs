@@ -5,6 +5,7 @@ using SellerApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SellerApi.Validation
@@ -36,16 +37,10 @@ namespace SellerApi.Validation
         ///<inheritdoc/>
         public async Task<bool> IsValidProduct(ProductDetails productDetails)
         {
+          
             if (productDetails.BidEndDate < System.DateTime.Today.Date)
             {
                 throw new SellerException(productDetails.BidEndDate);
-            }
-
-            string[] stringArray = { "Painting", "Sculptor", "Ornament" };
-            int pos = Array.IndexOf(stringArray, productDetails.Category);
-            if (!(pos > -1))
-            {
-                throw new System.Exception("Invalid product category, Product category must be one of the following : Painting, Sculptor, Ornament");
             }
 
             return true;

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xdtYIKswtokmaCjIkNaz1CISka5Z91DMWMlkHFDCZDcAHqCD5ShckJ1z5Xc0s3LORkuEE7OpH5o4hf0iRJlwBg==",
+  "dgSpecHash": "3bCbpmrUgym07RcgUQ997jwCvUPliKGpD/QVXiaKGbZaa3jVDCvHuBWdWKKd6wBQ7dF6wgr1NjsQQs0pbnd7vA==",
   "success": true,
   "projectFilePath": "D:\\FSE-E-AUCTION\\FSE-E-AUCTION\\SellerApi\\SellerApi.csproj",
   "expectedPackageFiles": [
@@ -36,10 +36,10 @@
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
-    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.bson\\2.17.1\\mongodb.bson.2.17.1.nupkg.sha512",
-    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.driver\\2.17.1\\mongodb.driver.2.17.1.nupkg.sha512",
-    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.driver.core\\2.17.1\\mongodb.driver.core.2.17.1.nupkg.sha512",
-    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.libmongocrypt\\1.5.5\\mongodb.libmongocrypt.1.5.5.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.bson\\2.16.1\\mongodb.bson.2.16.1.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.driver\\2.16.1\\mongodb.driver.2.16.1.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.driver.core\\2.16.1\\mongodb.driver.core.2.16.1.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.libmongocrypt\\1.5.3\\mongodb.libmongocrypt.1.5.3.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\newtonsoft.json\\10.0.3\\newtonsoft.json.10.0.3.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",

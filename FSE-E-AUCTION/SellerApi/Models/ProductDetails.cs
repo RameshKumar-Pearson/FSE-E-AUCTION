@@ -32,8 +32,7 @@ namespace SellerApi.Models
         /// <summary>
         /// Gets (or) Sets the starting price of the product
         /// </summary>
-        [RegularExpression(@"-?\d+(?:\.\d+)?", ErrorMessage = "Please enter valid price")]
-        public int StartingPrice { get; set; }
+        public string StartingPrice { get; set; }
 
         /// <summary>
         /// Gets (or) Sets the bid end date

@@ -67,7 +67,8 @@ namespace SellerApi
             {
                 endpoints.MapControllers();
             });
-            app.UseCors(x=>x.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:26045/"));
+
+            app.UseCors(x=>x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
         }
 
         private static string GetUniqueName(string eventName)

@@ -11,6 +11,7 @@ using SellerApi.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace SellerApi.Controllers
@@ -62,7 +63,21 @@ namespace SellerApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProductAsync([FromBody] ProductDetails productDetails)
         {
-            var response = new ProductResponse();
+
+            ProductResponse response = new ProductResponse();
+
+            if (!Regex.IsMatch(productDetails.StartingPrice, @"^\d+$"))
+            {
+                return BadRequest("Invalid Price");
+            }
+          
+            string[] stringArray = { "Painting", "Sculptor", "Ornament" };
+        
+            if(!stringArray.Contains(productDetails.Category, StringComparer.OrdinalIgnoreCase))
+            {
+                return BadRequest("Invalid product category, Product category must be one of the following : Painting, Sculptor, Ornament");
+            }
+
             if (await _isellerValidation.IsValidProduct(productDetails))
             {
                 response = await _sellerDirector.AddProductAsync(productDetails);
@@ -79,7 +94,8 @@ namespace SellerApi.Controllers
         [HttpDelete]
         public async Task<bool> Delete(string productId)
         {
-            await _messagePublisher.PublisherAsync(productId);
+            await _sellerDirector.DeleteProductAsync(productId);
+           // await _messagePublisher.PublisherAsync(productId);
             return true;
         }
 
