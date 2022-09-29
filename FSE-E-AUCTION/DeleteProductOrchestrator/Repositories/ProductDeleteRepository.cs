@@ -14,8 +14,9 @@ namespace DeleteProductOrchestrator.Repositories
 
         public ProductDeleteRepository()
         {
+            var mongoClientSettings = MongoClientSettings.FromConnectionString("mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb");
+            mongoClientSettings.MaxConnectionIdleTime = new TimeSpan(0, 3, 0);
             var client = new MongoClient("mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb");
-            client.Settings.MaxConnectionIdleTime = new TimeSpan(0, 3, 0);
             var database = client.GetDatabase("e-auction");
             _productCollection = database.GetCollection<Product>("Product_Details");
         }
