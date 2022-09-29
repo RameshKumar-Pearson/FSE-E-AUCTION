@@ -27,6 +27,7 @@ namespace BuyerApi.Repositories
         {
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
+            client.Settings.MaxConnectionIdleTime = new TimeSpan(0, 3, 0);
             var database = client.GetDatabase(_settings.DatabaseName);
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>(_settings.CollectionName);
         }

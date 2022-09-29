@@ -5,6 +5,7 @@ using SellerApi.Models;
 using MongoDB.Driver;
 using System.Linq;
 using Microsoft.Extensions.Options;
+using System;
 
 namespace SellerApi.Repositories
 {
@@ -26,6 +27,7 @@ namespace SellerApi.Repositories
         {
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
+            client.Settings.MaxConnectionIdleTime = new TimeSpan(0, 3, 0);
             var database = client.GetDatabase(_settings.DatabaseName);
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
             _productCollection = database.GetCollection<MongoProduct>("product_details");
