@@ -26,8 +26,6 @@ namespace SellerApi.Repositories
         public SellerRepository(IOptions<DbConfiguration> settings)
         {
             _settings = settings.Value;
-            var mongoClientSettings = MongoClientSettings.FromConnectionString(_settings.ConnectionString);
-            mongoClientSettings.MaxConnectionIdleTime = new TimeSpan(0, 3, 0);
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
