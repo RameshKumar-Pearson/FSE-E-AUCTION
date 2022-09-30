@@ -20,6 +20,6 @@ namespace BuyerApi.Models
         /// <summary>
         /// Gets (or) Sets the Topic Message
         /// </summary>
-        public MongoBuyerResponse TopicMessage { get; set; }
+        public SaveBuyerRequestModel TopicMessage { get; set; }
     }
 }

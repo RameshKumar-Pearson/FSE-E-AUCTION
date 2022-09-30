@@ -31,7 +31,7 @@ namespace BuyerApi.KafkaConsumerService
         /// <inheritdoc/>
         public Task Consume(ConsumeContext<KafkaBuyerEventCreate> context)
         {
-            MongoBuyerResponse message = context.Message.TopicMessage;
+            SaveBuyerRequestModel message = context.Message.TopicMessage;
             if (message != null)
             {
                 _saveBuyerCommandHandler.AddBid(message);
