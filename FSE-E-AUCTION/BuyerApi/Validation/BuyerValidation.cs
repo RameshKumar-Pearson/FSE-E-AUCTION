@@ -1,6 +1,7 @@
 ﻿using BuyerApi.Exceptions;
 using BuyerApi.Models;
 using BuyerApi.RequestModels;
+using BuyerApi.ResponseModels;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System;
@@ -16,7 +17,7 @@ namespace BuyerApi.Validation
     public class BuyerValidation : IBuyerValidation
     {
         private readonly IMongoCollection<Product> _productCollection;
-        private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
+        private readonly IMongoCollection<MongoBuyerResponse> _buyerCollection;
         private readonly DbConfiguration _settings;
 
         #region Public Methods
@@ -30,12 +31,12 @@ namespace BuyerApi.Validation
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
-            _buyerCollection = database.GetCollection<SaveBuyerRequestModel>(_settings.CollectionName);
-            _productCollection = database.GetCollection<Product>("Product_Details");
+            _buyerCollection = database.GetCollection<MongoBuyerResponse>(_settings.CollectionName);
+            _productCollection = database.GetCollection<Product>("product_details");
         }
 
         ///<inheritdoc/>
-        public async Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel)
+        public async Task<bool> BusinessValidation(MongoBuyerResponse saveBuyerRequestModel)
         {
             var existingProducts = await GetProductsAsync();
             var productDetails = existingProducts.Where(x => x.Id == saveBuyerRequestModel.ProductId).Select(o => o).FirstOrDefault();
@@ -73,8 +74,8 @@ namespace BuyerApi.Validation
         /// <summary>
         ///  Method used to gets the all list of existing buyer details
         /// </summary>
-        /// <returns><see cref="List<<see cref="SaveBuyerRequestModel"/>>"/></returns>
-        private async Task<List<SaveBuyerRequestModel>> GetBuyerAsync()
+        /// <returns><see cref="List<<see cref="MongoBuyerResponse"/>>"/></returns>
+        private async Task<List<MongoBuyerResponse>> GetBuyerAsync()
         {
             return await _buyerCollection.Find(c => true).ToListAsync();
         }

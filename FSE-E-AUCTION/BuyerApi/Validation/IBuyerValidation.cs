@@ -1,4 +1,5 @@
 ﻿using BuyerApi.RequestModels;
+using BuyerApi.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,8 @@ namespace BuyerApi.Validation
         /// <summary>
         /// Method used to do the business vaidation of the buyer details
         /// </summary>
-        /// <param name="saveBuyerRequestModel">Specifies to gets the <see cref="SaveBuyerRequestModel"/></param>
+        /// <param name="saveBuyerRequestModel">Specifies to gets the <see cref="MongoBuyerResponse"/></param>
         /// <returns></returns>
-        Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel);
+        Task<bool> BusinessValidation(MongoBuyerResponse saveBuyerRequestModel);
     }
 }

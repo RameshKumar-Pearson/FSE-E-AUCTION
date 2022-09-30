@@ -1,4 +1,5 @@
 ﻿using BuyerApi.RequestModels;
+using BuyerApi.ResponseModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,6 @@ namespace BuyerApi.Models
         /// <summary>
         /// Gets (or) Sets the Topic Message
         /// </summary>
-        public SaveBuyerRequestModel TopicMessage { get; set; }
+        public MongoBuyerResponse TopicMessage { get; set; }
     }
 }

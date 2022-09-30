@@ -1,4 +1,5 @@
 ﻿using BuyerApi.RequestModels;
+using BuyerApi.ResponseModels;
 using System.Threading.Tasks;
 
 namespace BuyerApi.Contracts.CommandHandlers
@@ -11,7 +12,7 @@ namespace BuyerApi.Contracts.CommandHandlers
         /// <summary>
         /// Method used to add bid to the database 
         /// </summary>
-        /// <param name="buyerRequest">Specifies to gets the <see cref="SaveBuyerRequestModel"/></param>
+        /// <param name="buyerRequest">Specifies to gets the <see cref="MongoBuyerResponse"/></param>
         /// <returns>Awaitable task with no data</returns>
         Task AddBid(SaveBuyerRequestModel buyerRequest);
     }

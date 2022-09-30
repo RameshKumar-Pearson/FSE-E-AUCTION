@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using BuyerApi.Contracts.CommandHandlers;
+using BuyerApi.ResponseModels;
+using SaveBuyerRequestModel = BuyerApi.RequestModels.SaveBuyerRequestModel;
 
 namespace BuyerApi.Handlers.CommandsHandlers
 {

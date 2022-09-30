@@ -1,6 +1,7 @@
 ﻿using BuyerApi.Contracts.CommandHandlers;
 using BuyerApi.Models;
 using BuyerApi.RequestModels;
+using BuyerApi.ResponseModels;
 using MassTransit;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,7 @@ namespace BuyerApi.KafkaConsumerService
         /// <inheritdoc/>
         public Task Consume(ConsumeContext<KafkaBuyerEventCreate> context)
         {
-            SaveBuyerRequestModel message = context.Message.TopicMessage;
+            MongoBuyerResponse message = context.Message.TopicMessage;
             if (message != null)
             {
                 _saveBuyerCommandHandler.AddBid(message);

@@ -6,6 +6,8 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using BuyerApi.ResponseModels;
+using MongoBuyerResponse = BuyerApi.ResponseModels.MongoBuyerResponse;
 
 namespace BuyerApi.Repositories
 {
@@ -14,7 +16,7 @@ namespace BuyerApi.Repositories
     /// </summary>
     public class BuyerRepository : IBuyerRepository
     {
-        private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
+        private readonly IMongoCollection<MongoBuyerResponse> _buyerCollection;
         private readonly DbConfiguration _settings;
 
         #region Public Methods
@@ -28,7 +30,7 @@ namespace BuyerApi.Repositories
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
-            _buyerCollection = database.GetCollection<SaveBuyerRequestModel>(_settings.CollectionName);
+            _buyerCollection = database.GetCollection<MongoBuyerResponse>(_settings.CollectionName);
         }
 
         /// <inheritdoc/>
@@ -51,8 +53,8 @@ namespace BuyerApi.Repositories
         /// <summary>
         /// Method used to gets the buyer details
         /// </summary>
-        /// <returns><see cref="SaveBuyerRequestModel"/></returns>
-        private async Task<List<SaveBuyerRequestModel>> GetBuyerAsync()
+        /// <returns><see cref="MongoBuyerResponse"/></returns>
+        private async Task<List<MongoBuyerResponse>> GetBuyerAsync()
         {
             return await _buyerCollection.Find(c => true).ToListAsync();
         }

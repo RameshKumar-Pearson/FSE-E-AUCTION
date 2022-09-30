@@ -2,6 +2,7 @@
 using BuyerApi.Directors;
 using BuyerApi.Models;
 using BuyerApi.RequestModels;
+using BuyerApi.ResponseModels;
 using BuyerApi.Validation;
 using Confluent.Kafka;
 using MassTransit;
@@ -46,11 +47,11 @@ namespace BuyerApi.Controllers
         /// <summary>
         /// Method used to add the bid amount for existing product
         /// </summary>
-        /// <param name="buyerDetails">Specifies to gets <see cref="SaveBuyerRequestModel"/></param>
+        /// <param name="buyerDetails">Specifies to gets <see cref="MongoBuyerResponse"/></param>
         /// <returns>Awaitable task with no data</returns>
         [Route("place-bid")]
         [HttpPost]
-        public async Task AddBid([FromBody] SaveBuyerRequestModel buyerDetails)
+        public async Task AddBid([FromBody] MongoBuyerResponse buyerDetails)
         {
             if (await _buyerValidation.BusinessValidation(buyerDetails))
             {
@@ -74,9 +75,9 @@ namespace BuyerApi.Controllers
         /// Method used to raise the event in kafka with the respective buyer topic with message..
         /// </summary>
         /// <param name="topic">Specifies to gets the topic name</param>
-        /// <param name="buyerDetails">Specifies to gets the <see cref="SaveBuyerRequestModel"/></param>
+        /// <param name="buyerDetails">Specifies to gets the <see cref="MongoBuyerResponse"/></param>
         /// <returns><see cref="IActionResult"/></returns>
-        private async Task<IActionResult> PublishKafkaMessage(string topic, SaveBuyerRequestModel buyerDetails)
+        private async Task<IActionResult> PublishKafkaMessage(string topic, MongoBuyerResponse buyerDetails)
         {
             await _topicProducer.Produce(new KafkaBuyerEventCreate
             {
