@@ -92,3 +92,14 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\BuyerApi.Razor
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\BuyerApi.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\BuyerApi.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\BuyerApi.genruntimeconfig.cache
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.Azure.Amqp.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.Azure.ServiceBus.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.Azure.Services.AppAuthentication.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\E-auction.Business.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\E-auction.Business.pdb

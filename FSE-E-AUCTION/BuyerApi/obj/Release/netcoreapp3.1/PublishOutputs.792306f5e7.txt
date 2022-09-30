@@ -12,6 +12,9 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Mas
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MassTransit.AspNetCoreIntegration.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MassTransit.ExtensionsDependencyInjectionIntegration.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MassTransit.KafkaIntegration.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Azure.Amqp.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Azure.ServiceBus.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Azure.Services.AppAuthentication.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Configuration.Abstractions.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Diagnostics.HealthChecks.dll
@@ -21,6 +24,11 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Mic
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Logging.Abstractions.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Options.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Primitives.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Clients.ActiveDirectory.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.JsonWebTokens.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Logging.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.OpenApi.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Win32.Registry.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Bson.dll
@@ -33,6 +41,7 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swa
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerUI.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\System.Diagnostics.DiagnosticSource.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\System.IdentityModel.Tokens.Jwt.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\System.Runtime.CompilerServices.Unsafe.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\System.Security.AccessControl.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\System.Security.Principal.Windows.dll
@@ -77,3 +86,5 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\run
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\E-auction.Business.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\E-auction.Business.pdb
