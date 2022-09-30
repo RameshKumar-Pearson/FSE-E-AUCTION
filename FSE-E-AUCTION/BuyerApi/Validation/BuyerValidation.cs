@@ -31,7 +31,7 @@ namespace BuyerApi.Validation
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>(_settings.CollectionName);
-            _productCollection = database.GetCollection<Product>("Product_Details");
+            _productCollection = database.GetCollection<Product>("product_details");
         }
 
         ///<inheritdoc/>
