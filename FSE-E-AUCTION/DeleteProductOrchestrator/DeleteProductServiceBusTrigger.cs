@@ -1,6 +1,6 @@
 using System;
 using System.Threading.Tasks;
-using DeleteProductOrchestrator.Directors;
+using E_auction.Business.Directors;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;

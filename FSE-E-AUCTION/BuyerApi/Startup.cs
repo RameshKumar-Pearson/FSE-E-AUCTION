@@ -11,18 +11,18 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using BuyerApi.Repositories;
-using BuyerApi.Contracts.CommandHandlers;
-using BuyerApi.Handlers.CommandsHandlers;
-using BuyerApi.Models;
-using BuyerApi.Directors;
 using Confluent.Kafka;
 using MassTransit;
 using System.Net;
 using System.Reflection;
 using MassTransit.KafkaIntegration;
-using BuyerApi.KafkaConsumerService;
-using BuyerApi.Validation;
+using E_auction.Business.Models;
+using E_auction.Business.Contract.CommandHandlers;
+using E_auction.Business.Handlers.CommandsHandlers;
+using E_auction.Business.Repositories;
+using E_auction.Business.Directors;
+using E_auction.Business.Validation;
+using E_auction.Business.KafkaConsumerService;
 
 namespace BuyerApi
 {

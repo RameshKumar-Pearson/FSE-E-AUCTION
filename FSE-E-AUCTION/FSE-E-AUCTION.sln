@@ -14,7 +14,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DeleteProductOrchestrator", "DeleteProductOrchestrator\DeleteProductOrchestrator.csproj", "{B234A4C6-F781-4902-9BB5-2DEA90637402}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductAzureFunction", "DeleteProductOrchestrator\ProductAzureFunction.csproj", "{B234A4C6-F781-4902-9BB5-2DEA90637402}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "E-auction.Business", "E-auction.Business\E-auction.Business.csproj", "{59D5236E-082D-4DF3-91F9-A09CC46BA833}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +40,10 @@ Global
 		{B234A4C6-F781-4902-9BB5-2DEA90637402}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B234A4C6-F781-4902-9BB5-2DEA90637402}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B234A4C6-F781-4902-9BB5-2DEA90637402}.Release|Any CPU.Build.0 = Release|Any CPU
+		{59D5236E-082D-4DF3-91F9-A09CC46BA833}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{59D5236E-082D-4DF3-91F9-A09CC46BA833}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{59D5236E-082D-4DF3-91F9-A09CC46BA833}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{59D5236E-082D-4DF3-91F9-A09CC46BA833}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

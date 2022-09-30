@@ -13,4 +13,8 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\E-auction.Business\E-auction.Business.csproj" />
+  </ItemGroup>
+
 </Project>

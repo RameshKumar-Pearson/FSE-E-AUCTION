@@ -1,3 +1,9 @@
+using E_auction.Business.Contract.QueryHandlers;
+using E_auction.Business.Directors;
+using E_auction.Business.Handlers.QueryHandlers;
+using E_auction.Business.MessagePublishers;
+using E_auction.Business.Repositories;
+using E_auction.Business.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -7,13 +13,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using SellerApi.Contract.QueryHandlers;
-using SellerApi.Directors;
-using SellerApi.Handlers.QueryHandlers;
-using SellerApi.MessagePublishers;
-using SellerApi.Models;
-using SellerApi.Repositories;
-using SellerApi.Validation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +38,7 @@ namespace SellerApi
             services.AddTransient<ISellerRepository, SellerRepository>();
             services.AddTransient<IQueryHandler, ShowBidsQueryHandler>();
             services.AddTransient<ISellerValidation, SellerValidation>();
-            services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
+            services.Configure<E_auction.Business.Models.DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
             services.AddCors();
             services.AddSwaggerGen(c =>

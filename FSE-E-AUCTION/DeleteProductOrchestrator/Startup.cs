@@ -1,7 +1,7 @@
 ﻿
 using DeleteProductOrchestrator;
-using DeleteProductOrchestrator.Directors;
-using DeleteProductOrchestrator.Repositories;
+using E_auction.Business.Directors;
+using E_auction.Business.Repositories;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

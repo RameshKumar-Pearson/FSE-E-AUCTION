@@ -1,10 +1,8 @@
-﻿using BuyerApi.Contracts.CommandHandlers;
-using BuyerApi.Directors;
-using BuyerApi.Models;
-using BuyerApi.RequestModels;
-using BuyerApi.ResponseModels;
-using BuyerApi.Validation;
-using Confluent.Kafka;
+﻿using Confluent.Kafka;
+using E_auction.Business.Directors;
+using E_auction.Business.Models;
+using E_auction.Business.RequestModels;
+using E_auction.Business.Validation;
 using MassTransit;
 using MassTransit.KafkaIntegration;
 using Microsoft.AspNetCore.Http;
@@ -55,8 +53,10 @@ namespace BuyerApi.Controllers
         {
             if (await _buyerValidation.BusinessValidation(buyerDetails))
             {
-                //Produce kafka message with buyer details
-                await PublishKafkaMessage("eauction_buyer", buyerDetails);
+                //TODO: Some deployment issue is happen on raising kafka event so we needs to fix in the upcoming days .. So as f now we are raising the event to service bus trigger..
+               // await PublishKafkaMessage("eauction_buyer", buyerDetails);
+
+                //Raise service bus event for add bid to the product
             }
         }
 
