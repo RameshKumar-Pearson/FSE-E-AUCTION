@@ -1,5 +1,6 @@
 ﻿using Confluent.Kafka;
 using E_auction.Business.Directors;
+using E_auction.Business.MessagePublishers;
 using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
 using E_auction.Business.Validation;
@@ -25,6 +26,7 @@ namespace BuyerApi.Controllers
     public class BuyerController : Controller
     {
         private readonly ITopicProducer<KafkaBuyerEventCreate> _topicProducer;
+        private readonly IMessagePublisher _messagePublisher;
         private readonly IBuyerDirector _buyerDirector;
         private readonly IBuyerValidation _buyerValidation;
 
@@ -33,11 +35,12 @@ namespace BuyerApi.Controllers
         /// </summary>
         /// <param name="buyerDirector">Specifies to gets the object instance for <see cref="IBuyerDirector"/></param>
         /// <param name="topicProducer">Specifies to gets the object instance for <see cref="ITopicProducer<<see cref="KafkaBuyerEventCreate"/>></param>
-        public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer, IBuyerValidation buyerValidation)
+        public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer, IBuyerValidation buyerValidation, IMessagePublisher messagePublisher)
         {
             _buyerValidation = buyerValidation;
             _buyerDirector = buyerDirector;
             _topicProducer = topicProducer;
+            _messagePublisher = messagePublisher;
         }
 
         #region Public Methods
@@ -53,10 +56,12 @@ namespace BuyerApi.Controllers
         {
             if (await _buyerValidation.BusinessValidation(buyerDetails))
             {
-                //TODO: Some deployment issue is happen on raising kafka event so we needs to fix in the upcoming days .. So as f now we are raising the event to service bus trigger..
-               // await PublishKafkaMessage("eauction_buyer", buyerDetails);
+                //TODO: Some deployment issue is happen on raising kafka event so we needs to fix in the upcoming days .. So as of now we are raising the event to service bus trigger..
+                // await PublishKafkaMessage("eauction_buyer", buyerDetails);
 
                 //Raise service bus event for add bid to the product
+                await _messagePublisher.PublisherAsync(buyerDetails);
+
             }
         }
 

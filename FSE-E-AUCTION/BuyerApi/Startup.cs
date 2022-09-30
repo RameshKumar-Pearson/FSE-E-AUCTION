@@ -23,6 +23,8 @@ using E_auction.Business.Repositories;
 using E_auction.Business.Directors;
 using E_auction.Business.Validation;
 using E_auction.Business.KafkaConsumerService;
+using E_auction.Business.MessagePublishers;
+using Microsoft.Azure.ServiceBus;
 
 namespace BuyerApi
 {
@@ -51,6 +53,10 @@ namespace BuyerApi
             services.AddTransient<IBuyerRepository, BuyerRepository>();
             services.AddTransient<IBuyerDirector, BuyerDirector>();
             services.AddTransient<IBuyerValidation, BuyerValidation>();
+            services.AddSingleton<IMessagePublisher, MessagePublisher>();
+            services.AddSingleton<ISubscriptionClient>(serviceProvider => new SubscriptionClient(
+            connectionString: Configuration.GetValue<string>("servicebus:connectionstring"),
+            topicPath: Configuration.GetValue<string>("serviceBus:topicname"), subscriptionName: Configuration.GetValue<string>("serviceBus:subscription")));
             services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
             services.AddSwaggerGen(c =>
