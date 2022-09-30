@@ -78,7 +78,6 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\runtimes\win\nat
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.0\System.Security.AccessControl.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
-D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.csproj.AssemblyReference.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.GeneratedMSBuildEditorConfig.editorconfig
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.AssemblyInfoInputs.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.AssemblyInfo.cs
@@ -92,3 +91,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.RazorTa
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.genruntimeconfig.cache
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.csproj.CopyComplete

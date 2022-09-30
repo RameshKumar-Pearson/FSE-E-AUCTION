@@ -51,7 +51,7 @@ namespace BuyerApi.Controllers
         /// <returns>Awaitable task with no data</returns>
         [Route("place-bid")]
         [HttpPost]
-        public async Task AddBid([FromBody] MongoBuyerResponse buyerDetails)
+        public async Task AddBid([FromBody] SaveBuyerRequestModel buyerDetails)
         {
             if (await _buyerValidation.BusinessValidation(buyerDetails))
             {
@@ -77,7 +77,7 @@ namespace BuyerApi.Controllers
         /// <param name="topic">Specifies to gets the topic name</param>
         /// <param name="buyerDetails">Specifies to gets the <see cref="MongoBuyerResponse"/></param>
         /// <returns><see cref="IActionResult"/></returns>
-        private async Task<IActionResult> PublishKafkaMessage(string topic, MongoBuyerResponse buyerDetails)
+        private async Task<IActionResult> PublishKafkaMessage(string topic, SaveBuyerRequestModel buyerDetails)
         {
             await _topicProducer.Produce(new KafkaBuyerEventCreate
             {

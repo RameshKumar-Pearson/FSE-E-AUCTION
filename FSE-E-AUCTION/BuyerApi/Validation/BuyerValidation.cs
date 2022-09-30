@@ -36,7 +36,7 @@ namespace BuyerApi.Validation
         }
 
         ///<inheritdoc/>
-        public async Task<bool> BusinessValidation(MongoBuyerResponse saveBuyerRequestModel)
+        public async Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel)
         {
             var existingProducts = await GetProductsAsync();
             var productDetails = existingProducts.Where(x => x.Id == saveBuyerRequestModel.ProductId).Select(o => o).FirstOrDefault();

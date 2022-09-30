@@ -28,7 +28,6 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\runtimes\
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.csproj.AssemblyReference.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.GeneratedMSBuildEditorConfig.editorconfig
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.AssemblyInfoInputs.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.AssemblyInfo.cs
@@ -45,3 +44,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.genruntimeconfig.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\E-Auction-Api-Gate-Way.xml
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.xml
+D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.csproj.CopyComplete

@@ -17,6 +17,6 @@ namespace BuyerApi.Validation
         /// </summary>
         /// <param name="saveBuyerRequestModel">Specifies to gets the <see cref="MongoBuyerResponse"/></param>
         /// <returns></returns>
-        Task<bool> BusinessValidation(MongoBuyerResponse saveBuyerRequestModel);
+        Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel);
     }
 }
