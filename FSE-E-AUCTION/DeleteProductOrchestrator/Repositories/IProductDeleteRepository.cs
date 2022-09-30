@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace DeleteProductOrchestrator.Repositories
 {
+    /// <summary>
+    /// Interface class used to delete the product
+    /// </summary>
     public interface IProductDeleteRepository
     {
         /// <summary>

@@ -24,7 +24,6 @@ namespace SellerApi.Controllers
         private readonly IMessagePublisher _messagePublisher;
         private readonly IQueryHandler _iqueryHandler;
         private readonly ISellerValidation _isellerValidation;
-        const string Topic = "e_auction";
 
         #region Public Methods
 
@@ -94,8 +93,7 @@ namespace SellerApi.Controllers
         [HttpDelete]
         public async Task<bool> Delete(string productId)
         {
-            await _sellerDirector.DeleteProductAsync(productId);
-           // await _messagePublisher.PublisherAsync(productId);
+            await _messagePublisher.PublisherAsync(productId);
             return true;
         }
 

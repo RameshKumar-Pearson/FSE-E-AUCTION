@@ -7,13 +7,20 @@ using Microsoft.Extensions.Logging;
 
 namespace DeleteProductOrchestrator
 {
+    /// <summary>
+    /// service bus trigger for deleting the product
+    /// </summary>
     public class DeleteProductServiceBusTrigger
     {
         private readonly IProductDeleteDirector _productDeleteDirector;
 
+        /// <summary>
+        /// constructor for <see cref="DeleteProductServiceBusTrigger"/>
+        /// </summary>
+        /// <param name="productDeleteDirector">Specifies to gets <see cref="DeleteProductServiceBusTrigger"/></param>
         public DeleteProductServiceBusTrigger(IProductDeleteDirector productDeleteDirector)
         {
-            _productDeleteDirector = productDeleteDirector;
+           _productDeleteDirector = productDeleteDirector;
         }
 
         [FunctionName(nameof(DeleteProductServiceBusTrigger))]
