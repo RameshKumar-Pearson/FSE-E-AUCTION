@@ -29,8 +29,8 @@ namespace SellerApi.Handlers.QueryHandlers
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
-            _productCollection = database.GetCollection<MongoProduct>("Product_Details");
-            _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
+            _productCollection = database.GetCollection<MongoProduct>("product_details");
+            _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("buyer_details");
         }
 
         ///<inheritdoc/>
