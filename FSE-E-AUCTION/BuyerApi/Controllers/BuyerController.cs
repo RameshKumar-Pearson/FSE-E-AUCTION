@@ -56,7 +56,7 @@ namespace BuyerApi.Controllers
         {
             if (await _buyerValidation.BusinessValidation(buyerDetails))
             {
-                //TODO: Some deployment issue is happen on raising kafka event so we needs to fix in the upcoming days .. So as of now we are raising the event to service bus trigger..
+                //TODO: Some deployment issue is happen while raising kafka event(code implemented) so we needs to fix in the upcoming days .. So as of now we are raising the event to service bus trigger..
                 // await PublishKafkaMessage("eauction_buyer", buyerDetails);
 
                 //Raise service bus event for add bid to the product

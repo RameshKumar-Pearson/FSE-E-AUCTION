@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="SellerApi" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="e-auction-sellerapi" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^D:\\FSE-E-AUCTION\\FSE-E-AUCTION\\SellerApi\\obj\\Release\\netcoreapp3\.1\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

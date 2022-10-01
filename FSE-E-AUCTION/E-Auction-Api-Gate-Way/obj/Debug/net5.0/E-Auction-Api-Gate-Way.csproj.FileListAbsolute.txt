@@ -45,3 +45,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\E-Auction-Api-Gate-Way.xml
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.xml
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.csproj.AssemblyReference.cache
+D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.csproj.CopyComplete
