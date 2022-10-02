@@ -74,7 +74,7 @@
         {
           "Name": "Seller API",
           "Version": "v1",
-          "Url": "https://sellerapi.azurewebsites.net/swagger/v1/swagger.json"
+          "Url": "https://e-auction-sellerapi.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     },
@@ -85,7 +85,7 @@
         {
           "Name": "Buyer API",
           "Version": "v1",
-          "Url": "https://buyerapi-fse.azurewebsites.net/swagger/v1/swagger.json"
+          "Url": "https://e-auction-buyerapi.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     }
