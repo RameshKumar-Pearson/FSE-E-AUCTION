@@ -72,7 +72,7 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<bool> DeleteProductAsync(string ProductId)
         {
-            await _productCollection.DeleteOneAsync(c => c.Id == ProductId);
+            await _productCollection.DeleteOneAsync<MongoProduct>(c => c.Id == ProductId);
             return true;
         }
     }
