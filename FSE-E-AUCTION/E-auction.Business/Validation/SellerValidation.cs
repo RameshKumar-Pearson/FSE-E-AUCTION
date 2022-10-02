@@ -2,7 +2,9 @@
 using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,6 +40,17 @@ namespace E_auction.Business.Validation
         ///<inheritdoc/>
         public async Task<bool> IsValidProduct(ProductDetails productDetails)
         {
+            
+            int startingPrice = Convert.ToInt32(productDetails.StartingPrice);
+
+            var existingProducts = await _productCollection.Find<MongoProduct>(c => true).ToListAsync();
+
+            var isProductExist = existingProducts.Where(x => x.StartingPrice == startingPrice && x.Name.Equals(productDetails.Name,StringComparison.OrdinalIgnoreCase) && x.Category.Equals(productDetails.Category, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+
+            if (isProductExist != null)
+            {
+                throw new ProductException("Product already exist");
+            }
 
             if (productDetails.BidEndDate < DateTime.Today.Date)
             {

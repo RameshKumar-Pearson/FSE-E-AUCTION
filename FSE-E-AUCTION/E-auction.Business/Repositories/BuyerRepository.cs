@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using E_auction.Business.Models;
 using E_auction.Business.ResponseModels;
+using System.Reflection.Metadata;
 
 namespace E_auction.Business.Repositories
 {
@@ -35,7 +36,8 @@ namespace E_auction.Business.Repositories
         public async Task UpdateBid(string productId, string email, string newBid)
         {
             var buyersList = await GetBuyerAsync();
-            var buyerDetails = buyersList.Where(x => x.Email == email && x.ProductId == productId).Select(o => o).FirstOrDefault();
+            
+           var buyerDetails = buyersList.Where(x => x.Email == email && x.ProductId == productId).Select(o => o).FirstOrDefault();
             if (buyerDetails != null)
             {
                 buyerDetails.BidAmount = newBid;

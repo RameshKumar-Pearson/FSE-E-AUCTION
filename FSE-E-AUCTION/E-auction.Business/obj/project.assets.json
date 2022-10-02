@@ -478,6 +478,20 @@
           }
         }
       },
+      "mongocsharpdriver/2.17.1": {
+        "type": "package",
+        "dependencies": {
+          "MongoDB.Bson": "2.17.1",
+          "MongoDB.Driver": "2.17.1",
+          "MongoDB.Driver.Core": "2.17.1"
+        },
+        "compile": {
+          "lib/netstandard2.1/MongoDB.Driver.Legacy.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/MongoDB.Driver.Legacy.dll": {}
+        }
+      },
       "MongoDB.Bson/2.17.1": {
         "type": "package",
         "dependencies": {
@@ -2780,6 +2794,25 @@
         "runtimes/win/lib/netstandard2.0/Microsoft.Win32.Registry.xml",
         "useSharedDesignerContext.txt",
         "version.txt"
+      ]
+    },
+    "mongocsharpdriver/2.17.1": {
+      "sha512": "IiUGcUa9GHNhNMnXg/htvFvCQXcHUG5qt1YTmUucG9s9cqum2D3OaLc14YcAJv/LRAOm3k14r0gXiWSoXcXqNg==",
+      "type": "package",
+      "path": "mongocsharpdriver/2.17.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "License.txt",
+        "lib/net472/MongoDB.Driver.Legacy.dll",
+        "lib/net472/MongoDB.Driver.Legacy.xml",
+        "lib/netstandard2.0/MongoDB.Driver.Legacy.dll",
+        "lib/netstandard2.0/MongoDB.Driver.Legacy.xml",
+        "lib/netstandard2.1/MongoDB.Driver.Legacy.dll",
+        "lib/netstandard2.1/MongoDB.Driver.Legacy.xml",
+        "mongocsharpdriver.2.17.1.nupkg.sha512",
+        "mongocsharpdriver.nuspec",
+        "packageIcon.png"
       ]
     },
     "MongoDB.Bson/2.17.1": {
@@ -7180,7 +7213,8 @@
       "Microsoft.Azure.ServiceBus >= 5.2.0",
       "Microsoft.Extensions.Options >= 6.0.0",
       "MongoDB.Driver >= 2.17.1",
-      "Newtonsoft.Json >= 13.0.1"
+      "Newtonsoft.Json >= 13.0.1",
+      "mongocsharpdriver >= 2.17.1"
     ]
   },
   "packageFolders": {
@@ -7257,6 +7291,10 @@
           "Newtonsoft.Json": {
             "target": "Package",
             "version": "[13.0.1, )"
+          },
+          "mongocsharpdriver": {
+            "target": "Package",
+            "version": "[2.17.1, )"
           }
         },
         "imports": [

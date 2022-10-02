@@ -23,7 +23,9 @@ namespace ProductAddBidAzureFunction
             try
             {
                 logger.LogInformation($"ProductAddBidServiceBusTrigger started with the productId: {saveBuyerRequest}");
+
                 await _saveBuyerCommandHandler.AddBid(saveBuyerRequest);
+
                 logger.LogInformation($"ProductAddBidServiceBusTrigger completed for the productId: {saveBuyerRequest}");
             }
             catch (Exception ex)

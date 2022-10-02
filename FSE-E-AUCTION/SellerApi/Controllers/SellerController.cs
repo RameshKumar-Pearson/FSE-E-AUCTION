@@ -6,7 +6,10 @@ using E_auction.Business.Models;
 using E_auction.Business.Validation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
+using MongoDB.Bson;
 using MongoDB.Driver;
+using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +26,7 @@ namespace SellerApi.Controllers
         private readonly IMessagePublisher _messagePublisher;
         private readonly IQueryHandler _iqueryHandler;
         private readonly ISellerValidation _isellerValidation;
+        private readonly ILogger _logger;
 
         #region Public Methods
 
@@ -31,12 +35,13 @@ namespace SellerApi.Controllers
         /// </summary>
         /// <param name="sellerDirector">Specifies to gets the instance of <see cref="ISellerDirector"/></param>
         /// <param name="queryHandler">Specifies to gets the instance of <see cref="IQueryHandler"/></param>
-        public SellerController(ISellerDirector sellerDirector, IQueryHandler queryHandler, ISellerValidation sellerValidation, IMessagePublisher messagePublisher)
+        public SellerController(ISellerDirector sellerDirector, IQueryHandler queryHandler, ISellerValidation sellerValidation, IMessagePublisher messagePublisher, ILoggerFactory loggerFactory)
         {
             _isellerValidation = sellerValidation;
             _iqueryHandler = queryHandler;
             _sellerDirector = sellerDirector;
             _messagePublisher = messagePublisher;
+            _logger = loggerFactory.CreateLogger<SellerController>();
         }
 
         /// <summary>
@@ -48,7 +53,16 @@ namespace SellerApi.Controllers
         [HttpGet]
         public async Task<IActionResult> ShowBids(string productId)
         {
+            _logger.LogInformation($"Show bids for the product {productId} started");
+
+            if (string.IsNullOrWhiteSpace(productId))
+            {
+                return BadRequest("Product Id Should Not Be Empty");
+            }
+
             var response = await _iqueryHandler.ShowBids(productId);
+
+            _logger.LogInformation($"Show bids for the{productId} product completed");
 
             return Ok(response);
         }
@@ -61,12 +75,13 @@ namespace SellerApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProductAsync([FromBody] ProductDetails productDetails)
         {
+            _logger.LogInformation($"Add product started");
 
             ProductResponse response = new ProductResponse();
 
             if (!Regex.IsMatch(productDetails.StartingPrice, @"^\d+$"))
             {
-                return BadRequest("Invalid Price");
+                return BadRequest("Invalid Price, Price Should Be Valid Number");
             }
           
             string[] stringArray = { "Painting", "Sculptor", "Ornament" };
@@ -81,6 +96,8 @@ namespace SellerApi.Controllers
                 response = await _sellerDirector.AddProductAsync(productDetails);
             }
 
+            _logger.LogInformation($"Add product completed");
+
             return Ok(response);
         }
 
@@ -90,10 +107,15 @@ namespace SellerApi.Controllers
         /// <param name="productId">Specifies to gets the productId</param>
         [Route("delete/{productId}")]
         [HttpDelete]
-        public async Task<bool> Delete(string productId)
+        public async Task<IActionResult> Delete(string productId)
         {
-            await _messagePublisher.PublisherAsync(productId);
-            return true;
+            _logger.LogInformation($"Delete product started for the product {productId}");
+
+             await _messagePublisher.PublisherAsync(productId);
+
+            _logger.LogInformation($"Delete product completed for the product {productId}");
+
+            return Ok("Delete product event raised successfully");
         }
 
         #endregion

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GkQshDsfO8Gri1v3xxpfup9LMNWt93YqoDz1XJJcbuM83A+fAuy9elHymVWlHGyetv8Nsd8ILYQ5Hlv65LJhOQ==",
+  "dgSpecHash": "ktO/9ZHWlhFI2CemSzUdGvawC0uUi7EmC3/xcY367cl+MENPyJ/nkJXkpS8m79dT+igzxae3za5Tl0WIYPMSuw==",
   "success": true,
   "projectFilePath": "D:\\FSE-E-AUCTION\\FSE-E-AUCTION\\SellerApi\\SellerApi.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.win32.primitives\\4.3.0\\microsoft.win32.primitives.4.3.0.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\microsoft.win32.registry\\5.0.0\\microsoft.win32.registry.5.0.0.nupkg.sha512",
+    "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongocsharpdriver\\2.17.1\\mongocsharpdriver.2.17.1.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.bson\\2.17.1\\mongodb.bson.2.17.1.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.driver\\2.17.1\\mongodb.driver.2.17.1.nupkg.sha512",
     "C:\\Users\\cogdotnet838\\.nuget\\packages\\mongodb.driver.core\\2.17.1\\mongodb.driver.core.2.17.1.nupkg.sha512",

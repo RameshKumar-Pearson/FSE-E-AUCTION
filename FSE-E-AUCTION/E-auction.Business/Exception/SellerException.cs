@@ -14,9 +14,6 @@ namespace E_auction.Business.Exception
         public SellerException(string message) { }
 
         public SellerException(DateTime bidEndDate)
-       : base(string.Format("Bid end date should be future date: {0}", bidEndDate))
-        {
-
-        }
+       : base(string.Format("Bid end date should be future date: {0}", bidEndDate)){}
     }
 }

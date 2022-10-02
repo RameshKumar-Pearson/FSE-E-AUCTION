@@ -57,6 +57,7 @@ namespace E_auction.Business.Repositories
                 DetailedDescription = productDetails.DetailedDescription,
                 Category = productDetails.Category,
                 BidEndDate = productDetails.BidEndDate,
+                StartingPrice= Convert.ToInt32(productDetails.StartingPrice),
                 Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString(),
                 SellerId = sellerDetails.Id
             };
