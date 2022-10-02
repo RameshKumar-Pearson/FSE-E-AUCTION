@@ -108,3 +108,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Release\netcoreapp3.1\runtimes\win-
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Release\netcoreapp3.1\runtimes\win-x86\native\zstd.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Release\netcoreapp3.1\E-auction.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Release\netcoreapp3.1\E-auction.Business.pdb
+D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Release\netcoreapp3.1\MongoDB.Driver.Legacy.dll

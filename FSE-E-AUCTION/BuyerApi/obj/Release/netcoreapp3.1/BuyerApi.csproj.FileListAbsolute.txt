@@ -103,3 +103,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.Iden
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\E-auction.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\E-auction.Business.pdb
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\MongoDB.Driver.Legacy.dll

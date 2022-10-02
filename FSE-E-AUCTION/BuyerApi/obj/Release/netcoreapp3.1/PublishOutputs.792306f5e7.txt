@@ -31,6 +31,7 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Mic
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.OpenApi.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Win32.Registry.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Driver.Legacy.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Bson.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Driver.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Driver.Core.dll
