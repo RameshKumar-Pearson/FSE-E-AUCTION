@@ -49,7 +49,7 @@ namespace SellerApi
             services.AddSingleton<IMessagePublisher, MessagePublisher>();
             services.AddSingleton<ISubscriptionClient>(serviceProvider => new SubscriptionClient(
             connectionString: Configuration.GetValue<string>("servicebus:connectionstring"),
-            topicPath: Configuration.GetValue<string>("serviceBus:topicname"), subscriptionName: Configuration.GetValue<string>("serviceBus:subscription")));
+            topicPath: Configuration.GetValue<string>("serviceBus:topic"), subscriptionName: Configuration.GetValue<string>("serviceBus:subscription")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
