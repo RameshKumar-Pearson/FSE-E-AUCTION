@@ -87,7 +87,7 @@ namespace BuyerApi
                     });
                 });
             });
-            services.AddSingleton<ITopicClient>(serviceProvider => new TopicClient(connectionString: Configuration.GetValue<string>("servicebus:connectionstring"), entityPath: Configuration.GetValue<string>("serviceBus:topicname")));
+            services.AddSingleton<ITopicClient>(serviceProvider => new TopicClient(connectionString: Configuration.GetValue<string>("servicebus:connectionstring"), entityPath: Configuration.GetValue<string>("serviceBus:topic")));
             services.AddSingleton<IMessagePublisher, MessagePublisher>();
             services.AddSingleton<ISubscriptionClient>(serviceProvider => new SubscriptionClient(
             connectionString: Configuration.GetValue<string>("servicebus:connectionstring"),
