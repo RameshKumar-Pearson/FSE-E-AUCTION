@@ -19,7 +19,7 @@ namespace ProductAddBidAzureFunction
         }
 
         [FunctionName("ProductAddBidServiceBusTrigger")]
-        public async Task Run([ServiceBusTrigger("e_auction", "product_addbid", Connection = "AzureWebJobsServiceBus")] SaveBuyerRequestModel saveBuyerRequest, ILogger logger)
+        public async Task Run([ServiceBusTrigger("e_auction_bid", "product_addbid", Connection = "AzureWebJobsServiceBus")] SaveBuyerRequestModel saveBuyerRequest, ILogger logger)
         {
             try
             {

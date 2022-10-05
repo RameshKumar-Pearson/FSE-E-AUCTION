@@ -24,7 +24,7 @@ namespace DeleteProductOrchestrator
         }
 
         [FunctionName(nameof(DeleteProductServiceBusTrigger))]
-        public async Task Run([ServiceBusTrigger("e_auction", "product_delete", Connection = "AzureWebJobsServiceBus")] string productId, ILogger logger)
+        public async Task Run([ServiceBusTrigger("e_auction_delete", "product_delete", Connection = "AzureWebJobsServiceBus")] string productId, ILogger logger)
         {
             try
             {
