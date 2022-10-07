@@ -11,30 +11,28 @@ namespace EauctionBidEventHandler
 {
     public class BidHandler
     {
-        private readonly ILogger<BidHandler> _logger;
-
+       
         private readonly ISaveBuyerCommandHandler _saveBuyerCommandHandler;
 
-        public BidHandler(ILogger<BidHandler> log, ISaveBuyerCommandHandler saveBuyerCommandHandler)
+        public BidHandler( ISaveBuyerCommandHandler saveBuyerCommandHandler)
         {
-            _logger = log;
             _saveBuyerCommandHandler = saveBuyerCommandHandler;
         }
 
         [FunctionName(nameof(BidHandler))]
-        public async Task Run([ServiceBusTrigger("e_auction_bid", "product_addbid", Connection = "AzureWebJobsServiceBus")] SaveBuyerRequestModel saveBuyerRequest)
+        public async Task Run([ServiceBusTrigger("e_auction_bid", "product_addbid", Connection = "AzureWebJobsServiceBus")] SaveBuyerRequestModel saveBuyerRequest, ILogger logger)
         {
             try
             {
-                _logger.LogInformation($"ProductAddBidServiceBusTrigger started with the productdetails: {JsonConvert.SerializeObject(saveBuyerRequest)}");
+                logger.LogInformation($"ProductAddBidServiceBusTrigger started with the productdetails: {JsonConvert.SerializeObject(saveBuyerRequest)}");
 
                 await _saveBuyerCommandHandler.AddBid(saveBuyerRequest);
 
-                _logger.LogInformation($"ProductAddBidServiceBusTrigger completed for the productId: {JsonConvert.SerializeObject(saveBuyerRequest)}");
+                logger.LogInformation($"ProductAddBidServiceBusTrigger completed for the productId: {JsonConvert.SerializeObject(saveBuyerRequest)}");
             }
             catch (Exception ex)
             {
-                _logger.LogInformation($"ProductAddBidServiceBusTrigger completed with error for the productId: {saveBuyerRequest} exception message:{ex.Message} and stackTrace:{ex.StackTrace} and InnerException:{ex.InnerException}");
+                logger.LogInformation($"ProductAddBidServiceBusTrigger completed with error for the productId: {saveBuyerRequest} exception message:{ex.Message} and stackTrace:{ex.StackTrace} and InnerException:{ex.InnerException}");
                 throw;
             }
         }
