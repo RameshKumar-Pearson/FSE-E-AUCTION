@@ -14,13 +14,6 @@ namespace Eauctionbideventhandler
 {
     public class Startup : FunctionsStartup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
-
-        public IConfiguration Configuration { get; }
-
         [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
         public override void Configure(IFunctionsHostBuilder builder)
         {
