@@ -109,3 +109,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.genruntimeconfig.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Debug\netcoreapp3.1\MongoDB.Driver.Legacy.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.csproj.CopyComplete

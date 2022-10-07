@@ -1,8 +1,8 @@
 {
   "profiles": {
-    "eauctionbideventhandler": {
+    "EauctionBidEventHandler": {
       "commandName": "Project",
-      "commandLineArgs": "--port 7131",
+      "commandLineArgs": "--port 7013",
       "launchBrowser": false
     }
   }

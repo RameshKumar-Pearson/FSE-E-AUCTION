@@ -104,3 +104,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\System.IdentityM
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\E-auction.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\E-auction.Business.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\MongoDB.Driver.Legacy.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.csproj.CopyComplete
