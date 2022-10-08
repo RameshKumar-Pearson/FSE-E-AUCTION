@@ -21,6 +21,6 @@ namespace E_auction.Business.Directors
         /// </summary>
         /// <param name="ProductId">Specifies to gets the productId</param>
         /// <returns></returns>
-        Task<bool> DeleteProductAsync(string ProductId);
+        Task<DeleteResult> DeleteProductAsync(string ProductId);
     }
 }

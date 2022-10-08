@@ -33,7 +33,7 @@ namespace BuyerApi.Controllers
         private readonly IBuyerValidation _buyerValidation;
         private readonly ILogger _logger;
         private readonly ISaveBuyerCommandHandler _saveBuyerCommandHandler;
-        private readonly DbConfiguration _settings;
+       
 
         /// <summary>
         /// Constructor for <see cref="BuyerController"/>

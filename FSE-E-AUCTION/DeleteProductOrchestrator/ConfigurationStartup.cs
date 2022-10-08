@@ -27,7 +27,6 @@ namespace EauctionBidEventHandler
             // Create a configuration builder to use as the base for building either the local or Azure
             // configuration.
             IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
-                .SetBasePath(hostingEnvironment.ContentRootPath)
                 .AddJsonFile("local.settings.json", true, true)
                 .AddEnvironmentVariables();
 

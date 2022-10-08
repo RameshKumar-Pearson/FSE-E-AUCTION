@@ -69,13 +69,12 @@ namespace E_auction.Business.Repositories
         }
 
         ///<inheritdoc/>
-        public async Task<bool> DeleteProductAsync(string ProductId)
+        public async Task<DeleteResult> DeleteProductAsync(string ProductId)
         {
             ObjectId bsonObjectId;
             ObjectId.TryParse(ProductId, out bsonObjectId);
             var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", bsonObjectId);
-            await _productCollection.DeleteOneAsync(deleteFilter);
-            return true;
+            return await _productCollection.DeleteOneAsync(deleteFilter); ;
         }
     }
 }

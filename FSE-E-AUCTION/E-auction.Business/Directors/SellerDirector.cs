@@ -12,6 +12,10 @@ namespace E_auction.Business.Directors
     {
         private readonly ISellerRepository _sellerRepository;
 
+        /// <summary>
+        /// Constructor for <see cref="SellerDirector"></see>
+        /// </summary>
+        /// <param name="sellerRepository"></param>
         public SellerDirector(ISellerRepository sellerRepository)
         {
             _sellerRepository = sellerRepository;
@@ -24,10 +28,9 @@ namespace E_auction.Business.Directors
         }
 
         ///<inheritdoc/>
-        public async Task<bool> DeleteProductAsync(string ProductId)
+        public async Task<DeleteResult> DeleteProductAsync(string ProductId)
         {
-            await _sellerRepository.DeleteProductAsync(ProductId);
-            return true;
+            return await _sellerRepository.DeleteProductAsync(ProductId);
         }
     }
 }

@@ -96,7 +96,7 @@ namespace SellerApi.Controllers
                 response = await _sellerDirector.AddProductAsync(productDetails);
             }
 
-            _logger.LogInformation($"Add product completed");
+            _logger.LogInformation($"Product successfully added");
 
             return Ok(response);
         }

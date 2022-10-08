@@ -1,9 +1,12 @@
 using System;
 using System.Threading.Tasks;
 using E_auction.Business.Directors;
+using E_auction.Business.Models;
+using E_auction.Business.Repositories;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
 namespace DeleteProductOrchestrator
@@ -14,14 +17,16 @@ namespace DeleteProductOrchestrator
     public class DeleteProductServiceBusTrigger
     {
         private readonly ISellerDirector _sellerDirector;
+        private readonly ISellerRepository _sellerRepository;
 
         /// <summary>
         /// constructor for <see cref="DeleteProductServiceBusTrigger"/>
         /// </summary>
-        /// <param name="productDeleteDirector">Specifies to gets <see cref="DeleteProductServiceBusTrigger"/></param>
-        public DeleteProductServiceBusTrigger(ISellerDirector sellerDirector)
+        /// <param name="sellerDirector">Specifies to gets <see cref="ISellerDirector"/></param>
+        public DeleteProductServiceBusTrigger(IOptions<DbConfiguration> options)
         {
-            _sellerDirector = sellerDirector;
+            _sellerRepository = new SellerRepository(options);
+            _sellerDirector = new SellerDirector(_sellerRepository);
         }
 
         [FunctionName(nameof(DeleteProductServiceBusTrigger))]
@@ -31,7 +36,7 @@ namespace DeleteProductOrchestrator
             {
                 logger.LogInformation($"DeleteProductServiceBusTrigger started with the productId: {productId}");
 
-              var response=  await _sellerDirector.DeleteProductAsync(productId);
+                var response=  await _sellerDirector.DeleteProductAsync(productId);
 
                 logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{ JsonConvert.SerializeObject(response) }");
             }
