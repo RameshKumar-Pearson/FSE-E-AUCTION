@@ -4,6 +4,7 @@ using E_auction.Business.Directors;
 using Microsoft.Azure.WebJobs;
 using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
 
 namespace DeleteProductOrchestrator
 {
@@ -32,7 +33,7 @@ namespace DeleteProductOrchestrator
 
               var response=  await _productDeleteDirector.DeleteProductAsync(productId);
 
-                logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{response}");
+                logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{ JsonConvert.SerializeObject(response) }");
             }
             catch(Exception ex)
             {

@@ -46,7 +46,7 @@ namespace E_auction.Business.Repositories
                 isDeleted = true;
             }
 
-            return isDeleted;
+            return productDeleteResult;
         }
     }
 }
