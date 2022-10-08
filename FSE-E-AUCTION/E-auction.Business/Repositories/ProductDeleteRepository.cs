@@ -16,7 +16,7 @@ namespace E_auction.Business.Repositories
     /// </summary>
     public class ProductDeleteRepository : IProductDeleteRepository
     {
-        private readonly IMongoCollection<MongoProductStaging> _productCollection;
+        private readonly IMongoCollection<MongoProduct> _productCollection;
         private IMongoDatabase mongoDatabase;
 
         /// <summary>
@@ -26,7 +26,7 @@ namespace E_auction.Business.Repositories
         {
             var client = new MongoClient("mongodb://fseeauction:6XXU0qrKrijEPmQARM2EHcQ6y926M6R3bONSYHlqaVl0VEzit65prvz275XQ4YxcI61zCYTxWWFlXSR6Yh0GEg==@fseeauction.mongo.cosmos.azure.com:10255/?ssl=true&replicaSet=globaldb&retrywrites=false&maxIdleTimeMS=120000&appName=@fseeauction@");
               mongoDatabase = client.GetDatabase("e-auction");
-            _productCollection = mongoDatabase.GetCollection<MongoProductStaging>("product_details");
+            _productCollection = mongoDatabase.GetCollection<MongoProduct>("product_details");
         }
 
         ///<inheritdoc/>
@@ -34,13 +34,14 @@ namespace E_auction.Business.Repositories
         {
             bool isDeleted = false;
 
-            var filter = Builders<MongoProductStaging>.Filter.Eq(product => product.Id, ObjectId.Parse(ProductId));
+            var filter = Builders<MongoProduct>.Filter.Eq(product => product.Id, ObjectId.Parse(ProductId).ToString());
             var productDeleteResult = await _productCollection.DeleteOneAsync(filter);
 
             if (productDeleteResult.DeletedCount == 1)
             {
                 isDeleted = true;
             }
+
             return isDeleted;
         }
     }
