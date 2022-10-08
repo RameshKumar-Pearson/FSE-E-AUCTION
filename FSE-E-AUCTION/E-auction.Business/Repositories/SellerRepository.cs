@@ -7,6 +7,7 @@ using Microsoft.Extensions.Options;
 using System;
 using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
+using MongoDB.Bson;
 
 namespace E_auction.Business.Repositories
 {
@@ -18,6 +19,7 @@ namespace E_auction.Business.Repositories
         private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
         private readonly IMongoCollection<MongoProduct> _productCollection;
         private readonly IMongoCollection<MongoSeller> _sellerCollection;
+        private readonly IMongoCollection<BsonDocument> _deleteProduct;
         private readonly DbConfiguration _settings;
 
         /// <summary>
@@ -31,6 +33,7 @@ namespace E_auction.Business.Repositories
             var database = client.GetDatabase(_settings.DatabaseName);
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
             _productCollection = database.GetCollection<MongoProduct>("product_details");
+            _deleteProduct = database.GetCollection<BsonDocument>("product_details");
             _sellerCollection = database.GetCollection<MongoSeller>(_settings.CollectionName);
         }
 
@@ -72,7 +75,8 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<bool> DeleteProductAsync(string ProductId)
         {
-            await _productCollection.DeleteOneAsync<MongoProduct>(c => c.Id == ProductId);
+            var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(ProductId));
+            await _deleteProduct.DeleteOneAsync(deleteFilter);
             return true;
         }
     }
