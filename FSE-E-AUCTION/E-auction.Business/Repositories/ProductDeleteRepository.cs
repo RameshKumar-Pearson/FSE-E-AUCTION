@@ -33,9 +33,9 @@ namespace E_auction.Business.Repositories
         {
             var existingProducts = await _productCollection.Find<MongoProduct>(c => true).ToListAsync();
             
-            var productDetails = existingProducts.Where(x => x.Id==ProductId).FirstOrDefault();
+            var productDetails = existingProducts.Where(x => x.Id == ProductId).FirstOrDefault();
 
-            await _productCollection.DeleteOneAsync(x => x.Name.Equals(productDetails.Name,StringComparison.CurrentCultureIgnoreCase) && x.SellerId== productDetails.SellerId && x.Category.Equals(x.Category, StringComparison.OrdinalIgnoreCase));
+            await _productCollection.DeleteOneAsync(x => x.Id == productDetails.Id);
 
             return true;
         }
