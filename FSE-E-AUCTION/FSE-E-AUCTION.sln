@@ -18,8 +18,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EauctionDeleteEventHandler"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "E-auction.Business", "E-auction.Business\E-auction.Business.csproj", "{59D5236E-082D-4DF3-91F9-A09CC46BA833}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EauctionBidEventHandler", "EauctionBidEventHandler\EauctionBidEventHandler.csproj", "{DFB051DE-D549-434C-853C-7B0C461AF50A}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -46,10 +44,6 @@ Global
 		{59D5236E-082D-4DF3-91F9-A09CC46BA833}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{59D5236E-082D-4DF3-91F9-A09CC46BA833}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{59D5236E-082D-4DF3-91F9-A09CC46BA833}.Release|Any CPU.Build.0 = Release|Any CPU
-		{DFB051DE-D549-434C-853C-7B0C461AF50A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DFB051DE-D549-434C-853C-7B0C461AF50A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DFB051DE-D549-434C-853C-7B0C461AF50A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DFB051DE-D549-434C-853C-7B0C461AF50A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

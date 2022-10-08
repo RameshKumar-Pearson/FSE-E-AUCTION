@@ -32,7 +32,7 @@ namespace E_auction.Business.Repositories
         {
             var query_id = Query.EQ("_id", ObjectId.Parse(ProductId));
             var deleteFilter = Builders<MongoProduct>.Filter.Eq("Id", query_id);
-            await _productCollection.DeleteOneAsync(deleteFilter);
+            await _productCollection.DeleteOneAsync(x => x.Id == "633d8b320b71b647ebf0bbc3");
             return true;
         }
     }
