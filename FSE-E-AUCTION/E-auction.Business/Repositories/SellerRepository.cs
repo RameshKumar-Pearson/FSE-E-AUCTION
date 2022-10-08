@@ -16,10 +16,8 @@ namespace E_auction.Business.Repositories
     /// </summary>
     public class SellerRepository : ISellerRepository
     {
-        private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
-        private readonly IMongoCollection<MongoProduct> _productCollection;
-        private readonly IMongoCollection<MongoSeller> _sellerCollection;
-        private readonly IMongoCollection<BsonDocument> _deleteProduct;
+        private readonly IMongoCollection<BsonDocument> _productCollection;
+        private readonly IMongoCollection<BsonDocument> _sellerCollection;
         private readonly DbConfiguration _settings;
 
         /// <summary>
@@ -31,10 +29,8 @@ namespace E_auction.Business.Repositories
             _settings = settings.Value;
             var client = new MongoClient(_settings.ConnectionString);
             var database = client.GetDatabase(_settings.DatabaseName);
-            _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("Buyer_Details");
-            _productCollection = database.GetCollection<MongoProduct>("product_details");
-            _deleteProduct = database.GetCollection<BsonDocument>("product_details");
-            _sellerCollection = database.GetCollection<MongoSeller>(_settings.CollectionName);
+            _productCollection = database.GetCollection<BsonDocument>("product_details");
+            _sellerCollection = database.GetCollection<BsonDocument>(_settings.CollectionName);
         }
 
         ///<inheritdoc/>
@@ -42,7 +38,7 @@ namespace E_auction.Business.Repositories
         {
             var sellerDetails = new MongoSeller
             {
-                Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString(),
+                Id = MongoDB.Bson.ObjectId.GenerateNewId(),
                 FirstName = productDetails.FirstName,
                 LastName = productDetails.LastName,
                 Address = productDetails.Address,
@@ -62,12 +58,12 @@ namespace E_auction.Business.Repositories
                 BidEndDate = productDetails.BidEndDate,
                 StartingPrice= Convert.ToInt32(productDetails.StartingPrice),
                 Id = MongoDB.Bson.ObjectId.GenerateNewId(),
-                SellerId = sellerDetails.Id
+                SellerId = sellerDetails.Id.ToString()
             };
 
-            await _sellerCollection.InsertOneAsync(sellerDetails).ConfigureAwait(false);
+            await _sellerCollection.InsertOneAsync(sellerDetails.ToBsonDocument()).ConfigureAwait(false);
 
-            await _productCollection.InsertOneAsync(product);
+            await _productCollection.InsertOneAsync(product.ToBsonDocument());
 
             return new ProductResponse { ProductId = product.Id, SellerId = product.SellerId };
         }
@@ -75,8 +71,10 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<bool> DeleteProductAsync(string ProductId)
         {
-            var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", ObjectId.Parse(ProductId));
-            await _deleteProduct.DeleteOneAsync(deleteFilter);
+            ObjectId bsonObjectId;
+            ObjectId.TryParse(ProductId, out bsonObjectId);
+            var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", bsonObjectId);
+            await _productCollection.DeleteOneAsync(deleteFilter);
             return true;
         }
     }

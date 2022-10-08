@@ -13,15 +13,15 @@ namespace DeleteProductOrchestrator
     /// </summary>
     public class DeleteProductServiceBusTrigger
     {
-        private readonly IProductDeleteDirector _productDeleteDirector;
+        private readonly ISellerDirector _sellerDirector;
 
         /// <summary>
         /// constructor for <see cref="DeleteProductServiceBusTrigger"/>
         /// </summary>
         /// <param name="productDeleteDirector">Specifies to gets <see cref="DeleteProductServiceBusTrigger"/></param>
-        public DeleteProductServiceBusTrigger(IProductDeleteDirector productDeleteDirector)
+        public DeleteProductServiceBusTrigger(ISellerDirector sellerDirector)
         {
-           _productDeleteDirector = productDeleteDirector;
+            _sellerDirector = sellerDirector;
         }
 
         [FunctionName(nameof(DeleteProductServiceBusTrigger))]
@@ -31,7 +31,7 @@ namespace DeleteProductOrchestrator
             {
                 logger.LogInformation($"DeleteProductServiceBusTrigger started with the productId: {productId}");
 
-              var response=  await _productDeleteDirector.DeleteProductAsync(productId);
+              var response=  await _sellerDirector.DeleteProductAsync(productId);
 
                 logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{ JsonConvert.SerializeObject(response) }");
             }

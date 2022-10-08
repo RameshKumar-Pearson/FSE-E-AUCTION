@@ -2,6 +2,7 @@
 using DeleteProductOrchestrator;
 using E_auction.Business.Directors;
 using E_auction.Business.Repositories;
+using EauctionBidEventHandler;
 using Microsoft.Azure.Functions.Extensions.DependencyInjection;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -17,8 +18,10 @@ namespace DeleteProductOrchestrator
         [System.Diagnostics.CodeAnalysis.ExcludeFromCodeCoverage]
         public override void Configure(IFunctionsHostBuilder builder)
         {
-            builder.Services.AddTransient<IProductDeleteDirector, ProductDeleteDirector>();
-            builder.Services.AddTransient<IProductDeleteRepository, ProductDeleteRepository>();
+            IConfiguration configuration = ConfigurationStartup.AddConfigurationProviders(builder.Services);
+            builder.Services.Configure<E_auction.Business.Models.DbConfiguration>(configuration.GetSection("MongoDbConnection"));
+            builder.Services.AddTransient<ISellerDirector, SellerDirector>();
+            builder.Services.AddTransient<ISellerRepository, SellerRepository>();
         }
     }
 }
