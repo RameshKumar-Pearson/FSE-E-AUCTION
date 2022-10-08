@@ -10,8 +10,7 @@ namespace E_auction.Business.Models
     public class ProductResponse
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string ProductId { get; set; }
+        public Object ProductId { get; set; }
 
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]

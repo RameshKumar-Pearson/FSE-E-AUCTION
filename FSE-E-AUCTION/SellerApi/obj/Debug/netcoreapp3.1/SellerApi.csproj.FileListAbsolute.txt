@@ -100,7 +100,6 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Debug\netcoreapp3.1\runtimes\unix\l
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Security.Principal.Windows.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Debug\netcoreapp3.1\E-auction.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Debug\netcoreapp3.1\E-auction.Business.pdb
-D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.MvcApplicationPartsAssemblyInfo.cs
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\staticwebassets\SellerApi.StaticWebAssets.Manifest.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\staticwebassets\SellerApi.StaticWebAssets.xml
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\SellerApi.styles.css
@@ -110,3 +109,4 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.genruntimeconfig.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\bin\Debug\netcoreapp3.1\MongoDB.Driver.Legacy.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.csproj.CopyComplete
+D:\FSE-E-AUCTION\FSE-E-AUCTION\SellerApi\obj\Debug\netcoreapp3.1\SellerApi.MvcApplicationPartsAssemblyInfo.cs

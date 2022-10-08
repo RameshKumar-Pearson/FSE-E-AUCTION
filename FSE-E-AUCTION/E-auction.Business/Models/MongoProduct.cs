@@ -12,8 +12,7 @@ namespace E_auction.Business.Models
     public class MongoProduct
     {
         [BsonId]
-        [BsonRepresentation(BsonType.ObjectId)]
-        public string Id { get; set; }
+        public Object Id { get; set; }
 
         /// <summary>
         /// Gets (or) Sets the name of the product
