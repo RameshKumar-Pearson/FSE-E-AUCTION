@@ -2,6 +2,7 @@
 using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -37,8 +38,13 @@ namespace E_auction.Business.Handlers.QueryHandlers
         ///<inheritdoc/>
         public async Task<ProductBids> ShowBids(string productId)
         {
+
+            ObjectId test;
+
+            ObjectId.TryParse(productId, out test);
+
             var buyerDetails = await _buyerCollection.Find(x => x.ProductId == productId).ToListAsync();
-            var productDetails = await _productCollection.Find(x => x.Id == productId).FirstOrDefaultAsync();
+            var productDetails = await _productCollection.Find(x => x.Id == test).FirstOrDefaultAsync();
             string bids = "";
 
             foreach (var item in buyerDetails)

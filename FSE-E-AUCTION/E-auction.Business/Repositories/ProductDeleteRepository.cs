@@ -36,7 +36,7 @@ namespace E_auction.Business.Repositories
 
             ObjectId test;
 
-            var hexaString = ObjectId.TryParse(ProductId, out test);
+            ObjectId.TryParse(ProductId, out test);
 
             var filter = Builders<MongoProduct>.Filter.Eq(product => product.Id, test);
             var productDeleteResult = await _productCollection.DeleteOneAsync(filter);

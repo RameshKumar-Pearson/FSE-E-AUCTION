@@ -63,10 +63,15 @@ namespace E_auction.Business.Validation
         ///<inheritdoc/>
         public async Task<bool> DeleteProductValidation(string productId)
         {
+
+            ObjectId test;
+
+            ObjectId.TryParse(productId, out test);
+
             var productList = await GetProductsAsync();
             var buyerList = await GetBuyersAsync();
 
-            var bidEndDate = productList.Where(x => x.Id == productId).Select(o => o.BidEndDate).FirstOrDefault();
+            var bidEndDate = productList.Where(x => x.Id == test).Select(o => o.BidEndDate).FirstOrDefault();
 
             if (DateTime.Now > bidEndDate)
             {

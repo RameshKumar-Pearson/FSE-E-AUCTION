@@ -4,6 +4,7 @@ using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
 using E_auction.Business.ResponseModels;
 using Microsoft.Extensions.Options;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -40,8 +41,11 @@ namespace E_auction.Business.Validation
         ///<inheritdoc/>
         public async Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel)
         {
+            ObjectId test;
+
+            ObjectId.TryParse(saveBuyerRequestModel.ProductId, out test);
             var existingProducts = await GetProductsAsync();
-            var productDetails = existingProducts.Where(x => x.Id == saveBuyerRequestModel.ProductId).Select(o => o).FirstOrDefault();
+            var productDetails = existingProducts.Where(x => x.Id == test).Select(o => o).FirstOrDefault();
             if (productDetails == null)
             {
                 throw new BuyerException("Product Id Is Not Exist");
