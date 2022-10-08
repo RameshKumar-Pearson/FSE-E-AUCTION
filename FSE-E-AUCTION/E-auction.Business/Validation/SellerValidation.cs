@@ -40,7 +40,7 @@ namespace E_auction.Business.Validation
         ///<inheritdoc/>
         public async Task<bool> IsValidProduct(ProductDetails productDetails)
         {
-            
+
             int startingPrice = Convert.ToInt32(productDetails.StartingPrice);
 
             var existingProducts = await _productCollection.Find<MongoProduct>(c => true).ToListAsync();
