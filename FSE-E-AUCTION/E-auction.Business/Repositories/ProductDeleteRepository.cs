@@ -34,7 +34,9 @@ namespace E_auction.Business.Repositories
         {
             bool isDeleted = false;
 
-            var filter = Builders<MongoProduct>.Filter.Eq(product => product.Id, ObjectId.Parse(ProductId).ToString());
+            var hexaString = ObjectId.Parse(ProductId).ToString();
+
+            var filter = Builders<MongoProduct>.Filter.Eq(product => product.Id, hexaString);
             var productDeleteResult = await _productCollection.DeleteOneAsync(filter);
 
             if (productDeleteResult.DeletedCount == 1)
