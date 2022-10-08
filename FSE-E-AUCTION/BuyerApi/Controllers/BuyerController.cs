@@ -1,5 +1,7 @@
 ﻿using Confluent.Kafka;
+using E_auction.Business.Contract.CommandHandlers;
 using E_auction.Business.Directors;
+using E_auction.Business.Handlers.CommandsHandlers;
 using E_auction.Business.MessagePublishers;
 using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
@@ -27,23 +29,24 @@ namespace BuyerApi.Controllers
     public class BuyerController : Controller
     {
         private readonly ITopicProducer<KafkaBuyerEventCreate> _topicProducer;
-        private readonly IMessagePublisher _messagePublisher;
         private readonly IBuyerDirector _buyerDirector;
         private readonly IBuyerValidation _buyerValidation;
         private readonly ILogger _logger;
+        private readonly ISaveBuyerCommandHandler _saveBuyerCommandHandler;
+        private readonly DbConfiguration _settings;
 
         /// <summary>
         /// Constructor for <see cref="BuyerController"/>
         /// </summary>
         /// <param name="buyerDirector">Specifies to gets the object instance for <see cref="IBuyerDirector"/></param>
         /// <param name="topicProducer">Specifies to gets the object instance for <see cref="ITopicProducer<<see cref="KafkaBuyerEventCreate"/>></param>
-        public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer, IBuyerValidation buyerValidation, IMessagePublisher messagePublisher, ILoggerFactory loggerFactory)
+        public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer, IBuyerValidation buyerValidation, ILoggerFactory loggerFactory, IOptions<DbConfiguration> settings)
         {
             _buyerValidation = buyerValidation;
             _buyerDirector = buyerDirector;
             _topicProducer = topicProducer;
-            _messagePublisher = messagePublisher;
             _logger = loggerFactory.CreateLogger<BuyerController>();
+            _saveBuyerCommandHandler = new SaveBuyerCommandHandler(settings);
         }
 
         #region Public Methods
@@ -63,12 +66,11 @@ namespace BuyerApi.Controllers
                 //TODO: Some deployment issue is happen while raising kafka event(code implemented) so we needs to fix in the upcoming days .. So as of now we are raising the event to service bus trigger..
                 // await PublishKafkaMessage("eauction_buyer", buyerDetails);
 
-                //Raise service bus event for add bid to the product
-                await _messagePublisher.PublisherAsync(buyerDetails);
+                await _saveBuyerCommandHandler.AddBid(buyerDetails);
             }
-            _logger.LogInformation($"Add bid event raised successfully");
+            _logger.LogInformation($"Add bid to the product completed");
 
-            return Ok("Add bid event raised successfully");
+            return Ok("Add bid to the product started");
         }
 
         [Route("update-bid/{productId}/{buyerEmailId}/{newBidAmount}")]
