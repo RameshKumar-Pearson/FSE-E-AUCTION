@@ -30,7 +30,7 @@ namespace E_auction.Business.Repositories
         }
 
         ///<inheritdoc/>
-        public async Task<bool> DeleteProductAsync(string ProductId)
+        public async Task<DeleteResult> DeleteProductAsync(string ProductId)
         {
             bool isDeleted = false;
 
@@ -39,7 +39,7 @@ namespace E_auction.Business.Repositories
             ObjectId.TryParse(ProductId, out productId);
 
             //var filter = Builders<MongoProduct>.Filter.Eq(product => product.Id, productId);
-            var productDeleteResult = await _productCollection.DeleteOneAsync(x=>x.Id==productId);
+            DeleteResult productDeleteResult = await _productCollection.DeleteOneAsync<MongoProduct>(x=>x.Id==productId);
 
             if (productDeleteResult.DeletedCount == 1)
             {
