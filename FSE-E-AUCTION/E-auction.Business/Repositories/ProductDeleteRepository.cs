@@ -30,7 +30,9 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<bool> DeleteProductAsync(string ProductId)
         {
-            await _productCollection.DeleteOneAsync<MongoProduct>(x => x.Id == ProductId);
+            var query_id = Query.EQ("_id", ObjectId.Parse(ProductId));
+            var deleteFilter = Builders<MongoProduct>.Filter.Eq("Id", query_id);
+            await _productCollection.DeleteOneAsync(deleteFilter);
             return true;
         }
     }

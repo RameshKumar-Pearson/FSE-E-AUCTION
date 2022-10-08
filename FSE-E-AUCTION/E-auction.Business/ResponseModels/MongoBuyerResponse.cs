@@ -31,5 +31,39 @@ namespace E_auction.Business.ResponseModels
         /// </summary>
         public string ProductId { get; set; }
 
+        /// <summary>
+        /// Gets (or) Sets the firstName of the buyer
+        /// </summary>
+        public string FirstName { get; set; }
+
+        /// <summary>
+        /// Gets (or) Sets the lastName of the buyer
+        /// </summary>
+        public string LastName { get; set; }
+
+        /// <summary>
+        /// Gets (or) Sets the address of the buyer
+        /// </summary>
+        public string Address { get; set; }
+
+        /// <summary>
+        /// Gets (or) Sets the city of the buyer
+        /// </summary>
+        public string City { get; set; }
+
+        /// <summary>
+        /// Gets (or) Sets the city of the buyer
+        /// </summary>
+        public string State { get; set; }
+
+        /// <summary>
+        /// Gets (or) Sets the pin of the buyer
+        /// </summary>
+        public string Pin { get; set; }
+
+        /// <summary>
+        /// Gets (or) Sets the Phone of the buyer
+        /// </summary>
+        public string Phone { get; set; }
     }
 }

@@ -37,7 +37,7 @@ namespace E_auction.Business.Repositories
         {
             var buyersList = await GetBuyerAsync();
             
-           var buyerDetails = buyersList.Where(x => x.Email == email && x.ProductId == productId).Select(o => o).FirstOrDefault();
+            var buyerDetails = buyersList.Where(x => x.Email == email && x.ProductId == productId).Select(o => o).FirstOrDefault();
             if (buyerDetails != null)
             {
                 buyerDetails.BidAmount = newBid;
