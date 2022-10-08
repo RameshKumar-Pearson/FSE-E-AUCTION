@@ -32,13 +32,13 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<DeleteResult> DeleteProductAsync(string ProductId)
         {
-            bool isDeleted = false;
-
             ObjectId productId;
 
-            ObjectId.TryParse(ProductId, out productId);
+            ObjectId.TryParse("6341a3b09c2f57bf4066322b", out productId);
 
             var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", productId);
+
+            var existingProducts1 = await _productCollection.Find<BsonDocument>(c => true).ToListAsync();
 
             DeleteResult productDeleteResult = await _productCollection.DeleteOneAsync(deleteFilter);
 
