@@ -40,13 +40,13 @@ namespace BuyerApi.Controllers
         /// </summary>
         /// <param name="buyerDirector">Specifies to gets the object instance for <see cref="IBuyerDirector"/></param>
         /// <param name="topicProducer">Specifies to gets the object instance for <see cref="ITopicProducer<<see cref="KafkaBuyerEventCreate"/>></param>
-        public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer, IBuyerValidation buyerValidation, ILoggerFactory loggerFactory, IOptions<DbConfiguration> settings)
+        public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer, IBuyerValidation buyerValidation, ILoggerFactory loggerFactory, ISaveBuyerCommandHandler saveBuyerCommandHandler)
         {
             _buyerValidation = buyerValidation;
             _buyerDirector = buyerDirector;
             _topicProducer = topicProducer;
             _logger = loggerFactory.CreateLogger<BuyerController>();
-            _saveBuyerCommandHandler = new SaveBuyerCommandHandler(settings);
+            _saveBuyerCommandHandler = saveBuyerCommandHandler;
         }
 
         #region Public Methods
@@ -70,7 +70,7 @@ namespace BuyerApi.Controllers
             }
             _logger.LogInformation($"Add bid to the product completed");
 
-            return Ok("Add bid to the product started");
+            return Ok("Add bid to the product completed");
         }
 
         [Route("update-bid/{productId}/{buyerEmailId}/{newBidAmount}")]

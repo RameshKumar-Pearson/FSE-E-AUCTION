@@ -7389,6 +7389,7 @@
       "MassTransit.AspNetCore >= 7.3.1",
       "MassTransit.Extensions.DependencyInjection >= 7.3.1",
       "MassTransit.Kafka >= 8.0.6",
+      "Microsoft.Extensions.Options >= 3.1.29",
       "MongoDB.Driver >= 2.17.1",
       "Newtonsoft.Json >= 13.0.1",
       "Swashbuckle.AspNetCore >= 6.1.4"
@@ -7456,6 +7457,10 @@
           "MassTransit.Kafka": {
             "target": "Package",
             "version": "[8.0.6, )"
+          },
+          "Microsoft.Extensions.Options": {
+            "target": "Package",
+            "version": "[3.1.29, )"
           },
           "MongoDB.Driver": {
             "target": "Package",
