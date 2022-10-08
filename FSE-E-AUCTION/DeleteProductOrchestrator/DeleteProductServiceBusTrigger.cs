@@ -30,9 +30,9 @@ namespace DeleteProductOrchestrator
             {
                 logger.LogInformation($"DeleteProductServiceBusTrigger started with the productId: {productId}");
 
-                await _productDeleteDirector.DeleteProductAsync(productId);
+              var response=  await _productDeleteDirector.DeleteProductAsync(productId);
 
-                logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId}");
+                logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{response}");
             }
             catch(Exception ex)
             {

@@ -34,12 +34,12 @@ namespace E_auction.Business.Repositories
         {
             bool isDeleted = false;
 
-            ObjectId test;
+            ObjectId productId;
 
-            ObjectId.TryParse(ProductId, out test);
+            ObjectId.TryParse(ProductId, out productId);
 
-            var filter = Builders<MongoProduct>.Filter.Eq(product => product.Id, test);
-            var productDeleteResult = await _productCollection.DeleteOneAsync(filter);
+            //var filter = Builders<MongoProduct>.Filter.Eq(product => product.Id, productId);
+            var productDeleteResult = await _productCollection.DeleteOneAsync(x=>x.Id==productId);
 
             if (productDeleteResult.DeletedCount == 1)
             {
