@@ -5,6 +5,7 @@ using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,9 +31,12 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<bool> DeleteProductAsync(string ProductId)
         {
-            var query_id = Query.EQ("_id", ObjectId.Parse(ProductId));
-            var deleteFilter = Builders<MongoProduct>.Filter.Eq("Id", query_id);
-            await _productCollection.DeleteOneAsync(x => x.Id == "633d8b320b71b647ebf0bbc3");
+            var existingProducts = await _productCollection.Find<MongoProduct>(c => true).ToListAsync();
+            
+            var productDetails = existingProducts.Where(x => x.Id==ProductId).FirstOrDefault();
+
+            await _productCollection.DeleteOneAsync(x => x.Name.Equals(productDetails.Name,StringComparison.CurrentCultureIgnoreCase) && x.SellerId== productDetails.SellerId && x.Category.Equals(x.Category, StringComparison.OrdinalIgnoreCase));
+
             return true;
         }
     }
