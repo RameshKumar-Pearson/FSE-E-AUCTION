@@ -9,6 +9,11 @@ namespace E_auction.Business.RequestModels
     /// </summary>
     public class SaveBuyerRequestModel
     {
+
+        [BsonId]
+        [BsonRepresentation(BsonType.ObjectId)]
+        public ObjectId Id { get; set; }
+
         /// <summary>
         /// Gets (or) Sets the firstName of the Buyer
         /// </summary>

@@ -38,7 +38,7 @@ namespace DeleteProductOrchestrator
 
                 var response=  await _sellerDirector.DeleteProductAsync(productId);
 
-                logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{ JsonConvert.SerializeObject(response) }");
+                logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{ JsonConvert.SerializeObject(response)}");
             }
             catch(Exception ex)
             {
