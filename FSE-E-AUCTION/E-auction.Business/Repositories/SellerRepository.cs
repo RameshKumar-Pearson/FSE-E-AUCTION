@@ -72,7 +72,8 @@ namespace E_auction.Business.Repositories
         public async Task<DeleteResult> DeleteProductAsync(string ProductId)
         {
             var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", ProductId);
-            return await _productCollection.DeleteOneAsync(deleteFilter); ;
+            var result= await _productCollection.DeleteOneAsync(deleteFilter).ConfigureAwait(false);
+            return result;
         }
     }
 }
