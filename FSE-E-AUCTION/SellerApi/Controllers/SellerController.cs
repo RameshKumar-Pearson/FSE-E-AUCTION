@@ -4,6 +4,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using E_auction.Business.Contract.QueryHandlers;
 using E_auction.Business.Directors;
+using E_auction.Business.Exception;
 using E_auction.Business.MessagePublishers;
 using E_auction.Business.Models;
 using E_auction.Business.Validation;
@@ -70,25 +71,36 @@ namespace SellerApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddProductAsync([FromBody] ProductDetails productDetails)
         {
-            _logger.LogInformation("Add product started");
+            try
+            {
+                _logger.LogInformation("Add product started");
 
-            var response = new ProductResponse();
+                var response = new ProductResponse();
 
-            if (!Regex.IsMatch(productDetails.StartingPrice, @"^\d+$"))
-                return BadRequest("Invalid Price, Price Should Be Valid Number");
+                if (!Regex.IsMatch(productDetails.StartingPrice, @"^\d+$"))
+                    return BadRequest("Invalid Price, Price Should Be Valid Number");
 
-            string[] stringArray = { "Painting", "Sculptor", "Ornament" };
+                string[] stringArray = { "Painting", "Sculptor", "Ornament" };
 
-            if (!stringArray.Contains(productDetails.Category, StringComparer.OrdinalIgnoreCase))
-                return BadRequest(
-                    "Invalid product category, Product category must be one of the following : Painting, Sculptor, Ornament");
+                if (!stringArray.Contains(productDetails.Category, StringComparer.OrdinalIgnoreCase))
+                    return BadRequest(
+                        "Invalid product category, Product category must be one of the following : Painting, Sculptor, Ornament");
 
-            if (await _isellerValidation.IsValidProduct(productDetails))
-                response = await _sellerDirector.AddProductAsync(productDetails);
+                if (await _isellerValidation.IsValidProduct(productDetails))
+                    response = await _sellerDirector.AddProductAsync(productDetails);
 
-            _logger.LogInformation("Product successfully added");
+                _logger.LogInformation("Product successfully added");
 
-            return Ok(response);
+                return Ok(response);
+            }
+            catch (ProductException ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            catch (SellerException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         /// <summary>

@@ -7,6 +7,7 @@ using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
+using E_auction.Business.Exception;
 
 namespace BuyerApi.Controllers
 {
@@ -54,17 +55,24 @@ namespace BuyerApi.Controllers
         [HttpPost]
         public async Task<IActionResult> AddBid([FromBody] SaveBuyerRequestModel buyerDetails)
         {
-            _logger.LogInformation($"Add bid to the product started");
+            try
+            {
+                _logger.LogInformation($"Add bid to the product started");
 
-            if (await _buyerValidation.BusinessValidation(buyerDetails))
+                if (await _buyerValidation.BusinessValidation(buyerDetails))
 
-                //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS command handler
-                // await PublishKafkaMessage("eauction_buyer", buyerDetails);
-                await _saveBuyerCommandHandler.AddBid(buyerDetails);
+                    //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS command handler
+                    // await PublishKafkaMessage("eauction_buyer", buyerDetails);
+                    await _saveBuyerCommandHandler.AddBid(buyerDetails);
 
-            _logger.LogInformation($"Add bid to the product completed");
+                _logger.LogInformation($"Add bid to the product completed");
 
-            return Ok("Add bid to the product completed");
+                return Ok("Add bid to the product completed");
+            }
+            catch (BuyerException ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [Route("update-bid/{productId}/{buyerEmailId}/{newBidAmount}")]

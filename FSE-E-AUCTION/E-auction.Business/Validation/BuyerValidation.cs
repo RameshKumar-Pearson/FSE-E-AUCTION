@@ -42,11 +42,11 @@ namespace E_auction.Business.Validation
             var productDetails = existingProducts.Where(x => x.Id == saveBuyerRequestModel.ProductId).Select(o => o).FirstOrDefault();
             if (productDetails == null)
             {
-                throw new BuyerException("Product Id Is Not Exist");
+                throw new BuyerException("Product Doe's Not Exist");
             }
             else if (DateTime.Now > productDetails.BidEndDate)
             {
-                throw new BuyerException("Bid End Date Is Over");
+                throw new BuyerException("Bid End Date Is Already Over");
             }
             var existingBuyerList = await GetBuyerAsync();
             string existingBidAmount = existingBuyerList.Where(x => x.Email == saveBuyerRequestModel.Email && x.ProductId == saveBuyerRequestModel.ProductId).Select(o => o.BidAmount).FirstOrDefault();
