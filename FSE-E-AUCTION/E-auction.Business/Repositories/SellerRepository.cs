@@ -15,7 +15,6 @@ namespace E_auction.Business.Repositories
     {
         private IMongoCollection<MongoProduct> _productCollection;
         private IMongoCollection<MongoSeller> _sellerCollection;
-        private readonly DbConfiguration _settings;
         private readonly IMongoDbContext _mongoDbContext;
 
         /// <summary>
@@ -25,15 +24,15 @@ namespace E_auction.Business.Repositories
         /// <param name="mongoDbContext">Specifies to gets the <see cref="MongoDbContext"/></param>
         public SellerRepository(IOptions<DbConfiguration> settings, IMongoDbContext mongoDbContext)
         {
-            _settings = settings.Value;
+            var dbConfiguration = settings.Value;
             _mongoDbContext = mongoDbContext;
+            _productCollection = _mongoDbContext.GetCollection<MongoProduct>("product_details");
+            _sellerCollection = _mongoDbContext.GetCollection<MongoSeller>(dbConfiguration.CollectionName);
         }
 
         ///<inheritdoc/>
         public async Task<ProductResponse> AddProduct(ProductDetails productDetails)
         {
-            _productCollection = _mongoDbContext.GetCollection<MongoProduct>("product_details");
-            _sellerCollection = _mongoDbContext.GetCollection<MongoSeller>(_settings.CollectionName);
             var sellerDetails = new MongoSeller
             {
                 Id = MongoDB.Bson.ObjectId.GenerateNewId(),
@@ -69,7 +68,6 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<DeleteResult> DeleteProductAsync(string productId)
         {
-            _productCollection = _mongoDbContext.GetCollection<MongoProduct>("product_details");
             var existingProducts = await _productCollection.Find(c => true).ToListAsync();
 
             var isExist = existingProducts.FirstOrDefault(x => x.Id.Equals(productId) && x.Id != null);
