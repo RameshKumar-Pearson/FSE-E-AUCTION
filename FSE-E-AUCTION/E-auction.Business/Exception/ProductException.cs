@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace E_auction.Business.Exception
+﻿namespace E_auction.Business.Exception
 {
     /// <summary>
     /// Class used to throw the product exception

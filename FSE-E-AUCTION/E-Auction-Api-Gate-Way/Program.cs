@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 
 namespace E_Auction_Api_Gate_Way
 {
+    /// <summary>
+    /// 
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)

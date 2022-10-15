@@ -82,7 +82,6 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.Generat
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.AssemblyInfoInputs.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.AssemblyInfo.cs
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.csproj.CoreCompileInputs.cache
-D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.MvcApplicationPartsAssemblyInfo.cs
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.MvcApplicationPartsAssemblyInfo.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\staticwebassets\BuyerApi.StaticWebAssets.Manifest.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\staticwebassets\BuyerApi.StaticWebAssets.xml

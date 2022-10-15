@@ -1,13 +1,10 @@
-﻿
-using Microsoft.Extensions.Configuration;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using MongoDB.Driver;
 using System.Linq;
 using Microsoft.Extensions.Options;
 using System;
 using E_auction.Business.Models;
-using E_auction.Business.RequestModels;
-using MongoDB.Bson;
+using E_auction.Business.Context;
 
 namespace E_auction.Business.Repositories
 {
@@ -16,26 +13,27 @@ namespace E_auction.Business.Repositories
     /// </summary>
     public class SellerRepository : ISellerRepository
     {
-        private readonly IMongoCollection<BsonDocument> _productCollection;
-        private readonly IMongoCollection<BsonDocument> _sellerCollection;
+        private IMongoCollection<MongoProduct> _productCollection;
+        private IMongoCollection<MongoSeller> _sellerCollection;
         private readonly DbConfiguration _settings;
+        private readonly IMongoDbContext _mongoDbContext;
 
         /// <summary>
         /// Constructor for <see cref="SellerRepository"/>
         /// </summary>
         /// <param name="settings">Specifies to gets the db configuration</param>
-        public SellerRepository(IOptions<DbConfiguration> settings)
+        /// <param name="mongoDbContext">Specifies to gets the <see cref="MongoDbContext"/></param>
+        public SellerRepository(IOptions<DbConfiguration> settings, IMongoDbContext mongoDbContext)
         {
             _settings = settings.Value;
-            var client = new MongoClient(_settings.ConnectionString);
-            var database = client.GetDatabase(_settings.DatabaseName);
-            _productCollection = database.GetCollection<BsonDocument>("product_details");
-            _sellerCollection = database.GetCollection<BsonDocument>(_settings.CollectionName);
+            _mongoDbContext = mongoDbContext;
         }
 
         ///<inheritdoc/>
         public async Task<ProductResponse> AddProduct(ProductDetails productDetails)
         {
+            _productCollection = _mongoDbContext.GetCollection<MongoProduct>("product_details");
+            _sellerCollection = _mongoDbContext.GetCollection<MongoSeller>(_settings.CollectionName);
             var sellerDetails = new MongoSeller
             {
                 Id = MongoDB.Bson.ObjectId.GenerateNewId(),
@@ -56,24 +54,32 @@ namespace E_auction.Business.Repositories
                 DetailedDescription = productDetails.DetailedDescription,
                 Category = productDetails.Category,
                 BidEndDate = productDetails.BidEndDate,
-                StartingPrice= Convert.ToInt32(productDetails.StartingPrice),
-                Id = MongoDB.Bson.ObjectId.GenerateNewId(),
+                StartingPrice = Convert.ToInt32(productDetails.StartingPrice),
+                Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString(),
                 SellerId = sellerDetails.Id.ToString()
             };
 
-            await _sellerCollection.InsertOneAsync(sellerDetails.ToBsonDocument()).ConfigureAwait(false);
+            await _sellerCollection.InsertOneAsync(sellerDetails).ConfigureAwait(false);
 
-            await _productCollection.InsertOneAsync(product.ToBsonDocument());
+            await _productCollection.InsertOneAsync(product);
 
             return new ProductResponse { ProductId = product.Id, SellerId = product.SellerId };
         }
 
         ///<inheritdoc/>
-        public async Task<DeleteResult> DeleteProductAsync(string ProductId)
+        public async Task<DeleteResult> DeleteProductAsync(string productId)
         {
-            var deleteFilter = Builders<BsonDocument>.Filter.Eq("_id", ProductId);
-            var result= await _productCollection.DeleteOneAsync(deleteFilter).ConfigureAwait(false);
-            return result;
+            _productCollection = _mongoDbContext.GetCollection<MongoProduct>("product_details");
+            var existingProducts = await _productCollection.Find(c => true).ToListAsync();
+
+            var isExist = existingProducts.FirstOrDefault(x => x.Id.Equals(productId) && x.Id != null);
+
+            if (isExist == null)
+            {
+                throw new System.Exception("Not found");
+            }
+
+            return await _productCollection.DeleteOneAsync(x => x.Id.Equals(productId)).ConfigureAwait(false);
         }
     }
 }

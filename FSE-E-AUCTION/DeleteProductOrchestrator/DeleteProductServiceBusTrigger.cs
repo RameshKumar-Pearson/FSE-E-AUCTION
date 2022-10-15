@@ -1,48 +1,54 @@
 using System;
 using System.Threading.Tasks;
 using E_auction.Business.Directors;
-using E_auction.Business.Models;
-using E_auction.Business.Repositories;
 using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 
-namespace DeleteProductOrchestrator
+namespace EauctionDeleteEventHandler
 {
     /// <summary>
-    /// service bus trigger for deleting the product
+    ///     service bus trigger for deleting the product
     /// </summary>
     public class DeleteProductServiceBusTrigger
     {
         private readonly ISellerDirector _sellerDirector;
-        private readonly ISellerRepository _sellerRepository;
 
         /// <summary>
-        /// constructor for <see cref="DeleteProductServiceBusTrigger"/>
+        ///     Constructor for <see cref="DeleteProductServiceBusTrigger" />
         /// </summary>
-        /// <param name="sellerDirector">Specifies to gets <see cref="ISellerDirector"/></param>
-        public DeleteProductServiceBusTrigger(IOptions<DbConfiguration> options)
+        /// <param name="sellerDirector">Specifies to gets <see cref="ISellerDirector" /></param>
+        public DeleteProductServiceBusTrigger(ISellerDirector sellerDirector)
         {
-            _sellerRepository = new SellerRepository(options);
-            _sellerDirector = new SellerDirector(_sellerRepository);
+            _sellerDirector = sellerDirector;
         }
 
+        /// <summary>
+        ///     Trigger method for delete service bus trigger
+        /// </summary>
+        /// <param name="productId">Specifies to gets the productId</param>
+        /// <param name="logger">Specifies to gets the <see cref="ILogger" /></param>
+        /// <returns>Awaitable task with no data</returns>
         [FunctionName(nameof(DeleteProductServiceBusTrigger))]
-        public async Task Run([ServiceBusTrigger("e_auction_delete", "product_delete", Connection = "AzureWebJobsServiceBus")] string productId, ILogger logger)
+        public async Task Run(
+            [ServiceBusTrigger("e_auction_delete", "product_delete", Connection = "AzureWebJobsServiceBus")]
+            string productId, ILogger logger)
         {
             try
             {
                 logger.LogInformation($"DeleteProductServiceBusTrigger started with the productId: {productId}");
 
-                var response=  await _sellerDirector.DeleteProductAsync(productId);
+                productId = JsonConvert.DeserializeObject<string>(productId);
 
-                logger.LogInformation($"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{ JsonConvert.SerializeObject(response)}");
+                var response = await _sellerDirector.DeleteProductAsync(productId);
+
+                logger.LogInformation(
+                    $"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{JsonConvert.SerializeObject(response)}");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                logger.LogInformation($"DeleteProductServiceBusTrigger completed with error for the productId: {productId} exception message:{ex.Message} and stackTrace:{ex.StackTrace} and InnerException:{ex.InnerException}");
+                logger.LogInformation(
+                    $"DeleteProductServiceBusTrigger completed with error for the productId: {productId} exception message:{ex.Message} and stackTrace:{ex.StackTrace} and InnerException:{ex.InnerException}");
                 throw;
             }
         }

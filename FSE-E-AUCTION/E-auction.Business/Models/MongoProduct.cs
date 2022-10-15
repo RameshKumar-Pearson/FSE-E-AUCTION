@@ -9,11 +9,17 @@ using System.Threading.Tasks;
 
 namespace E_auction.Business.Models
 {
+    /// <summary>
+    /// Model used to get the product details from mongo db
+    /// </summary>
     public class MongoProduct
     {
+        /// <summary>
+        /// Bson id of the product
+        /// </summary>
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets (or) Sets the name of the product

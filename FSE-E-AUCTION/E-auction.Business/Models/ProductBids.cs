@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace E_auction.Business.Models
+﻿namespace E_auction.Business.Models
 {
     /// <summary>
     /// class used to show the bids details of the product

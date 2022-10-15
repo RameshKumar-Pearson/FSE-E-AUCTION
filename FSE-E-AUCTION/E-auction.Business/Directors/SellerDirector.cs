@@ -28,9 +28,9 @@ namespace E_auction.Business.Directors
         }
 
         ///<inheritdoc/>
-        public async Task<DeleteResult> DeleteProductAsync(string ProductId)
+        public async Task<DeleteResult> DeleteProductAsync(string productId)
         {
-            return await _sellerRepository.DeleteProductAsync(ProductId);
+            return await _sellerRepository.DeleteProductAsync(productId);
         }
     }
 }

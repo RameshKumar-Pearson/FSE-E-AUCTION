@@ -19,8 +19,8 @@ namespace E_auction.Business.Repositories
         /// <summary>
         /// Method used to deletes the product
         /// </summary>
-        /// <param name="ProductId">Specifies to gets the productId</param>
-        /// <returns></returns>
-        Task<DeleteResult> DeleteProductAsync(string ProductId);
+        /// <param name="productId">Specifies to gets the productId</param>
+        /// <returns><see cref="DeleteResult"/></returns>
+        Task<DeleteResult> DeleteProductAsync(string productId);
     }
 }

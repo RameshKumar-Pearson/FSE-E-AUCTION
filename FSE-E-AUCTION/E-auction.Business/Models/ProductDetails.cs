@@ -1,10 +1,11 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace E_auction.Business.Models
 {
+    /// <summary>
+    /// Model used to gets the product details
+    /// </summary>
     public class ProductDetails
     {
         /// <summary>
