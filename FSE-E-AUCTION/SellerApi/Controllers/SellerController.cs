@@ -102,8 +102,7 @@ namespace SellerApi.Controllers
             _logger.LogInformation($"Delete product started for the product {productId}");
 
             //Raise service bus event to delete the product
-           // await _messagePublisher.PublisherAsync(productId);
-            await _sellerDirector.DeleteProductAsync(productId);
+            await _messagePublisher.PublisherAsync(productId);
 
             _logger.LogInformation($"Delete product completed for the product {productId}");
 
