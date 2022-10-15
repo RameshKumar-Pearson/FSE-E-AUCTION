@@ -104,3 +104,9 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\E-auction.Busine
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\E-auction.Business.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\MongoDB.Driver.Legacy.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.csproj.CopyComplete
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\MailKit.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\MimeKit.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\NETCore.MailKit.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Debug\netcoreapp3.1\BouncyCastle.Crypto.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Debug\netcoreapp3.1\BuyerApi.MvcApplicationPartsAssemblyInfo.cs
