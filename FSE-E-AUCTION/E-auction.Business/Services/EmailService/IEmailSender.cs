@@ -11,6 +11,6 @@ namespace E_auction.Business.Services.EmailService
         /// Method used to send email
         /// </summary>
         /// <param name="message"></param>
-        void SendEmail(Message message);
+        void SendEmail(EmailMessage message);
     }
 }

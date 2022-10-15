@@ -21,7 +21,7 @@ namespace E_auction.Business.Validation
         #region Public Methods
 
         /// <summary>
-        /// Construtor for <see cref="SellerValidation"/>
+        /// Constructor for <see cref="SellerValidation"/>
         /// </summary>
         /// <param name="settings"></param>
         public SellerValidation(IOptions<DbConfiguration> settings)

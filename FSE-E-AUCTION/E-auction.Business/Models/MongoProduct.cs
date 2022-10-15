@@ -6,7 +6,7 @@ using System.ComponentModel.DataAnnotations;
 namespace E_auction.Business.Models
 {
     /// <summary>
-    /// Model used to get the product details from mongo db
+    /// Model used to get the product details from mongodb
     /// </summary>
     public class MongoProduct
     {

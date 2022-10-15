@@ -5,15 +5,13 @@
     /// </summary>
     public class BuyerException : System.Exception
     {
-        public new string Message { get; }
-
         /// <summary>
         /// Custom exception method to handle the buyer exceptions
         /// </summary>
         /// <param name="message">Specifies to gets the exception message</param>
-        public BuyerException(string message)
+        public BuyerException(string message) : base(message)
         {
-            Message = message;
+            
         }
     }
 }

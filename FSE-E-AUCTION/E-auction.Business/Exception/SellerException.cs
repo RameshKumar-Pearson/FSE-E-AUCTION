@@ -8,11 +8,10 @@ namespace E_auction.Business.Exception
     [Serializable]
     public class SellerException : System.Exception
     {
-        public new string Message { get; }
 
-        public SellerException(string message)
+        public SellerException(string message) : base(message)
         {
-            Message = message;
+
         }
 
         public SellerException(DateTime bidEndDate)

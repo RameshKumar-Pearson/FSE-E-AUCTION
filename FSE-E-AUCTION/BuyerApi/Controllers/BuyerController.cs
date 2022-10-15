@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 namespace BuyerApi.Controllers
 {
     /// <summary>
-    /// Controller used to manages the buyer opearations
+    /// Controller used to manages the buyer operations
     /// </summary>
     [Route("/e-auction/api/v1/buyer")]
     [ApiController]
@@ -30,7 +30,7 @@ namespace BuyerApi.Controllers
         /// <param name="buyerDirector">Specifies to gets the object instance for <see cref="IBuyerDirector"/></param>
         /// <param name="topicProducer">Specifies to gets the object instance for topicProducer</param>
         /// <param name="buyerValidation">Specifies to gets  <see cref="IBuyerValidation"/></param>
-        /// <param name="loggerFactory">Specifies to gets <see cref="ILogger"/></param>
+        /// <param name="logger">Specifies to gets the <see cref="ILogger"/></param>
         /// <param name="saveBuyerCommandHandler">Specifies to gets<see cref="ISaveBuyerCommandHandler"/></param>
         public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer,
             IBuyerValidation buyerValidation, ILogger logger,
@@ -57,7 +57,7 @@ namespace BuyerApi.Controllers
             _logger.LogInformation($"Add bid to the product started");
             if (await _buyerValidation.BusinessValidation(buyerDetails))
 
-                //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS query handler
+                //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS command handler
                 // await PublishKafkaMessage("eauction_buyer", buyerDetails);
                 await _saveBuyerCommandHandler.AddBid(buyerDetails);
 

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace E_auction.Business.Models
 {
     /// <summary>
-    /// Model used to gets the product details
+    /// Model used to gets the product details for creating product in mongodb
     /// </summary>
     public class ProductDetails
     {

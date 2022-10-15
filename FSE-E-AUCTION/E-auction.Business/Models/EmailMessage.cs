@@ -7,7 +7,7 @@ namespace E_auction.Business.Models
     /// <summary>
     /// Model used to define the message of the email
     /// </summary>
-    public class Message
+    public class EmailMessage
     {
         /// <summary>
         /// Gets (or) sets To email address
@@ -30,7 +30,7 @@ namespace E_auction.Business.Models
         /// <param name="to">Specifies to gets the To email address</param>
         /// <param name="subject"></param>
         /// <param name="content"></param>
-        public Message(IEnumerable<EmailAddress> to, string subject, string content)
+        public EmailMessage(IEnumerable<EmailAddress> to, string subject, string content)
         {
             To = new List<MailboxAddress>();
             To.AddRange(to.Select(x => new MailboxAddress(x.DisplayName,x.Address)));

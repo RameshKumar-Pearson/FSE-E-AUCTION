@@ -1,7 +1,7 @@
 ﻿namespace E_auction.Business.Models
 {
     /// <summary>
-    /// Model used to get the email address and display name of the recepient
+    /// Model used to get the email address and display name of the recipient
     /// </summary>
     public class EmailAddress
     {

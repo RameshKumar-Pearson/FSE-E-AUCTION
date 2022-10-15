@@ -8,6 +8,6 @@
         /// class used to handle product related exception
         /// </summary>
         /// <param name="message"></param>
-        public ProductException(string message) : base(string.Format(message)) {}
+        public ProductException(string message) : base(message) {}
     }
 }

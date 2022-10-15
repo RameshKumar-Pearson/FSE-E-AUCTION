@@ -28,7 +28,7 @@ namespace E_auction.Business.Services.EmailService
         }
 
         ///<inheritdoc cref="IEmailSender"/>
-        public void SendEmail(Message message)
+        public void SendEmail(EmailMessage message)
         {
             var emailMessage = CreateEmailMessage(message);
             Send(emailMessage);
@@ -38,7 +38,7 @@ namespace E_auction.Business.Services.EmailService
 
         #region private methods
 
-        private MimeMessage CreateEmailMessage(Message message)
+        private MimeMessage CreateEmailMessage(EmailMessage message)
         {
             var emailMessage = new MimeMessage();
             emailMessage.From.Add(new MailboxAddress("email",_emailConfig.From));

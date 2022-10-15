@@ -95,7 +95,7 @@ namespace E_auction.Business.Repositories
 
             var sellerDetails = getExistingSellers.FirstOrDefault(x => x.Id.Equals(sellerId) && x.Id != null);
 
-            var message = new Message(
+            var message = new EmailMessage(
                 new List<EmailAddress>
                 {
                     new EmailAddress
