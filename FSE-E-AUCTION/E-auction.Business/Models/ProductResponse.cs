@@ -4,7 +4,7 @@ using MongoDB.Bson.Serialization.Attributes;
 namespace E_auction.Business.Models
 {
     /// <summary>
-    /// Model used to gets the created product details from mongo
+    /// Model used to gets the created product details from mongodb
     /// </summary>
     public class ProductResponse
     {
