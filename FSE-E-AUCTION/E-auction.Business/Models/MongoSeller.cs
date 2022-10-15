@@ -11,7 +11,7 @@ namespace E_auction.Business.Models
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
-        public ObjectId Id { get; set; }
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets (or) Sets the firstName of the Seller

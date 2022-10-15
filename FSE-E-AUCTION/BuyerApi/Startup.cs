@@ -51,6 +51,7 @@ namespace BuyerApi
                 Configuration.GetValue<string>("serviceBus:subscription")));
             services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
+            services.AddApplicationInsightsTelemetry();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "BuyerApi", Version = "v1" });

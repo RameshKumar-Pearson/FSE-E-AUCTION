@@ -31,15 +31,15 @@ namespace SellerApi.Controllers
         /// <param name="queryHandler">Specifies to gets the instance of <see cref="IQueryHandler" /></param>
         /// <param name="sellerValidation">Specifies to gets the <see cref="ISellerValidation"/></param>
         /// <param name="messagePublisher">Specifies to gets the <see cref="IMessagePublisher"/></param>
-        /// <param name="loggerFactory">Specifies to gets the <see cref="ILoggerFactory"/></param>
+        /// <param name="logger">Specifies to gets the <see cref="ILogger"/></param>
         public SellerController(ISellerDirector sellerDirector, IQueryHandler queryHandler,
-            ISellerValidation sellerValidation, IMessagePublisher messagePublisher, ILoggerFactory loggerFactory)
+            ISellerValidation sellerValidation, IMessagePublisher messagePublisher, ILogger logger)
         {
             _isellerValidation = sellerValidation;
             _iqueryHandler = queryHandler;
             _sellerDirector = sellerDirector;
             _messagePublisher = messagePublisher;
-            _logger = loggerFactory.CreateLogger<SellerController>();
+            _logger = logger;
         }
 
         /// <summary>
@@ -102,7 +102,8 @@ namespace SellerApi.Controllers
             _logger.LogInformation($"Delete product started for the product {productId}");
 
             //Raise service bus event to delete the product
-            await _messagePublisher.PublisherAsync(productId);
+           // await _messagePublisher.PublisherAsync(productId);
+            await _sellerDirector.DeleteProductAsync(productId);
 
             _logger.LogInformation($"Delete product completed for the product {productId}");
 

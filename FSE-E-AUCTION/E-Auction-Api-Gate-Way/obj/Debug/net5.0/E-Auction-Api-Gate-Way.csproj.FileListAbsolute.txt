@@ -8,6 +8,7 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\E-Auction
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\E-Auction-Api-Gate-Way.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\ref\E-Auction-Api-Gate-Way.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\E-Auction-Api-Gate-Way.pdb
+D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\E-Auction-Api-Gate-Way.xml
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\FluentValidation.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\Kros.Utils.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\Microsoft.AspNetCore.JsonPatch.dll
@@ -38,10 +39,9 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\staticweb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\staticwebassets\E-Auction-Api-Gate-Way.StaticWebAssets.xml
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\scopedcss\bundle\E-Auction-Api-Gate-Way.styles.css
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.RazorTargetAssemblyInfo.cache
+D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.csproj.CopyComplete
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\ref\E-Auction-Api-Gate-Way.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.xml
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.genruntimeconfig.cache
-D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\bin\Debug\net5.0\E-Auction-Api-Gate-Way.xml
-D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.xml
-D:\FSE-E-AUCTION\FSE-E-AUCTION\E-Auction-Api-Gate-Way\obj\Debug\net5.0\E-Auction-Api-Gate-Way.csproj.AssemblyReference.cache

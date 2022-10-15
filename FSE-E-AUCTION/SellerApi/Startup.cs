@@ -5,6 +5,7 @@ using E_auction.Business.Handlers.QueryHandlers;
 using E_auction.Business.MessagePublishers;
 using E_auction.Business.Models;
 using E_auction.Business.Repositories;
+using E_auction.Business.Services.EmailService;
 using E_auction.Business.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -47,6 +48,10 @@ namespace SellerApi
                 Configuration.GetValue<string>("servicebus:connectionstring"),
                 Configuration.GetValue<string>("serviceBus:topic"),
                 Configuration.GetValue<string>("serviceBus:subscription")));
+            services.Configure<EmailConfiguration>(
+                Configuration.GetSection("EmailConfiguration"));
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

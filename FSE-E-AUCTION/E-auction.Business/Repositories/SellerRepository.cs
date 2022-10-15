@@ -3,8 +3,10 @@ using MongoDB.Driver;
 using System.Linq;
 using Microsoft.Extensions.Options;
 using System;
+using System.Collections.Generic;
 using E_auction.Business.Models;
 using E_auction.Business.Context;
+using E_auction.Business.Services.EmailService;
 
 namespace E_auction.Business.Repositories
 {
@@ -13,21 +15,27 @@ namespace E_auction.Business.Repositories
     /// </summary>
     public class SellerRepository : ISellerRepository
     {
-        private IMongoCollection<MongoProduct> _productCollection;
-        private IMongoCollection<MongoSeller> _sellerCollection;
-        private readonly IMongoDbContext _mongoDbContext;
+        private readonly IMongoCollection<MongoProduct> _productCollection;
+        private readonly IMongoCollection<MongoSeller> _sellerCollection;
+        private readonly EmailConfiguration _emailConfiguration;
+        private readonly EmailSender _emailSender;
 
         /// <summary>
         /// Constructor for <see cref="SellerRepository"/>
         /// </summary>
         /// <param name="settings">Specifies to gets the db configuration</param>
         /// <param name="mongoDbContext">Specifies to gets the <see cref="MongoDbContext"/></param>
-        public SellerRepository(IOptions<DbConfiguration> settings, IMongoDbContext mongoDbContext)
+        /// <param name="emailConfiguration">Specifies to gets the <see cref="EmailConfiguration"/></param>
+        /// <param name="emailSender">Specifies to gets <see cref="EmailSender"/></param>
+        public SellerRepository(IOptions<DbConfiguration> settings, IMongoDbContext mongoDbContext,
+            IOptions<EmailConfiguration> emailConfiguration, IEmailSender emailSender)
         {
             var dbConfiguration = settings.Value;
-            _mongoDbContext = mongoDbContext;
-            _productCollection = _mongoDbContext.GetCollection<MongoProduct>("product_details");
-            _sellerCollection = _mongoDbContext.GetCollection<MongoSeller>(dbConfiguration.CollectionName);
+            var dbContext = mongoDbContext;
+            _productCollection = dbContext.GetCollection<MongoProduct>("product_details");
+            _sellerCollection = dbContext.GetCollection<MongoSeller>(dbConfiguration.CollectionName);
+            _emailConfiguration = emailConfiguration.Value;
+            _emailSender = (EmailSender)emailSender;
         }
 
         ///<inheritdoc/>
@@ -35,7 +43,7 @@ namespace E_auction.Business.Repositories
         {
             var sellerDetails = new MongoSeller
             {
-                Id = MongoDB.Bson.ObjectId.GenerateNewId(),
+                Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString(),
                 FirstName = productDetails.FirstName,
                 LastName = productDetails.LastName,
                 Address = productDetails.Address,
@@ -55,7 +63,7 @@ namespace E_auction.Business.Repositories
                 BidEndDate = productDetails.BidEndDate,
                 StartingPrice = Convert.ToInt32(productDetails.StartingPrice),
                 Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString(),
-                SellerId = sellerDetails.Id.ToString()
+                SellerId = sellerDetails.Id
             };
 
             await _sellerCollection.InsertOneAsync(sellerDetails).ConfigureAwait(false);
@@ -68,6 +76,7 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<DeleteResult> DeleteProductAsync(string productId)
         {
+
             var existingProducts = await _productCollection.Find(c => true).ToListAsync();
 
             var isExist = existingProducts.FirstOrDefault(x => x.Id.Equals(productId) && x.Id != null);
@@ -77,7 +86,29 @@ namespace E_auction.Business.Repositories
                 throw new System.Exception("Not found");
             }
 
-            return await _productCollection.DeleteOneAsync(x => x.Id.Equals(productId)).ConfigureAwait(false);
+            var deletedResult =
+                await _productCollection.DeleteOneAsync(x => x.Id.Equals(productId)).ConfigureAwait(false);
+
+            var sellerId = isExist.SellerId;
+
+            var getExistingSellers = await _sellerCollection.Find(c => true).ToListAsync();
+
+            var sellerDetails = getExistingSellers.FirstOrDefault(x => x.Id.Equals(sellerId) && x.Id != null);
+
+            var message = new Message(
+                new List<EmailAddress>
+                {
+                    new EmailAddress
+                    {
+                        DisplayName = sellerDetails?.FirstName + " " + sellerDetails?.LastName,
+                        Address = sellerDetails?.Email
+                    }
+                }, _emailConfiguration.Subject,
+                $"Hi {sellerDetails?.FirstName + " " + sellerDetails?.LastName} your product {isExist.Name} was deleted from the e_auction");
+
+            _emailSender.SendEmail(message);
+
+            return deletedResult;
         }
     }
 }

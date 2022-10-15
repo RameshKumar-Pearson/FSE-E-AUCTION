@@ -27,7 +27,7 @@ namespace E_auction.Business.Handlers.CommandsHandlers
         }
 
         /// <summary>
-        /// Method used to addd the bid to the existing product
+        /// Method used to add the bid to the existing product
         /// </summary>
         /// <param name="buyerDetails">Specifies to gets the <see cref="SaveBuyerRequestModel"/></param>
         /// <returns>Awaitable task with no data</returns>

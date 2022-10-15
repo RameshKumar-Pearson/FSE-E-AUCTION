@@ -33,13 +33,13 @@ namespace BuyerApi.Controllers
         /// <param name="loggerFactory">Specifies to gets <see cref="ILogger"/></param>
         /// <param name="saveBuyerCommandHandler">Specifies to gets<see cref="ISaveBuyerCommandHandler"/></param>
         public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer,
-            IBuyerValidation buyerValidation, ILoggerFactory loggerFactory,
+            IBuyerValidation buyerValidation, ILogger logger,
             ISaveBuyerCommandHandler saveBuyerCommandHandler)
         {
             _buyerValidation = buyerValidation;
             _buyerDirector = buyerDirector;
             _topicProducer = topicProducer;
-            _logger = loggerFactory.CreateLogger<BuyerController>();
+            _logger = logger;
             _saveBuyerCommandHandler = saveBuyerCommandHandler;
         }
 
