@@ -20,23 +20,23 @@ namespace E_auction.Business.Repositories
         private readonly IMongoCollection<MongoSeller> _sellerCollection;
         private readonly EmailConfiguration _emailConfiguration;
         private readonly EmailSender _emailSender;
-      
+
         /// <summary>
         /// Constructor for <see cref="SellerRepository"/>
         /// </summary>
         /// <param name="settings">Specifies to gets the db configuration</param>
         /// <param name="mongoDbContext">Specifies to gets the <see cref="MongoDbContext"/></param>
         /// <param name="emailConfiguration">Specifies to gets the <see cref="EmailConfiguration"/></param>
-        /// <param name="logger">Specifies to gets <see cref="EmailSender"/></param>
+        /// <param name="emailSender"></param>
         public SellerRepository(IOptions<DbConfiguration> settings, IMongoDbContext mongoDbContext,
-            IOptions<EmailConfiguration> emailConfiguration)
+            IOptions<EmailConfiguration> emailConfiguration, IEmailSender emailSender)
         {
             var dbConfiguration = settings.Value;
             var dbContext = mongoDbContext;
             _productCollection = dbContext.GetCollection<MongoProduct>("product_details");
             _sellerCollection = dbContext.GetCollection<MongoSeller>(dbConfiguration.CollectionName);
             _emailConfiguration = emailConfiguration.Value;
-            _emailSender = new EmailSender(emailConfiguration);
+            _emailSender = emailSender as EmailSender;
         }
 
         ///<inheritdoc/>

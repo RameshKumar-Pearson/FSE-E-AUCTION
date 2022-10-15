@@ -20,7 +20,7 @@ namespace SellerApi.Controllers
         private readonly IMessagePublisher _messagePublisher;
         private readonly IQueryHandler _iqueryHandler;
         private readonly ISellerValidation _isellerValidation;
-        private readonly ILogger _logger;
+        private readonly ILogger<SellerController> _logger;
 
         #region Public Methods
 
@@ -33,7 +33,7 @@ namespace SellerApi.Controllers
         /// <param name="messagePublisher">Specifies to gets the <see cref="IMessagePublisher"/></param>
         /// <param name="logger">Specifies to gets the <see cref="ILogger"/></param>
         public SellerController(ISellerDirector sellerDirector, IQueryHandler queryHandler,
-            ISellerValidation sellerValidation, IMessagePublisher messagePublisher, ILogger logger)
+            ISellerValidation sellerValidation, IMessagePublisher messagePublisher, ILogger<SellerController> logger)
         {
             _isellerValidation = sellerValidation;
             _iqueryHandler = queryHandler;

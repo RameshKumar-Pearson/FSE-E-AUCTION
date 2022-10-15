@@ -20,7 +20,7 @@ namespace BuyerApi.Controllers
         private readonly ITopicProducer<KafkaBuyerEventCreate> _topicProducer;
         private readonly IBuyerDirector _buyerDirector;
         private readonly IBuyerValidation _buyerValidation;
-        private readonly ILogger _logger;
+        private readonly ILogger<BuyerController> _logger;
         private readonly ISaveBuyerCommandHandler _saveBuyerCommandHandler;
 
 
@@ -33,7 +33,7 @@ namespace BuyerApi.Controllers
         /// <param name="logger">Specifies to gets the <see cref="ILogger"/></param>
         /// <param name="saveBuyerCommandHandler">Specifies to gets<see cref="ISaveBuyerCommandHandler"/></param>
         public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer,
-            IBuyerValidation buyerValidation, ILogger logger,
+            IBuyerValidation buyerValidation, ILogger<BuyerController> logger,
             ISaveBuyerCommandHandler saveBuyerCommandHandler)
         {
             _buyerValidation = buyerValidation;
@@ -55,6 +55,7 @@ namespace BuyerApi.Controllers
         public async Task<IActionResult> AddBid([FromBody] SaveBuyerRequestModel buyerDetails)
         {
             _logger.LogInformation($"Add bid to the product started");
+
             if (await _buyerValidation.BusinessValidation(buyerDetails))
 
                 //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS command handler

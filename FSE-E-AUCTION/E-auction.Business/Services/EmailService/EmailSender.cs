@@ -12,6 +12,7 @@ namespace E_auction.Business.Services.EmailService
     public class EmailSender : IEmailSender
     {
         private readonly EmailConfiguration _emailConfig;
+        private readonly ILogger<EmailSender> _logger;
 
         #region public methods
 
@@ -19,9 +20,11 @@ namespace E_auction.Business.Services.EmailService
         /// Constructor for <see cref="EmailSender"/>
         /// </summary>
         /// <param name="emailConfig">Specifies to gets the email configuration</param>
-        public EmailSender(IOptions<EmailConfiguration> emailConfig)
+        /// <param name="logger">Specifies to gets the <see cref="ILogger"/></param>
+        public EmailSender(IOptions<EmailConfiguration> emailConfig, ILogger<EmailSender> logger)
         {
             _emailConfig = emailConfig.Value;
+            _logger = logger;
         }
 
         ///<inheritdoc cref="IEmailSender"/>
@@ -59,7 +62,7 @@ namespace E_auction.Business.Services.EmailService
                 catch(System.Exception ex)
                 {
                     //Due to the firewall issue in the VM email will not sent so as of now i ignore the exception to continue with the process..
-                  
+                   _logger.LogError(ex,"exception occurred while sending the email");
                 }
                 finally
                 {
