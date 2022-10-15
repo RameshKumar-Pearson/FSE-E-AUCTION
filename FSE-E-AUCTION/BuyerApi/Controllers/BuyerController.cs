@@ -56,6 +56,7 @@ namespace BuyerApi.Controllers
         {
             _logger.LogInformation($"Add bid to the product started");
             if (await _buyerValidation.BusinessValidation(buyerDetails))
+
                 //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS query handler
                 // await PublishKafkaMessage("eauction_buyer", buyerDetails);
                 await _saveBuyerCommandHandler.AddBid(buyerDetails);

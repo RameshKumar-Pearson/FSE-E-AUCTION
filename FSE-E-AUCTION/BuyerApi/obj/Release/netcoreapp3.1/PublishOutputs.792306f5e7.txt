@@ -7,6 +7,7 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Buy
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\BuyerApi.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Confluent.Kafka.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\DnsClient.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MailKit.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MassTransit.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MassTransit.Abstractions.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MassTransit.AspNetCoreIntegration.dll
@@ -16,6 +17,7 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Mic
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Azure.ServiceBus.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Azure.Services.AppAuthentication.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Configuration.Abstractions.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.DependencyInjection.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.DependencyInjection.Abstractions.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Extensions.Diagnostics.HealthChecks.Abstractions.dll
@@ -31,12 +33,15 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Mic
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.IdentityModel.Tokens.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.OpenApi.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Microsoft.Win32.Registry.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MimeKit.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Driver.Legacy.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Bson.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Driver.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Driver.Core.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\MongoDB.Libmongocrypt.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\NETCore.MailKit.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Newtonsoft.Json.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\BouncyCastle.Crypto.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\SharpCompress.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swashbuckle.AspNetCore.Swagger.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\obj\Release\netcoreapp3.1\PubTmp\Out\Swashbuckle.AspNetCore.SwaggerGen.dll

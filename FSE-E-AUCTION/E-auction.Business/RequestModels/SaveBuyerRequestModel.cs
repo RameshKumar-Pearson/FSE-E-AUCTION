@@ -44,7 +44,7 @@ namespace E_auction.Business.RequestModels
         /// <summary>
         /// Gets (or) Sets the pin of the Buyer 
         /// </summary>
-        public string Pin { get; set; }
+        public int Pin { get; set; }
 
         /// <summary>
         ///  Gets (or) Sets the phone of the Buyer 

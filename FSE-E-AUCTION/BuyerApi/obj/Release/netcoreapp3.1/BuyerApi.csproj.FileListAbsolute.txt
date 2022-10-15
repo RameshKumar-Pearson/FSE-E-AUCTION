@@ -104,3 +104,8 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\System.Identit
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\E-auction.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\E-auction.Business.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\MongoDB.Driver.Legacy.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\MailKit.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\MimeKit.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\NETCore.MailKit.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\bin\Release\netcoreapp3.1\BouncyCastle.Crypto.dll
