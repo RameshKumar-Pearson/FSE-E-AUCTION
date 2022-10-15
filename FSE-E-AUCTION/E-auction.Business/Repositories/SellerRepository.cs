@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using E_auction.Business.Models;
 using E_auction.Business.Context;
 using E_auction.Business.Services.EmailService;
+using Microsoft.Extensions.Logging;
 
 namespace E_auction.Business.Repositories
 {
@@ -19,23 +20,23 @@ namespace E_auction.Business.Repositories
         private readonly IMongoCollection<MongoSeller> _sellerCollection;
         private readonly EmailConfiguration _emailConfiguration;
         private readonly EmailSender _emailSender;
-
+      
         /// <summary>
         /// Constructor for <see cref="SellerRepository"/>
         /// </summary>
         /// <param name="settings">Specifies to gets the db configuration</param>
         /// <param name="mongoDbContext">Specifies to gets the <see cref="MongoDbContext"/></param>
         /// <param name="emailConfiguration">Specifies to gets the <see cref="EmailConfiguration"/></param>
-        /// <param name="emailSender">Specifies to gets <see cref="EmailSender"/></param>
+        /// <param name="logger">Specifies to gets <see cref="EmailSender"/></param>
         public SellerRepository(IOptions<DbConfiguration> settings, IMongoDbContext mongoDbContext,
-            IOptions<EmailConfiguration> emailConfiguration, IEmailSender emailSender)
+            IOptions<EmailConfiguration> emailConfiguration)
         {
             var dbConfiguration = settings.Value;
             var dbContext = mongoDbContext;
             _productCollection = dbContext.GetCollection<MongoProduct>("product_details");
             _sellerCollection = dbContext.GetCollection<MongoSeller>(dbConfiguration.CollectionName);
             _emailConfiguration = emailConfiguration.Value;
-            _emailSender = (EmailSender)emailSender;
+            _emailSender = new EmailSender(emailConfiguration);
         }
 
         ///<inheritdoc/>
@@ -76,7 +77,7 @@ namespace E_auction.Business.Repositories
         ///<inheritdoc/>
         public async Task<DeleteResult> DeleteProductAsync(string productId)
         {
-
+            
             var existingProducts = await _productCollection.Find(c => true).ToListAsync();
 
             var isExist = existingProducts.FirstOrDefault(x => x.Id.Equals(productId) && x.Id != null);
