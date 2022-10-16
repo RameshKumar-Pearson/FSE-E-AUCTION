@@ -25,5 +25,6 @@ namespace E_auction.Business.Models
         /// Gets (or) sets buyer mobile number
         /// </summary>
         public string MobileNumber { get; set; }
+
     }
 }
