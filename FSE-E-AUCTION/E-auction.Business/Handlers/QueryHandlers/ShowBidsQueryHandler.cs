@@ -1,7 +1,6 @@
 ﻿using System.Linq;
 using E_auction.Business.Contract.QueryHandlers;
 using E_auction.Business.Models;
-using E_auction.Business.RequestModels;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
 using System.Threading.Tasks;
