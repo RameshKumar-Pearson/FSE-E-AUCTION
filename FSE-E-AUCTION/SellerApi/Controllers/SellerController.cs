@@ -51,17 +51,17 @@ namespace SellerApi.Controllers
         /// <returns>List of bids</returns>
         [Route("show-bids/{productId}")]
         [HttpGet]
-        public async Task<IActionResult> ShowBids(string productId)
+        public async Task<ProductBids> ShowBids(string productId)
         {
             _logger.LogInformation($"Show bids for the product {productId} started");
 
-            if (string.IsNullOrWhiteSpace(productId)) return BadRequest("Product Id Should Not Be Empty");
+            if (string.IsNullOrWhiteSpace(productId)) throw new Exception("Product Id Should Not Empty");
 
             var response = await _iqueryHandler.ShowBids(productId);
 
             _logger.LogInformation($"Show bids for the{productId} product completed");
 
-            return Ok(response);
+            return response;
         }
 
         /// <summary>
