@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -103,6 +104,9 @@ namespace SellerApi.Controllers
             }
         }
 
+
+
+
         /// <summary>
         ///     Method used to delete the product
         /// </summary>
@@ -119,6 +123,16 @@ namespace SellerApi.Controllers
             _logger.LogInformation($"Delete product completed for the product {productId}");
 
             return Ok("Delete product event raised successfully");
+        }
+
+        /// <summary>
+        ///  Method used to gets the product list
+        /// </summary>
+        [Route("products")]
+        [HttpGet]
+        public async Task<List<ProductList>> GetProducts()
+        {
+            return await _sellerDirector.GetProducts();
         }
 
         #endregion

@@ -1,4 +1,5 @@
-﻿using E_auction.Business.Models;
+﻿using System.Collections.Generic;
+using E_auction.Business.Models;
 using E_auction.Business.Repositories;
 using MongoDB.Driver;
 using System.Threading.Tasks;
@@ -31,6 +32,12 @@ namespace E_auction.Business.Directors
         public async Task<DeleteResult> DeleteProductAsync(string productId)
         {
             return await _sellerRepository.DeleteProductAsync(productId);
+        }
+
+        ///<inheritdoc/>
+        public async Task<List<ProductList>> GetProducts()
+        {
+            return await _sellerRepository.GetProducts();
         }
     }
 }

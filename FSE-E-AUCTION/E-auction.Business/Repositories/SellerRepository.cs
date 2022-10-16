@@ -7,7 +7,6 @@ using System.Collections.Generic;
 using E_auction.Business.Models;
 using E_auction.Business.Context;
 using E_auction.Business.Services.EmailService;
-using Microsoft.Extensions.Logging;
 
 namespace E_auction.Business.Repositories
 {
@@ -110,6 +109,14 @@ namespace E_auction.Business.Repositories
             _emailSender.SendEmail(message);
 
             return deletedResult;
+        }
+
+        ///<inheritdoc/>
+        public async Task<List<ProductList>> GetProducts()
+        {
+            var existingProducts = await _productCollection.Find(c => true).ToListAsync();
+
+            return existingProducts.Select(item => new ProductList { Id = item.Id, Name = item.Name }).ToList();
         }
     }
 }
