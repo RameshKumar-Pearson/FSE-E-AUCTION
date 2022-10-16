@@ -1,8 +1,0 @@
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\WebApplication1.exe
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\web.config
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.Development.json
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\appsettings.json
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\WebApplication1.dll
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\WebApplication1.deps.json
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\WebApplication1.runtimeconfig.json
-D:\FSE-E-AUCTION\FSE-E-AUCTION\WebApplication1\obj\Release\netcoreapp3.1\PubTmp\Out\WebApplication1.pdb
