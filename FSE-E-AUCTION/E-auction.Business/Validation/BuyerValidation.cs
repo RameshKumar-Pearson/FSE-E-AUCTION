@@ -1,10 +1,8 @@
 ﻿
 using E_auction.Business.Exception;
 using E_auction.Business.Models;
-using E_auction.Business.RequestModels;
 using E_auction.Business.ResponseModels;
 using Microsoft.Extensions.Options;
-using MongoDB.Bson;
 using MongoDB.Driver;
 using System;
 using System.Collections.Generic;
@@ -21,7 +19,6 @@ namespace E_auction.Business.Validation
     {
         private readonly IMongoCollection<MongoProduct> _productCollection;
         private readonly IMongoCollection<MongoBuyerResponse> _buyerCollection;
-        private readonly DbConfiguration _settings;
 
         #region Public Methods
 
@@ -31,28 +28,25 @@ namespace E_auction.Business.Validation
         /// <param name="settings">Specifies to gets the <see cref="DbConfiguration"/></param>
         public BuyerValidation(IOptions<DbConfiguration> settings)
         {
-            _settings = settings.Value;
-            var client = new MongoClient(_settings.ConnectionString);
-            var database = client.GetDatabase(_settings.DatabaseName);
-            _buyerCollection = database.GetCollection<MongoBuyerResponse>(_settings.CollectionName);
+            var configurationValue = settings.Value;
+            var client = new MongoClient(configurationValue.ConnectionString);
+            var database = client.GetDatabase(configurationValue.DatabaseName);
+            _buyerCollection = database.GetCollection<MongoBuyerResponse>(configurationValue.CollectionName);
             _productCollection = database.GetCollection<MongoProduct>("product_details");
         }
 
         ///<inheritdoc/>
         public async Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel)
         {
-            ObjectId test;
-
-            ObjectId.TryParse(saveBuyerRequestModel.ProductId, out test);
             var existingProducts = await GetProductsAsync();
-            var productDetails = existingProducts.Where(x => x.Id == test).Select(o => o).FirstOrDefault();
+            var productDetails = existingProducts.Where(x => x.Id == saveBuyerRequestModel.ProductId).Select(o => o).FirstOrDefault();
             if (productDetails == null)
             {
-                throw new BuyerException("Product Id Is Not Exist");
+                throw new BuyerException("Product Doe's Not Exist");
             }
             else if (DateTime.Now > productDetails.BidEndDate)
             {
-                throw new BuyerException("Bid End Date Is Over");
+                throw new BuyerException("Bid End Date Is Already Over");
             }
             var existingBuyerList = await GetBuyerAsync();
             string existingBidAmount = existingBuyerList.Where(x => x.Email == saveBuyerRequestModel.Email && x.ProductId == saveBuyerRequestModel.ProductId).Select(o => o.BidAmount).FirstOrDefault();
@@ -71,7 +65,7 @@ namespace E_auction.Business.Validation
         /// <summary>
         /// Method used to gets the all list of existing product details
         /// </summary>
-        /// <returns><see cref="List<<see cref="Product"/>>"/></returns>
+        /// <returns><see cref="MongoProduct"/></returns>
         private async Task<List<MongoProduct>> GetProductsAsync()
         {
             return await _productCollection.Find(_ => true).ToListAsync().ConfigureAwait(false);
@@ -80,7 +74,7 @@ namespace E_auction.Business.Validation
         /// <summary>
         ///  Method used to gets the all list of existing buyer details
         /// </summary>
-        /// <returns><see cref="List<<see cref="MongoBuyerResponse"/>>"/></returns>
+        /// <returns><see cref="MongoBuyerResponse"/></returns>
         private async Task<List<MongoBuyerResponse>> GetBuyerAsync()
         {
             return await _buyerCollection.Find(c => true).ToListAsync();

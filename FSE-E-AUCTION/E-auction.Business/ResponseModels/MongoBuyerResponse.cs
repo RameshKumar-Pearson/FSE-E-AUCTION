@@ -1,9 +1,5 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace E_auction.Business.ResponseModels
 {
@@ -12,6 +8,9 @@ namespace E_auction.Business.ResponseModels
     /// </summary>
     public class MongoBuyerResponse
     {
+        /// <summary>
+        /// Bson id of the product
+        /// </summary>
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
         public string Id { get; set; }
@@ -59,11 +58,16 @@ namespace E_auction.Business.ResponseModels
         /// <summary>
         /// Gets (or) Sets the pin of the buyer
         /// </summary>
-        public string Pin { get; set; }
+        public int Pin { get; set; }
 
         /// <summary>
         /// Gets (or) Sets the Phone of the buyer
         /// </summary>
         public string Phone { get; set; }
+
+        /// <summary>
+        /// Gets (or) Sets the seller Id 
+        /// </summary>
+        public string SellerId { get; set; }
     }
 }

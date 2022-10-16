@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.VisualBasic;
 
 namespace E_auction.Business.Models
 {
@@ -28,6 +27,21 @@ namespace E_auction.Business.Models
         /// <summary>
         /// Gets(or) Sets the product bids
         /// </summary>
-        public string Bids { get; set; }
+        public List<BidDetails> Bids { get; set; }
+
+        /// <summary>
+        /// Gets (or) sets the category of the product
+        /// </summary>
+        public string Category { get; set; }
+
+        /// <summary>
+        /// Gets (or) sets the starting price of the product
+        /// </summary>
+        public int StartingPrice { get; set; }
+
+        /// <summary>
+        /// Gets (or) sets the Bid end date  of the product
+        /// </summary>
+        public string BidEndData { get; set; }
     }
 }

@@ -1,24 +1,18 @@
+using E_auction.Business.Context;
 using E_auction.Business.Contract.QueryHandlers;
 using E_auction.Business.Directors;
 using E_auction.Business.Handlers.QueryHandlers;
 using E_auction.Business.MessagePublishers;
+using E_auction.Business.Models;
 using E_auction.Business.Repositories;
+using E_auction.Business.Services.EmailService;
 using E_auction.Business.Validation;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Azure.ServiceBus;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Reflection;
-using System.Threading.Tasks;
 
 namespace SellerApi
 {
@@ -38,18 +32,26 @@ namespace SellerApi
             services.AddTransient<ISellerRepository, SellerRepository>();
             services.AddTransient<IQueryHandler, ShowBidsQueryHandler>();
             services.AddTransient<ISellerValidation, SellerValidation>();
-            services.Configure<E_auction.Business.Models.DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
+            services.AddSingleton<IMongoDbContext, MongoDbContext>();
+            services.Configure<DbConfiguration>(Configuration.GetSection("MongoDbConnection"));
             services.AddControllers();
             services.AddCors();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SellerApi", Version = "v1" });
             });
-            services.AddSingleton<ITopicClient>(serviceProvider => new TopicClient(connectionString: Configuration.GetValue<string>("servicebus:connectionstring"), entityPath: Configuration.GetValue<string>("serviceBus:topicname")));
+            services.AddSingleton<ITopicClient>(serviceProvider =>
+                new TopicClient(Configuration.GetValue<string>("servicebus:connectionstring"),
+                    Configuration.GetValue<string>("serviceBus:topicname")));
             services.AddSingleton<IMessagePublisher, MessagePublisher>();
             services.AddSingleton<ISubscriptionClient>(serviceProvider => new SubscriptionClient(
-            connectionString: Configuration.GetValue<string>("servicebus:connectionstring"),
-            topicPath: Configuration.GetValue<string>("serviceBus:topic"), subscriptionName: Configuration.GetValue<string>("serviceBus:subscription")));
+                Configuration.GetValue<string>("servicebus:connectionstring"),
+                Configuration.GetValue<string>("serviceBus:topic"),
+                Configuration.GetValue<string>("serviceBus:subscription")));
+            services.Configure<EmailConfiguration>(
+                Configuration.GetSection("EmailConfiguration"));
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.AddApplicationInsightsTelemetry();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -62,19 +64,9 @@ namespace SellerApi
 
             app.UseAuthorization();
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
+            app.UseEndpoints(endpoints => { endpoints.MapControllers(); });
 
-            app.UseCors(x=>x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-        }
-
-        private static string GetUniqueName(string eventName)
-        {
-            string hostName = Dns.GetHostName();
-            string callingAssembly = Assembly.GetCallingAssembly().GetName().Name;
-            return $"{hostName}.{callingAssembly}.{eventName}";
+            app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
         }
     }
 }

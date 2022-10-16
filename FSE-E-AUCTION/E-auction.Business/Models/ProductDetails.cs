@@ -1,10 +1,11 @@
-﻿using MongoDB.Bson;
-using MongoDB.Bson.Serialization.Attributes;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
 
 namespace E_auction.Business.Models
 {
+    /// <summary>
+    /// Model used to gets the product details for creating product in mongodb
+    /// </summary>
     public class ProductDetails
     {
         /// <summary>
@@ -78,13 +79,11 @@ namespace E_auction.Business.Models
         ///  Gets (or) Sets the phone of the seller 
         /// </summary>
         [DataType(DataType.PhoneNumber)]
-        [RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Not a valid phone number")]
         public string Phone { get; set; }
 
         /// <summary>
         ///  Gets (or) Sets the email of the seller 
         /// </summary>
-        [RegularExpression(@"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}", ErrorMessage = "Please enter correct email")]
         public string Email { get; set; }
 
     }

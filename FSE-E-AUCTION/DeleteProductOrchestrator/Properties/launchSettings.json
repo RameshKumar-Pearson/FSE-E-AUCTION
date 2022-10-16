@@ -1,9 +1,7 @@
 {
   "profiles": {
     "DeleteProductOrchestrator": {
-      "commandName": "Project",
-      "commandLineArgs": "--port 7268",
-      "launchBrowser": false
+      "commandName": "Project"
     }
   }
 }

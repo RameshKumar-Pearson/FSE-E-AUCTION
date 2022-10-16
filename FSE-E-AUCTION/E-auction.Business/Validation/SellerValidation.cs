@@ -2,13 +2,10 @@
 using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
 using Microsoft.Extensions.Options;
-using MongoDB.Bson;
 using MongoDB.Driver;
-using MongoDB.Driver.Builders;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace E_auction.Business.Validation
@@ -20,19 +17,18 @@ namespace E_auction.Business.Validation
     {
         private readonly IMongoCollection<MongoProduct> _productCollection;
         private readonly IMongoCollection<SaveBuyerRequestModel> _buyerCollection;
-        private readonly DbConfiguration _settings;
 
         #region Public Methods
 
         /// <summary>
-        /// Construtor for <see cref="SellerValidation"/>
+        /// Constructor for <see cref="SellerValidation"/>
         /// </summary>
         /// <param name="settings"></param>
         public SellerValidation(IOptions<DbConfiguration> settings)
         {
-            _settings = settings.Value;
-            var client = new MongoClient(_settings.ConnectionString);
-            var database = client.GetDatabase(_settings.DatabaseName);
+            var configuration = settings.Value;
+            var client = new MongoClient(configuration.ConnectionString);
+            var database = client.GetDatabase(configuration.DatabaseName);
             _productCollection = database.GetCollection<MongoProduct>("product_details");
             _buyerCollection = database.GetCollection<SaveBuyerRequestModel>("buyer_details");
         }
@@ -43,9 +39,9 @@ namespace E_auction.Business.Validation
 
             int startingPrice = Convert.ToInt32(productDetails.StartingPrice);
 
-            var existingProducts = await _productCollection.Find<MongoProduct>(c => true).ToListAsync();
+            var existingProducts = await _productCollection.Find(c => true).ToListAsync();
 
-            var isProductExist = existingProducts.Where(x => x.StartingPrice == startingPrice && x.Name.Equals(productDetails.Name,StringComparison.OrdinalIgnoreCase) && x.Category.Equals(productDetails.Category, StringComparison.OrdinalIgnoreCase)).FirstOrDefault();
+            var isProductExist = existingProducts.FirstOrDefault(x => x.StartingPrice == startingPrice && x.Name.Equals(productDetails.Name,StringComparison.OrdinalIgnoreCase) && x.Category.Equals(productDetails.Category, StringComparison.OrdinalIgnoreCase));
 
             if (isProductExist != null)
             {
@@ -63,15 +59,10 @@ namespace E_auction.Business.Validation
         ///<inheritdoc/>
         public async Task<bool> DeleteProductValidation(string productId)
         {
-
-            ObjectId test;
-
-            ObjectId.TryParse(productId, out test);
-
             var productList = await GetProductsAsync();
             var buyerList = await GetBuyersAsync();
 
-            var bidEndDate = productList.Where(x => x.Id == test).Select(o => o.BidEndDate).FirstOrDefault();
+            var bidEndDate = productList.Where(x => x.Id == productId).Select(o => o.BidEndDate).FirstOrDefault();
 
             if (DateTime.Now > bidEndDate)
             {
@@ -95,7 +86,7 @@ namespace E_auction.Business.Validation
         /// <summary>
         /// Method used to gets the all list of existing product details
         /// </summary>
-        /// <returns><see cref="List<<see cref="MongoProduct"/>>"/></returns>
+        /// <returns><see cref="MongoProduct"/>></returns>
         private async Task<List<MongoProduct>> GetProductsAsync()
         {
             return await _productCollection.Find(_ => true).ToListAsync().ConfigureAwait(false);
@@ -104,7 +95,7 @@ namespace E_auction.Business.Validation
         /// <summary>
         /// Method used to gets the all list of buyers details
         /// </summary>
-        /// <returns><see cref="List<<see cref="MongoProduct"/>>"/></returns>
+        /// <returns><see cref="SaveBuyerRequestModel"/></returns>
         private async Task<List<SaveBuyerRequestModel>> GetBuyersAsync()
         {
             return await _buyerCollection.Find(_ => true).ToListAsync().ConfigureAwait(false);

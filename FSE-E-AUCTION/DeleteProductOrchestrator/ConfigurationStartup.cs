@@ -1,12 +1,8 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using System.Diagnostics.CodeAnalysis;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using System.Text;
 
-namespace EauctionBidEventHandler
+namespace EauctionDeleteEventHandler
 {
     [ExcludeFromCodeCoverage]
     internal static class ConfigurationStartup
@@ -19,15 +15,9 @@ namespace EauctionBidEventHandler
         /// <returns>Interface for accessing settings from the application's configuration provider.</returns>
         public static IConfiguration AddConfigurationProviders(IServiceCollection services)
         {
-            // Get access to the object providing details of the hosting environment in order to determine if
-            // running locally (development) or in Azure.
-            ServiceProvider serviceProvider = services.BuildServiceProvider();
-            var hostingEnvironment = serviceProvider.GetService<IHostingEnvironment>();
-
             // Create a configuration builder to use as the base for building either the local or Azure
             // configuration.
             IConfigurationBuilder configurationBuilder = new ConfigurationBuilder()
-                .SetBasePath(hostingEnvironment.ContentRootPath)
                 .AddJsonFile("local.settings.json", true, true)
                 .AddEnvironmentVariables();
 

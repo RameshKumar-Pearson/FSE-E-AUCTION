@@ -1,8 +1,5 @@
 ﻿
 using E_auction.Business.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace E_auction.Business.Validation
@@ -13,7 +10,7 @@ namespace E_auction.Business.Validation
     public interface ISellerValidation
     {
         /// <summary>
-        /// Metho used to do the business validation of product
+        /// Method used to do the business validation of product
         /// </summary>
         /// <param name="productDetails">Specifies to gets the <see cref="ProductDetails"/></param>
         /// <returns>If the validation is successfully done it returns true, otherwise false </returns>

@@ -1,4 +1,5 @@
-﻿using E_auction.Business.Models;
+﻿using System.Collections.Generic;
+using E_auction.Business.Models;
 using MongoDB.Driver;
 using System.Threading.Tasks;
 
@@ -19,8 +20,14 @@ namespace E_auction.Business.Directors
         /// <summary>
         /// Method used to deletes the product
         /// </summary>
-        /// <param name="ProductId">Specifies to gets the productId</param>
+        /// <param name="productId">Specifies to gets the productId</param>
         /// <returns></returns>
-        Task<bool> DeleteProductAsync(string ProductId);
+        Task<DeleteResult> DeleteProductAsync(string productId);
+
+        /// <summary>
+        /// Method used to gets the list of products
+        /// </summary>
+        /// <returns>Awaitable task with <see cref="ProductList"/></returns>
+        Task<List<ProductList>> GetProducts();
     }
 }

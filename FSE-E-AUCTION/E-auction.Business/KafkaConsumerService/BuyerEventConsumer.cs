@@ -1,12 +1,6 @@
-﻿
-using Confluent.Kafka;
-using E_auction.Business.Contract.CommandHandlers;
+﻿using E_auction.Business.Contract.CommandHandlers;
 using E_auction.Business.Models;
-using E_auction.Business.RequestModels;
 using MassTransit;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using SaveBuyerRequestModel = E_auction.Business.RequestModels.SaveBuyerRequestModel;
 

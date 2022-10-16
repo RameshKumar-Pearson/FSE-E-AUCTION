@@ -1,19 +1,21 @@
 ﻿using MongoDB.Bson;
 using MongoDB.Bson.Serialization.Attributes;
-using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace E_auction.Business.Models
 {
+    /// <summary>
+    /// Model used to get the product details from mongodb
+    /// </summary>
     public class MongoProduct
     {
+        /// <summary>
+        /// Bson id of the product
+        /// </summary>
         [BsonId]
-        [BsonRepresentation(BsonType.String)]
-        public ObjectId Id { get; set; }
+        [BsonRepresentation(BsonType.ObjectId)]
+        public string Id { get; set; }
 
         /// <summary>
         /// Gets (or) Sets the name of the product

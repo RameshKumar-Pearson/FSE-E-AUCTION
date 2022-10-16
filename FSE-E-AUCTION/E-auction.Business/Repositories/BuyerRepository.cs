@@ -1,12 +1,10 @@
 ﻿using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using System;
 using System.Linq;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using E_auction.Business.Models;
 using E_auction.Business.ResponseModels;
-using System.Reflection.Metadata;
 
 namespace E_auction.Business.Repositories
 {
@@ -16,7 +14,6 @@ namespace E_auction.Business.Repositories
     public class BuyerRepository : IBuyerRepository
     {
         private readonly IMongoCollection<MongoBuyerResponse> _buyerCollection;
-        private readonly DbConfiguration _settings;
 
         #region Public Methods
 
@@ -26,10 +23,10 @@ namespace E_auction.Business.Repositories
         /// <param name="settings">Specifies to gets the <see cref="DbConfiguration"/></param>
         public BuyerRepository(IOptions<DbConfiguration> settings)
         {
-            _settings = settings.Value;
-            var client = new MongoClient(_settings.ConnectionString);
-            var database = client.GetDatabase(_settings.DatabaseName);
-            _buyerCollection = database.GetCollection<MongoBuyerResponse>(_settings.CollectionName);
+            var dbConfiguration = settings.Value;
+            var client = new MongoClient(dbConfiguration.ConnectionString);
+            var database = client.GetDatabase(dbConfiguration.DatabaseName);
+            _buyerCollection = database.GetCollection<MongoBuyerResponse>(dbConfiguration.CollectionName);
         }
 
         /// <inheritdoc/>
