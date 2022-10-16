@@ -78,7 +78,13 @@ namespace SellerApi.Controllers
 
                 var response = new ProductResponse();
 
-                if (!Regex.IsMatch(productDetails.StartingPrice, @"^\d+$"))
+                if (!Regex.IsMatch(productDetails.Email, @"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"))
+                    return BadRequest("Please enter correct email");
+
+                if(!Regex.IsMatch(productDetails.Phone, @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
+                    return BadRequest("Invalid Phone Number");
+
+                if (!Regex.IsMatch(productDetails.StartingPrice, @" ^\d+$"))
                     return BadRequest("Invalid Price, Price Should Be Valid Number");
 
                 string[] stringArray = { "Painting", "Sculptor", "Ornament" };
