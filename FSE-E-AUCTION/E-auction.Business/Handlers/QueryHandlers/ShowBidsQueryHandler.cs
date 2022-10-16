@@ -44,7 +44,7 @@ namespace E_auction.Business.Handlers.QueryHandlers
                 ShortDescription = productDetails.ShortDescription,
                 DetailedDescription = productDetails.DetailedDescription,
                 Category = productDetails.Category,
-                BidEndData = productDetails.BidEndDate,
+                BidEndData = productDetails.BidEndDate.ToShortDateString(),
                 StartingPrice = productDetails.StartingPrice,
                 Bids = bids
             };

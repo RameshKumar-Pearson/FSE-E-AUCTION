@@ -42,6 +42,6 @@ namespace E_auction.Business.Models
         /// <summary>
         /// Gets (or) sets the Bid end date  of the product
         /// </summary>
-        public DateTime BidEndData { get; set; }
+        public string BidEndData { get; set; }
     }
 }

@@ -104,9 +104,6 @@ namespace SellerApi.Controllers
             }
         }
 
-
-
-
         /// <summary>
         ///     Method used to delete the product
         /// </summary>
