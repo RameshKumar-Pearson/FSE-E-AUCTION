@@ -31,9 +31,8 @@ namespace E_auction.Business.Repositories
             IOptions<EmailConfiguration> emailConfiguration, IEmailSender emailSender)
         {
             var dbConfiguration = settings.Value;
-            var dbContext = mongoDbContext;
-            _productCollection = dbContext.GetCollection<MongoProduct>("product_details");
-            _sellerCollection = dbContext.GetCollection<MongoSeller>(dbConfiguration.CollectionName);
+            _productCollection = mongoDbContext.GetCollection<MongoProduct>("product_details");
+            _sellerCollection = mongoDbContext.GetCollection<MongoSeller>(dbConfiguration.CollectionName);
             _emailConfiguration = emailConfiguration.Value;
             _emailSender = emailSender as EmailSender;
         }
@@ -43,7 +42,6 @@ namespace E_auction.Business.Repositories
         {
             var sellerDetails = new MongoSeller
             {
-                Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString(),
                 FirstName = productDetails.FirstName,
                 LastName = productDetails.LastName,
                 Address = productDetails.Address,
@@ -54,6 +52,8 @@ namespace E_auction.Business.Repositories
                 Phone = productDetails.Phone
             };
 
+            await _sellerCollection.InsertOneAsync(sellerDetails).ConfigureAwait(false);
+
             var product = new MongoProduct
             {
                 Name = productDetails.Name,
@@ -62,11 +62,8 @@ namespace E_auction.Business.Repositories
                 Category = productDetails.Category,
                 BidEndDate = productDetails.BidEndDate,
                 StartingPrice = Convert.ToInt32(productDetails.StartingPrice),
-                Id = MongoDB.Bson.ObjectId.GenerateNewId().ToString(),
                 SellerId = sellerDetails.Id
             };
-
-            await _sellerCollection.InsertOneAsync(sellerDetails).ConfigureAwait(false);
 
             await _productCollection.InsertOneAsync(product);
 

@@ -1,4 +1,6 @@
-﻿namespace E_auction.Business.Models
+﻿using System.Collections.Generic;
+
+namespace E_auction.Business.Models
 {
     /// <summary>
     /// class used to show the bids details of the product
@@ -23,6 +25,6 @@
         /// <summary>
         /// Gets(or) Sets the product bids
         /// </summary>
-        public string Bids { get; set; }
+        public List<BidDetails> Bids { get; set; }
     }
 }
