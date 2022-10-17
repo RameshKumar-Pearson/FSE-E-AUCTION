@@ -14,6 +14,6 @@ namespace E_auction.Business.Directors
         /// <param name="email">Specifies to gets the email of the buyer</param>
         /// <param name="newBid">Specifies to gets the nee bid amount</param>
         /// <returns>Awaitable task with no data</returns>
-        Task UpdateBid(string productId, string email, string newBid);
+        Task UpdateBid(string productId, string email, int newBid);
     }
 }

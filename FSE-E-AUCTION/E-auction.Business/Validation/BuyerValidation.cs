@@ -49,8 +49,8 @@ namespace E_auction.Business.Validation
                 throw new BuyerException("Bid End Date Is Already Over");
             }
             var existingBuyerList = await GetBuyerAsync();
-            string existingBidAmount = existingBuyerList.Where(x => x.Email == saveBuyerRequestModel.Email && x.ProductId == saveBuyerRequestModel.ProductId).Select(o => o.BidAmount).FirstOrDefault();
-            if (!string.IsNullOrWhiteSpace(existingBidAmount) && existingBidAmount != "0")
+            int existingBidAmount = existingBuyerList.Where(x => x.Email == saveBuyerRequestModel.Email && x.ProductId == saveBuyerRequestModel.ProductId).Select(o => o.BidAmount).FirstOrDefault();
+            if ( existingBidAmount >0)
             {
                 throw new BuyerException("More than one bid on a product by same user (based on email ID) is not allowed");
             }
