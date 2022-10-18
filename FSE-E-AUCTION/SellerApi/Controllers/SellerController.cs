@@ -84,9 +84,6 @@ namespace SellerApi.Controllers
                 if(!Regex.IsMatch(productDetails.Phone, @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
                     return BadRequest("Invalid Phone Number");
 
-                if (!Regex.IsMatch(productDetails.StartingPrice, @" ^\d+$"))
-                    return BadRequest("Invalid Price, Price Should Be Valid Number");
-
                 string[] stringArray = { "Painting", "Sculptor", "Ornament" };
 
                 if (!stringArray.Contains(productDetails.Category, StringComparer.OrdinalIgnoreCase))

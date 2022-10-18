@@ -18,7 +18,7 @@ namespace E_auction.Business.ResponseModels
         /// <summary>
         /// Gets (or) Sets the bid amount of the buyer
         /// </summary>
-        public string BidAmount { get; set; }
+        public int BidAmount { get; set; }
 
         /// <summary>
         ///  Gets (or) Sets the email of the Buyer 

@@ -1,4 +1,5 @@
-﻿using E_auction.Business.Contract.CommandHandlers;
+﻿using System.Text.RegularExpressions;
+using E_auction.Business.Contract.CommandHandlers;
 using E_auction.Business.Directors;
 using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
@@ -58,6 +59,12 @@ namespace BuyerApi.Controllers
             try
             {
                 _logger.LogInformation($"Add bid to the product started");
+
+                if (!Regex.IsMatch(buyerDetails.Email, @"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"))
+                    return BadRequest("Please enter correct email");
+
+                if (!Regex.IsMatch(buyerDetails.Phone, @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
+                    return BadRequest("Invalid Phone Number");
 
                 if (await _buyerValidation.BusinessValidation(buyerDetails))
 

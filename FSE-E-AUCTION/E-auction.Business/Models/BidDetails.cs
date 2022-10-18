@@ -14,7 +14,7 @@ namespace E_auction.Business.Models
         /// <summary>
         /// Gets (or) sets the bid amount
         /// </summary>
-        public string BidAmount { get; set; }
+        public int BidAmount { get; set; }
 
         /// <summary>
         /// Gets (or) sets the buyer email

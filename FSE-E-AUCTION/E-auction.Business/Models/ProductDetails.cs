@@ -33,7 +33,7 @@ namespace E_auction.Business.Models
         /// <summary>
         /// Gets (or) Sets the starting price of the product
         /// </summary>
-        public string StartingPrice { get; set; }
+        public int StartingPrice { get; set; }
 
         /// <summary>
         /// Gets (or) Sets the bid end date
