@@ -84,7 +84,7 @@ namespace BuyerApi.Controllers
 
         [Route("update-bid/{productId}/{buyerEmailId}/{newBidAmount}")]
         [HttpPut]
-        public Task UpdateBid(string productId, string buyerEmailId, string newBidAmount)
+        public Task UpdateBid(string productId, string buyerEmailId, int newBidAmount)
         {
             _logger.LogInformation($"Update bid for the product started{productId}");
 
