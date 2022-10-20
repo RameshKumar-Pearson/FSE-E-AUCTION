@@ -3,6 +3,6 @@
   <PropertyGroup>
     <Controller_SelectedScaffolderID>MvcControllerWithActionsScaffolder</Controller_SelectedScaffolderID>
     <Controller_SelectedScaffolderCategoryPath>root/Common/MVC/Controller</Controller_SelectedScaffolderCategoryPath>
-    <NameOfLastUsedPublishProfile>D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\Properties\PublishProfiles\e-auction-buyerapi - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
+    <NameOfLastUsedPublishProfile>D:\FSE-E-AUCTION\FSE-E-AUCTION\BuyerApi\Properties\PublishProfiles\e-auction-buyer - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

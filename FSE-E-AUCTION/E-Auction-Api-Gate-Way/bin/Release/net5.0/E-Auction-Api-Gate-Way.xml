@@ -4,5 +4,10 @@
         <name>E-Auction-Api-Gate-Way</name>
     </assembly>
     <members>
+        <member name="T:E_Auction_Api_Gate_Way.Program">
+            <summary>
+            
+            </summary>
+        </member>
     </members>
 </doc>

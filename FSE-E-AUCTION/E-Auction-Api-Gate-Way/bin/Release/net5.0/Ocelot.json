@@ -5,7 +5,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "sellerapi.azurewebsites.net",
+          "Host": "e-auction-seller.azurewebsites.net",
           "Port": 443
         }
       ],
@@ -44,7 +44,7 @@
       "DownstreamScheme": "https",
       "DownstreamHostAndPorts": [
         {
-          "Host": "buyerapi-fse.azurewebsites.net",
+          "Host": "e-auction-buyer.azurewebsites.net",
           "Port": 443
         }
       ],
@@ -74,7 +74,7 @@
         {
           "Name": "Seller API",
           "Version": "v1",
-          "Url": "https://e-auction-sellerapi.azurewebsites.net/swagger/v1/swagger.json"
+          "Url": "https://e-auction-seller.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     },
@@ -85,7 +85,7 @@
         {
           "Name": "Buyer API",
           "Version": "v1",
-          "Url": "https://e-auction-buyerapi.azurewebsites.net/swagger/v1/swagger.json"
+          "Url": "https://e-auction-buyer.azurewebsites.net/swagger/v1/swagger.json"
         }
       ]
     }
