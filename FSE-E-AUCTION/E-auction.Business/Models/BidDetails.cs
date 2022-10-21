@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace E_auction.Business.Models
+﻿namespace E_auction.Business.Models
 {
     public class BidDetails
     {

@@ -61,7 +61,7 @@ namespace E_auction.Business.Services.EmailService
                 }
                 catch(System.Exception ex)
                 {
-                    //Due to the firewall issue in the VM email will not sent so as of now i ignore the exception to continue with the process..
+                    //Due to the firewall issue in the VM, email will not sent so as of now i ignore the exception to continue with the process..
                    _logger.LogError(ex,"exception occurred while sending the email");
                 }
                 finally

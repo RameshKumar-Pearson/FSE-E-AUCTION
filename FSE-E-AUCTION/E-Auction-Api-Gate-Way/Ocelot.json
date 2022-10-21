@@ -48,7 +48,7 @@
           "Port": 443
         }
       ],
-      "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/show-bids/{productId}",
+      "UpstreamPathTemplate": "/apigateway/e-auction/api/v1/seller/products",
       "UpstreamHttpMethod": [ "GET" ],
       "SwaggerKey": "seller"
     },
