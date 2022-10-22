@@ -36,19 +36,19 @@ namespace EauctionDeleteEventHandler
         {
             try
             {
-                logger.LogInformation($"DeleteProductServiceBusTrigger started with the productId: {productId}");
+                logger.LogInformation($"{nameof(DeleteProductServiceBusTrigger)} started with the productId: {productId}");
 
                 productId = JsonConvert.DeserializeObject<string>(productId);
 
                 var response = await _sellerDirector.DeleteProductAsync(productId);
 
                 logger.LogInformation(
-                    $"DeleteProductServiceBusTrigger completed for the productId: {productId} and Response:{JsonConvert.SerializeObject(response)}");
+                    $"{nameof(DeleteProductServiceBusTrigger)} completed for the productId: {productId} and Response:{JsonConvert.SerializeObject(response)}");
             }
             catch (Exception ex)
             {
                 logger.LogInformation(
-                    $"DeleteProductServiceBusTrigger completed with error for the productId: {productId} exception message:{ex.Message} and stackTrace:{ex.StackTrace} and InnerException:{ex.InnerException}");
+                    $" completed with error for the productId: {productId} exception message:{ex.Message} and stackTrace:{ex.StackTrace} and InnerException:{ex.InnerException}");
                 throw;
             }
         }

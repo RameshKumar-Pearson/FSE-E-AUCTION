@@ -100,6 +100,7 @@ namespace SellerApi.Controllers
                         "Invalid product category, Product category must be one of the following : Painting, Sculptor, Ornament");
 
                 if (await _isellerValidation.IsValidProductAsync(productDetails))
+
                     response = await _sellerDirector.AddProductAsync(productDetails);
 
                 _logger.LogInformation("Product successfully added");
