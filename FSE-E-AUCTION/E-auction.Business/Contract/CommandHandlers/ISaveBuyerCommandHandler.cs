@@ -14,6 +14,6 @@ namespace E_auction.Business.Contract.CommandHandlers
         /// </summary>
         /// <param name="buyerRequest">Specifies to gets the <see cref="MongoBuyerResponse"/></param>
         /// <returns>Awaitable task with no data</returns>
-        Task AddBid(SaveBuyerRequestModel buyerRequest);
+        Task AddBidAsync(SaveBuyerRequestModel buyerRequest);
     }
 }

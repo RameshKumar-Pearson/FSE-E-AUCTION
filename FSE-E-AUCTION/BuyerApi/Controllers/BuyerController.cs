@@ -66,11 +66,11 @@ namespace BuyerApi.Controllers
                 if (!Regex.IsMatch(buyerDetails.Phone, @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
                     return BadRequest("Invalid Phone Number");
 
-                if (await _buyerValidation.BusinessValidation(buyerDetails))
+                if (await _buyerValidation.BusinessValidationAsync(buyerDetails))
 
                     //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS command handler
                     // await PublishKafkaMessage("eauction_buyer", buyerDetails);
-                    await _saveBuyerCommandHandler.AddBid(buyerDetails);
+                    await _saveBuyerCommandHandler.AddBidAsync(buyerDetails);
 
                 _logger.LogInformation($"Add bid to the product completed");
 
@@ -88,7 +88,7 @@ namespace BuyerApi.Controllers
         {
             _logger.LogInformation($"Update bid for the product started{productId}");
 
-            var updateResult = _buyerDirector.UpdateBid(productId, buyerEmailId, newBidAmount);
+            var updateResult = _buyerDirector.UpdateBidAsync(productId, buyerEmailId, newBidAmount);
 
             _logger.LogInformation($"Update bid for the product completed{productId}");
 

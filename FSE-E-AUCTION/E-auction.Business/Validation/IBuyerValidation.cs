@@ -14,6 +14,6 @@ namespace E_auction.Business.Validation
         /// </summary>
         /// <param name="saveBuyerRequestModel">Specifies to gets the <see cref="MongoBuyerResponse"/></param>
         /// <returns></returns>
-        Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel);
+        Task<bool> BusinessValidationAsync(SaveBuyerRequestModel saveBuyerRequestModel);
     }
 }

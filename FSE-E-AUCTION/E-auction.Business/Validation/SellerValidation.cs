@@ -34,7 +34,7 @@ namespace E_auction.Business.Validation
         }
 
         ///<inheritdoc/>
-        public async Task<bool> IsValidProduct(ProductDetails productDetails)
+        public async Task<bool> IsValidProductAsync(ProductDetails productDetails)
         {
 
             int startingPrice = Convert.ToInt32(productDetails.StartingPrice);
@@ -57,7 +57,7 @@ namespace E_auction.Business.Validation
         }
 
         ///<inheritdoc/>
-        public async Task<bool> DeleteProductValidation(string productId)
+        public async Task<bool> DeleteProductValidationAsync(string productId)
         {
             var productList = await GetProductsAsync();
             var buyerList = await GetBuyersAsync();

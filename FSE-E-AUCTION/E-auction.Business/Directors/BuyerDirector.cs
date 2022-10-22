@@ -22,9 +22,9 @@ namespace E_auction.Business.Directors
         }
 
         ///<inheritdoc/>
-        public Task UpdateBid(string productId, string emailId, int newBid)
+        public Task UpdateBidAsync(string productId, string emailId, int newBid)
         {
-            return _buyerRepository.UpdateBid(productId, emailId, newBid);
+            return _buyerRepository.UpdateBidAsync(productId, emailId, newBid);
         }
 
         #endregion

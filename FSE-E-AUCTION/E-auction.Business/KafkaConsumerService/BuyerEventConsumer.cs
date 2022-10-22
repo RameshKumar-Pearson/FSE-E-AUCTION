@@ -30,7 +30,7 @@ namespace E_auction.Business.KafkaConsumerService
             SaveBuyerRequestModel message = context.Message.TopicMessage;
             if (message != null)
             {
-                _saveBuyerCommandHandler.AddBid(message);
+                _saveBuyerCommandHandler.AddBidAsync(message);
             }
             return Task.CompletedTask;
         }

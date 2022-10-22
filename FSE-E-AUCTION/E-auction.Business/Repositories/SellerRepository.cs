@@ -109,7 +109,7 @@ namespace E_auction.Business.Repositories
         }
 
         ///<inheritdoc/>
-        public async Task<List<ProductList>> GetProducts()
+        public async Task<List<ProductList>> GetProductsAsync()
         {
             var existingProducts = await _productCollection.Find(c => true).ToListAsync();
 

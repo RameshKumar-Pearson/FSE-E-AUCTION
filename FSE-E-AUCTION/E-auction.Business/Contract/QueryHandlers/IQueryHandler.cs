@@ -13,6 +13,6 @@ namespace E_auction.Business.Contract.QueryHandlers
         /// </summary>
         /// <param name="productId">Specifies to gets the productId</param>
         /// <returns>Awaitable task with no data</returns>
-        Task<ProductBids> ShowBids(string productId);
+        Task<ProductBids> ShowBidsAsync(string productId);
     }
 }

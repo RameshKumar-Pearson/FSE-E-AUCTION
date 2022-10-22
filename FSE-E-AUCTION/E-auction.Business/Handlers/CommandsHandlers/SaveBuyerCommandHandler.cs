@@ -31,7 +31,7 @@ namespace E_auction.Business.Handlers.CommandsHandlers
         /// </summary>
         /// <param name="buyerDetails">Specifies to gets the <see cref="SaveBuyerRequestModel"/></param>
         /// <returns>Awaitable task with no data</returns>
-        public async Task AddBid(SaveBuyerRequestModel buyerDetails)
+        public async Task AddBidAsync(SaveBuyerRequestModel buyerDetails)
         {
             await _buyerCollection.InsertOneAsync(buyerDetails);
         }

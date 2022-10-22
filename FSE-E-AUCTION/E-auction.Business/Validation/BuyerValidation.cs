@@ -36,7 +36,7 @@ namespace E_auction.Business.Validation
         }
 
         ///<inheritdoc/>
-        public async Task<bool> BusinessValidation(SaveBuyerRequestModel saveBuyerRequestModel)
+        public async Task<bool> BusinessValidationAsync(SaveBuyerRequestModel saveBuyerRequestModel)
         {
             var existingProducts = await GetProductsAsync();
             var productDetails = existingProducts.Where(x => x.Id == saveBuyerRequestModel.ProductId).Select(o => o).FirstOrDefault();

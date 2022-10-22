@@ -32,7 +32,7 @@ namespace E_auction.Business.Handlers.QueryHandlers
         }
 
         ///<inheritdoc/>
-        public async Task<ProductBids> ShowBids(string productId)
+        public async Task<ProductBids> ShowBidsAsync(string productId)
         {
             var buyerDetails = await _buyerCollection.Find(x => x.ProductId == productId).ToListAsync();
             var productDetails = await _productCollection.Find(x => x.Id == productId).FirstOrDefaultAsync();

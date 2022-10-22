@@ -14,13 +14,13 @@ namespace E_auction.Business.Validation
         /// </summary>
         /// <param name="productDetails">Specifies to gets the <see cref="ProductDetails"/></param>
         /// <returns>If the validation is successfully done it returns true, otherwise false </returns>
-        Task<bool> IsValidProduct(ProductDetails productDetails);
+        Task<bool> IsValidProductAsync(ProductDetails productDetails);
 
         /// <summary>
         /// Method used to delete the product
         /// </summary>
         /// <param name="productId">Specifies to gets the productId</param>
         /// <returns>If the validation is successfully done it returns true, otherwise false</returns>
-        Task<bool> DeleteProductValidation(string productId);
+        Task<bool> DeleteProductValidationAsync(string productId);
     }
 }

@@ -57,7 +57,7 @@ namespace SellerApi.Controllers
 
             if (string.IsNullOrWhiteSpace(productId)) throw new Exception("Product Id Should Not Empty");
 
-            var response = await _iqueryHandler.ShowBids(productId);
+            var response = await _iqueryHandler.ShowBidsAsync(productId);
 
             _logger.LogInformation($"Show bids for the{productId} product completed");
 
@@ -90,7 +90,7 @@ namespace SellerApi.Controllers
                     return BadRequest(
                         "Invalid product category, Product category must be one of the following : Painting, Sculptor, Ornament");
 
-                if (await _isellerValidation.IsValidProduct(productDetails))
+                if (await _isellerValidation.IsValidProductAsync(productDetails))
                     response = await _sellerDirector.AddProductAsync(productDetails);
 
                 _logger.LogInformation("Product successfully added");
@@ -113,7 +113,7 @@ namespace SellerApi.Controllers
         /// <param name="productId">Specifies to gets the productId</param>
         [Route("delete/{productId}")]
         [HttpDelete]
-        public async Task<IActionResult> Delete(string productId)
+        public async Task<IActionResult> DeleteProductAsync(string productId)
         {
             _logger.LogInformation($"Delete product started for the product {productId}");
 
@@ -132,7 +132,7 @@ namespace SellerApi.Controllers
         [HttpGet]
         public async Task<List<ProductList>> GetProducts()
         {
-            return await _sellerDirector.GetProducts();
+            return await _sellerDirector.GetProductsAsync();
         }
 
         #endregion

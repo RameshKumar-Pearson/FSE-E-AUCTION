@@ -28,6 +28,6 @@ namespace E_auction.Business.Repositories
         /// Method used to gets the list of products
         /// </summary>
         /// <returns>Awaitable task with <see cref="ProductList"/></returns>
-        Task<List<ProductList>> GetProducts();
+        Task<List<ProductList>> GetProductsAsync();
     }
 }

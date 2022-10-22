@@ -30,7 +30,7 @@ namespace E_auction.Business.Repositories
         }
 
         /// <inheritdoc/>
-        public async Task UpdateBid(string productId, string email, int newBid)
+        public async Task UpdateBidAsync(string productId, string email, int newBid)
         {
             var buyersList = await GetBuyerAsync();
             

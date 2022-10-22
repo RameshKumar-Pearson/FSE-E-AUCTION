@@ -35,9 +35,9 @@ namespace E_auction.Business.Directors
         }
 
         ///<inheritdoc/>
-        public async Task<List<ProductList>> GetProducts()
+        public async Task<List<ProductList>> GetProductsAsync()
         {
-            return await _sellerRepository.GetProducts();
+            return await _sellerRepository.GetProductsAsync();
         }
     }
 }
