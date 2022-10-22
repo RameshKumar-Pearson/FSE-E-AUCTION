@@ -2,5 +2,6 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=8ca39b34_002D992d_002D45f4_002D8047_002D5dfb8fd0351f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="AddProduct_WithInvalidCategory_Throws_Bad_Request" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;TestAncestor&gt;&#xD;
     &lt;TestId&gt;MSTest::173F8A2F-56ED-4ABE-8F4D-93B7F356A197::.NETCoreApp,Version=v3.1::e_auction_seller.Controller.SellerControllerTests&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;MSTest::173F8A2F-56ED-4ABE-8F4D-93B7F356A197::.NETCoreApp,Version=v3.1::e_auction_seller.Controller.BuyerControllerTests.AddBidAsync_WithInValidData_Throws_BadRequest&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
