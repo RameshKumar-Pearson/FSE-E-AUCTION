@@ -214,7 +214,12 @@ D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerCo
 D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerController.UnitTests.AssemblyInfoInputs.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerController.UnitTests.AssemblyInfo.cs
 D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerController.UnitTests.csproj.CoreCompileInputs.cache
-D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerController.UnitTests.csproj.CopyComplete
 D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerController.UnitTests.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerController.UnitTests.pdb
 D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\obj\Debug\netcoreapp3.1\SellerController.UnitTests.genruntimeconfig.cache
+D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\bin\Debug\netcoreapp3.1\BuyerApi.deps.json
+D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\bin\Debug\netcoreapp3.1\BuyerApi.runtimeconfig.json
+D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\bin\Debug\netcoreapp3.1\BuyerApi.runtimeconfig.dev.json
+D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\bin\Debug\netcoreapp3.1\BuyerApi.exe
+D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\bin\Debug\netcoreapp3.1\BuyerApi.dll
+D:\FSE-E-AUCTION\FSE-E-AUCTION\e-auction-seller\bin\Debug\netcoreapp3.1\BuyerApi.pdb

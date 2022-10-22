@@ -57,7 +57,7 @@ namespace e_auction_seller.Controller
         /// </summary>
         /// <returns>Awaitable task with no data</returns>
         [TestMethod]
-        public async Task AddProductAsync_WithInvalidCategory_Throws_Bad_Request()
+        public async Task AddProductAsync_WithInvalidCategory_Throws_BadRequest()
         {
             //Arrange
             var product = new ProductDetails
@@ -91,7 +91,7 @@ namespace e_auction_seller.Controller
         /// </summary>
         /// <returns>Awaitable task with no data</returns>
         [TestMethod]
-        public async Task AddProductAsync_WithInvalidEmail_Throws_Bad_Request()
+        public async Task AddProductAsync_WithInvalidEmail_Throws_BadRequest()
         {
             //Arrange
             var product = new ProductDetails
@@ -124,7 +124,7 @@ namespace e_auction_seller.Controller
         /// </summary>
         /// <returns>Awaitable task with no data</returns>
         [TestMethod]
-        public async Task AddProductAsync_WithInvalidPhone_Throws_Bad_Request()
+        public async Task AddProductAsync_WithInvalidPhone_Throws_BadRequest()
         {
             //Arrange
             var product = new ProductDetails
@@ -157,7 +157,7 @@ namespace e_auction_seller.Controller
         /// </summary>
         /// <returns>Awaitable task with no data</returns>
         [TestMethod]
-        public async Task AddProductAsync_WithInvalidBidEndDate_Throws_Bad_Request()
+        public async Task AddProductAsync_WithInvalidBidEndDate_Throws_BadRequest()
         {
             //Arrange
             var product = new ProductDetails
@@ -234,15 +234,35 @@ namespace e_auction_seller.Controller
         {
             //Arrange
             var productId = Guid.NewGuid().ToString();
-            
+
             _messagePublisher.Setup(x => x.PublisherAsync(It.IsAny<Task>())).Returns(Task.CompletedTask);
 
             //Act
             var actualResult = await _sellerController.DeleteProductAsync(productId);
-           
+
             //Assert
             Assert.IsNotNull(actualResult);
             Assert.IsInstanceOfType(actualResult, typeof(OkObjectResult));
+        }
+
+        /// <summary>
+        ///     To verify ShowBidsAsync with valid product and returns ok result
+        /// </summary>
+        /// <returns>Awaitable task with no data</returns>
+        [TestMethod]
+        public async Task ShowBidsAsync_WithValidProductId_Returns_OkResult()
+        {
+            //Arrange
+            var productId = Guid.NewGuid().ToString();
+
+            _iqueryHandler.Setup(x => x.ShowBidsAsync(It.IsAny<string>())).ReturnsAsync(new ProductBids
+                { Category = "Painting", ShortDescription = "Test-789" });
+
+            //Act
+            var actualResult = await _sellerController.ShowBidsAsync(productId);
+
+            //Assert
+            Assert.IsNotNull(actualResult);
         }
 
         #endregion

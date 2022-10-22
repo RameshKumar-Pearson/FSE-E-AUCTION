@@ -54,7 +54,7 @@ namespace BuyerApi.Controllers
         /// <returns>Awaitable task with no data</returns>
         [Route("place-bid")]
         [HttpPost]
-        public async Task<IActionResult> AddBid([FromBody] SaveBuyerRequestModel buyerDetails)
+        public async Task<IActionResult> AddBidAsync([FromBody] SaveBuyerRequestModel buyerDetails)
         {
             try
             {
@@ -84,7 +84,7 @@ namespace BuyerApi.Controllers
 
         [Route("update-bid/{productId}/{buyerEmailId}/{newBidAmount}")]
         [HttpPut]
-        public Task UpdateBid(string productId, string buyerEmailId, int newBidAmount)
+        public Task UpdateBidAsync(string productId, string buyerEmailId, int newBidAmount)
         {
             _logger.LogInformation($"Update bid for the product started{productId}");
 
@@ -105,7 +105,7 @@ namespace BuyerApi.Controllers
         /// <param name="topic">Specifies to gets the topic name</param>
         /// <param name="buyerDetails">Specifies to gets the <see cref="SaveBuyerRequestModel"/></param>
         /// <returns><see cref="IActionResult"/></returns>
-        private async Task<IActionResult> PublishKafkaMessage(string topic, SaveBuyerRequestModel buyerDetails)
+        private async Task<IActionResult> PublishKafkaMessageAsync(string topic, SaveBuyerRequestModel buyerDetails)
         {
             await _topicProducer.Produce(new KafkaBuyerEventCreate
             {

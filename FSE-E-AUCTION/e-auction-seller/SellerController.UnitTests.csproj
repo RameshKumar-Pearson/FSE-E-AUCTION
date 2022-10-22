@@ -13,6 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BuyerApi\BuyerApi.csproj" />
     <ProjectReference Include="..\E-auction.Business\E-auction.Business.csproj" />
     <ProjectReference Include="..\SellerApi\SellerApi.csproj" />
   </ItemGroup>

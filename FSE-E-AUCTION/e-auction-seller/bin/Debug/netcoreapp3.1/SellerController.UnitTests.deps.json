@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v3.1": {
       "SellerController.UnitTests/1.0.0": {
         "dependencies": {
+          "BuyerApi": "1.0.0",
           "E-auction.Business": "1.0.0",
           "MSTest.TestAdapter": "2.2.10",
           "MSTest.TestFramework": "2.2.10",
@@ -1378,41 +1379,41 @@
           }
         }
       },
-      "Swashbuckle.AspNetCore/5.6.3": {
+      "Swashbuckle.AspNetCore/6.1.4": {
         "dependencies": {
           "Microsoft.Extensions.ApiDescription.Server": "3.0.0",
-          "Swashbuckle.AspNetCore.Swagger": "5.6.3",
-          "Swashbuckle.AspNetCore.SwaggerGen": "5.6.3",
-          "Swashbuckle.AspNetCore.SwaggerUI": "5.6.3"
+          "Swashbuckle.AspNetCore.Swagger": "6.1.4",
+          "Swashbuckle.AspNetCore.SwaggerGen": "6.1.4",
+          "Swashbuckle.AspNetCore.SwaggerUI": "6.1.4"
         }
       },
-      "Swashbuckle.AspNetCore.Swagger/5.6.3": {
+      "Swashbuckle.AspNetCore.Swagger/6.1.4": {
         "dependencies": {
           "Microsoft.OpenApi": "1.2.3"
         },
         "runtime": {
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.Swagger.dll": {
-            "assemblyVersion": "5.6.3.0",
-            "fileVersion": "5.6.3.0"
+            "assemblyVersion": "6.1.4.0",
+            "fileVersion": "6.1.4.0"
           }
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerGen/5.6.3": {
+      "Swashbuckle.AspNetCore.SwaggerGen/6.1.4": {
         "dependencies": {
-          "Swashbuckle.AspNetCore.Swagger": "5.6.3"
+          "Swashbuckle.AspNetCore.Swagger": "6.1.4"
         },
         "runtime": {
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerGen.dll": {
-            "assemblyVersion": "5.6.3.0",
-            "fileVersion": "5.6.3.0"
+            "assemblyVersion": "6.1.4.0",
+            "fileVersion": "6.1.4.0"
           }
         }
       },
-      "Swashbuckle.AspNetCore.SwaggerUI/5.6.3": {
+      "Swashbuckle.AspNetCore.SwaggerUI/6.1.4": {
         "runtime": {
           "lib/netcoreapp3.0/Swashbuckle.AspNetCore.SwaggerUI.dll": {
-            "assemblyVersion": "5.6.3.0",
-            "fileVersion": "5.6.3.0"
+            "assemblyVersion": "6.1.4.0",
+            "fileVersion": "6.1.4.0"
           }
         }
       },
@@ -2357,6 +2358,22 @@
           "System.Xml.XmlDocument": "4.3.0"
         }
       },
+      "BuyerApi/1.0.0": {
+        "dependencies": {
+          "E-auction.Business": "1.0.0",
+          "MassTransit.AspNetCore": "7.3.1",
+          "MassTransit.Extensions.DependencyInjection": "7.3.1",
+          "MassTransit.Kafka": "8.0.6",
+          "Microsoft.ApplicationInsights.AspNetCore": "2.21.0",
+          "Microsoft.Extensions.Options": "3.1.29",
+          "MongoDB.Driver": "2.17.1",
+          "Newtonsoft.Json": "13.0.1",
+          "Swashbuckle.AspNetCore": "6.1.4"
+        },
+        "runtime": {
+          "BuyerApi.dll": {}
+        }
+      },
       "E-auction.Business/1.0.0": {
         "dependencies": {
           "MassTransit.AspNetCore": "7.3.1",
@@ -2383,7 +2400,7 @@
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Microsoft.Azure.ServiceBus": "5.2.0",
           "MongoDB.Driver": "2.17.1",
-          "Swashbuckle.AspNetCore": "5.6.3",
+          "Swashbuckle.AspNetCore": "6.1.4",
           "mongocsharpdriver": "2.17.1"
         },
         "runtime": {
@@ -3126,33 +3143,33 @@
       "path": "sharpcompress/0.30.1",
       "hashPath": "sharpcompress.0.30.1.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore/5.6.3": {
+    "Swashbuckle.AspNetCore/6.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UkL9GU0mfaA+7RwYjEaBFvAzL8qNQhNqAeV5uaWUu/Z+fVgvK9FHkGCpTXBqSQeIHuZaIElzxnLDdIqGzuCnVg==",
-      "path": "swashbuckle.aspnetcore/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.5.6.3.nupkg.sha512"
+      "sha512": "sha512-aglxV+kJA5wP0RoAS8Rrh4Jp7bmVEcDAAofdSyGfea4TSEtNRLam9Fq0A4+0asUWDRk1N0/6VnuLC6+ev50wSQ==",
+      "path": "swashbuckle.aspnetcore/6.1.4",
+      "hashPath": "swashbuckle.aspnetcore.6.1.4.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.Swagger/5.6.3": {
+    "Swashbuckle.AspNetCore.Swagger/6.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rn/MmLscjg6WSnTZabojx5DQYle2GjPanSPbCU3Kw8Hy72KyQR3uy8R1Aew5vpNALjfUFm2M/vwUtqdOlzw+GA==",
-      "path": "swashbuckle.aspnetcore.swagger/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.swagger.5.6.3.nupkg.sha512"
+      "sha512": "sha512-5XRKPKXpQRJMdOwHgotSZjWYGKnvresUIKiUOecmDrsiTkRpUd15QJMS/+HKYjjOvWnJthYwhLJG3pABJOHwOg==",
+      "path": "swashbuckle.aspnetcore.swagger/6.1.4",
+      "hashPath": "swashbuckle.aspnetcore.swagger.6.1.4.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerGen/5.6.3": {
+    "Swashbuckle.AspNetCore.SwaggerGen/6.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-CkhVeod/iLd3ikVTDOwG5sym8BE5xbqGJ15iF3cC7ZPg2kEwDQL4a88xjkzsvC9oOB2ax6B0rK0EgRK+eOBX+w==",
-      "path": "swashbuckle.aspnetcore.swaggergen/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.swaggergen.5.6.3.nupkg.sha512"
+      "sha512": "sha512-i0Y3a3XMKz7r9vMNtB7TUIsWXpz9uJwnJ42NV3lAnmem7XpTykxm/cFJqHc9CqVBdbPf7XPvhUvEiUybRlocIg==",
+      "path": "swashbuckle.aspnetcore.swaggergen/6.1.4",
+      "hashPath": "swashbuckle.aspnetcore.swaggergen.6.1.4.nupkg.sha512"
     },
-    "Swashbuckle.AspNetCore.SwaggerUI/5.6.3": {
+    "Swashbuckle.AspNetCore.SwaggerUI/6.1.4": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BPvcPxQRMsYZ3HnYmGKRWDwX4Wo29WHh14Q6B10BB8Yfbbcza+agOC2UrBFA1EuaZuOsFLbp6E2+mqVNF/Je8A==",
-      "path": "swashbuckle.aspnetcore.swaggerui/5.6.3",
-      "hashPath": "swashbuckle.aspnetcore.swaggerui.5.6.3.nupkg.sha512"
+      "sha512": "sha512-Ue8Ag73DOXPPB/NCqT7oN1PYSj35IETWROsIZG9EbwAtFDcgonWOrHbefjMFUGyPalNm6CSmVm1JInpURnxMgw==",
+      "path": "swashbuckle.aspnetcore.swaggerui/6.1.4",
+      "hashPath": "swashbuckle.aspnetcore.swaggerui.6.1.4.nupkg.sha512"
     },
     "System.AppContext/4.3.0": {
       "type": "package",
@@ -3769,6 +3786,11 @@
       "sha512": "sha512-MYoTCP7EZ98RrANESW05J5ZwskKDoN0AuZ06ZflnowE50LTpbR5yRg3tHckTVm5j/m47stuGgCrCHWePyHS70Q==",
       "path": "system.xml.xmlserializer/4.3.0",
       "hashPath": "system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    },
+    "BuyerApi/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "E-auction.Business/1.0.0": {
       "type": "project",

@@ -51,15 +51,24 @@ namespace SellerApi.Controllers
         /// <returns>List of bids</returns>
         [Route("show-bids/{productId}")]
         [HttpGet]
-        public async Task<ProductBids> ShowBids(string productId)
+        public async Task<ProductBids> ShowBidsAsync(string productId)
         {
-            _logger.LogInformation($"Show bids for the product {productId} started");
+            ProductBids response;
+            try
+            {
+                _logger.LogInformation($"Show bids for the product {productId} started");
 
-            if (string.IsNullOrWhiteSpace(productId)) throw new Exception("Product Id Should Not Empty");
+                if (string.IsNullOrWhiteSpace(productId)) throw new SellerException("Product Id Should Not Empty");
 
-            var response = await _iqueryHandler.ShowBidsAsync(productId);
+                response = await _iqueryHandler.ShowBidsAsync(productId);
 
-            _logger.LogInformation($"Show bids for the{productId} product completed");
+                _logger.LogInformation($"Show bids for the{productId} product completed");
+            }
+            catch (SellerException ex)
+            {
+                _logger.LogInformation($"Show bids for the {productId}  completed with error {ex.Message} ");
+                throw;
+            }
 
             return response;
         }
@@ -81,7 +90,7 @@ namespace SellerApi.Controllers
                 if (!Regex.IsMatch(productDetails.Email, @"[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"))
                     return BadRequest("Please enter correct email");
 
-                if(!Regex.IsMatch(productDetails.Phone, @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
+                if (!Regex.IsMatch(productDetails.Phone, @"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"))
                     return BadRequest("Invalid Phone Number");
 
                 string[] stringArray = { "Painting", "Sculptor", "Ornament" };
@@ -130,7 +139,7 @@ namespace SellerApi.Controllers
         /// </summary>
         [Route("products")]
         [HttpGet]
-        public async Task<List<ProductList>> GetProducts()
+        public async Task<List<ProductList>> GetProductsAsync()
         {
             return await _sellerDirector.GetProductsAsync();
         }
