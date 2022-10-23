@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>E-Auction-Api-Gate-Way</name>
+    </assembly>
+    <members>
+        <member name="T:E_Auction_Api_Gate_Way.Program">
+            <summary>
+            Program class for e-auction api gateway
+            </summary>
+        </member>
+        <member name="M:E_Auction_Api_Gate_Way.Program.Main(System.String[])">
+            <summary>
+             Entry method for api-gate-way
+            </summary>
+            <param name="args">Specifies to gets th program arguments </param>
+        </member>
+        <member name="M:E_Auction_Api_Gate_Way.Program.CreateHostBuilder(System.String[])">
+            <summary>
+            Method used to configure startUp class 
+            </summary>
+            <param name="args">Specifies to gets th program arguments</param>
+        </member>
+        <member name="T:E_Auction_Api_Gate_Way.Startup">
+            <summary>
+             Start up class for api gateway 
+            </summary>
+        </member>
+        <member name="M:E_Auction_Api_Gate_Way.Startup.#ctor(Microsoft.Extensions.Configuration.IConfiguration)">
+            <summary>
+            Constructor for <see cref="T:E_Auction_Api_Gate_Way.Startup"/>
+            </summary>
+            <param name="configuration">Specifies to gets  <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/></param>
+        </member>
+        <member name="P:E_Auction_Api_Gate_Way.Startup.Configuration">
+            <summary>
+            Gets (or) sets configuration
+            </summary>
+        </member>
+        <member name="M:E_Auction_Api_Gate_Way.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services">Specifies to get <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/></param>
+        </member>
+        <member name="M:E_Auction_Api_Gate_Way.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IWebHostEnvironment)">
+            <summary>
+            Method used to configure applicationBuilder for api gate way
+            </summary>
+            <param name="app">Specifies to gets <see cref="T:Microsoft.AspNetCore.Builder.IApplicationBuilder"/></param>
+            <param name="env">Specifies to gets <see cref="T:Microsoft.AspNetCore.Hosting.IWebHostEnvironment"/></param>
+        </member>
+    </members>
+</doc>
