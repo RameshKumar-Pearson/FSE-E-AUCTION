@@ -3,10 +3,8 @@ using System.Threading.Tasks;
 using BuyerApi.Controllers;
 using E_auction.Business.Contract.CommandHandlers;
 using E_auction.Business.Directors;
-using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
 using E_auction.Business.Validation;
-using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -22,7 +20,6 @@ namespace e_auction_seller.Controller
     {
         #region Private Variables
 
-        private Mock<ITopicProducer<KafkaBuyerEventCreate>> _topicProducer;
         private Mock<IBuyerDirector> _mockBuyerDirector;
         private Mock<IBuyerValidation> _mockBuyerValidation;
         private Mock<ILogger<BuyerController>> _mockLogger;
@@ -43,8 +40,7 @@ namespace e_auction_seller.Controller
             _mockBuyerValidation = new Mock<IBuyerValidation>();
             _mockLogger = new Mock<ILogger<BuyerController>>();
             _mockSaveBuyerCommandHandler = new Mock<ISaveBuyerCommandHandler>();
-            _topicProducer = new Mock<ITopicProducer<KafkaBuyerEventCreate>>();
-            _buyerController = new BuyerController(_mockBuyerDirector.Object, _topicProducer.Object,
+            _buyerController = new BuyerController(_mockBuyerDirector.Object,
                 _mockBuyerValidation.Object, _mockLogger.Object, _mockSaveBuyerCommandHandler.Object);
         }
 

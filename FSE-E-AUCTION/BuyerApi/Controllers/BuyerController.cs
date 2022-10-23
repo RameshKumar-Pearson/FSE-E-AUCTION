@@ -1,10 +1,8 @@
 ﻿using System.Text.RegularExpressions;
 using E_auction.Business.Contract.CommandHandlers;
 using E_auction.Business.Directors;
-using E_auction.Business.Models;
 using E_auction.Business.RequestModels;
 using E_auction.Business.Validation;
-using MassTransit;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Threading.Tasks;
@@ -19,7 +17,6 @@ namespace BuyerApi.Controllers
     [ApiController]
     public class BuyerController : Controller
     {
-        private readonly ITopicProducer<KafkaBuyerEventCreate> _topicProducer;
         private readonly IBuyerDirector _buyerDirector;
         private readonly IBuyerValidation _buyerValidation;
         private readonly ILogger<BuyerController> _logger;
@@ -30,17 +27,15 @@ namespace BuyerApi.Controllers
         /// Constructor for <see cref="BuyerController"/>
         /// </summary>
         /// <param name="buyerDirector">Specifies to gets the object instance for <see cref="IBuyerDirector"/></param>
-        /// <param name="topicProducer">Specifies to gets the object instance for topicProducer</param>
         /// <param name="buyerValidation">Specifies to gets  <see cref="IBuyerValidation"/></param>
         /// <param name="logger">Specifies to gets the <see cref="ILogger"/></param>
         /// <param name="saveBuyerCommandHandler">Specifies to gets<see cref="ISaveBuyerCommandHandler"/></param>
-        public BuyerController(IBuyerDirector buyerDirector, ITopicProducer<KafkaBuyerEventCreate> topicProducer,
+        public BuyerController(IBuyerDirector buyerDirector,
             IBuyerValidation buyerValidation, ILogger<BuyerController> logger,
             ISaveBuyerCommandHandler saveBuyerCommandHandler)
         {
             _buyerValidation = buyerValidation;
             _buyerDirector = buyerDirector;
-            _topicProducer = topicProducer;
             _logger = logger;
             _saveBuyerCommandHandler = saveBuyerCommandHandler;
         }
@@ -67,9 +62,6 @@ namespace BuyerApi.Controllers
                     return BadRequest("Invalid Phone Number");
 
                 if (await _buyerValidation.BusinessValidationAsync(buyerDetails))
-
-                    //TODO: Some deployment issue is happen while raising kafka event(code implemented) we needs to fix in the upcoming days .. So as of now we are directly calling CQRS command handler
-                    // await PublishKafkaMessage("eauction_buyer", buyerDetails);
                     await _saveBuyerCommandHandler.AddBidAsync(buyerDetails);
 
                 _logger.LogInformation($"Add bid to the product completed");
@@ -97,24 +89,5 @@ namespace BuyerApi.Controllers
 
         #endregion
 
-        #region private methods
-
-        /// <summary>
-        /// Method used to raise the event in kafka with the respective buyer topic with message..
-        /// </summary>
-        /// <param name="topic">Specifies to gets the topic name</param>
-        /// <param name="buyerDetails">Specifies to gets the <see cref="SaveBuyerRequestModel"/></param>
-        /// <returns><see cref="IActionResult"/></returns>
-        private async Task<IActionResult> PublishKafkaMessageAsync(string topic, SaveBuyerRequestModel buyerDetails)
-        {
-            await _topicProducer.Produce(new KafkaBuyerEventCreate
-            {
-                Topic = $"{topic}",
-                TopicMessage = buyerDetails
-            });
-            return Ok(true);
-        }
-
-        #endregion
     }
 }

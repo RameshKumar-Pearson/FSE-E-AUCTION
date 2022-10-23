@@ -1,10 +1,10 @@
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\bin\Debug\netcoreapp3.1\E-auction.Business.deps.json
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\bin\Debug\netcoreapp3.1\E-auction.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\bin\Debug\netcoreapp3.1\E-auction.Business.pdb
+D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.csproj.AssemblyReference.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.GeneratedMSBuildEditorConfig.editorconfig
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.AssemblyInfoInputs.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.AssemblyInfo.cs
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.csproj.CoreCompileInputs.cache
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.dll
 D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.pdb
-D:\FSE-E-AUCTION\FSE-E-AUCTION\E-auction.Business\obj\Debug\netcoreapp3.1\E-auction.Business.csproj.AssemblyReference.cache
