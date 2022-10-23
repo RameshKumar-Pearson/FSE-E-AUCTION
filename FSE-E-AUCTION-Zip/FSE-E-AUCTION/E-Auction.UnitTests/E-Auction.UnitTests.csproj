@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>E_Auction.UnitTests</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MassTransit.Kafka" Version="8.0.6" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.3.2" />
+    <PackageReference Include="Moq" Version="4.18.2" />
+    <PackageReference Include="MSTest.TestAdapter" Version="2.2.10" />
+    <PackageReference Include="MSTest.TestFramework" Version="2.2.10" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BuyerApi\BuyerApi.csproj" />
+    <ProjectReference Include="..\E-auction.Business\E-auction.Business.csproj" />
+    <ProjectReference Include="..\SellerApi\SellerApi.csproj" />
+  </ItemGroup>
+
+</Project>

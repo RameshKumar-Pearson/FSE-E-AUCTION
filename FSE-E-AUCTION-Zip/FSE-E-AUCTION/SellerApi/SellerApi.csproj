@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Azure.Messaging.ServiceBus" Version="7.10.0" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.21.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Azure.ServiceBus" Version="5.2.0" />
+    <PackageReference Include="mongocsharpdriver" Version="2.17.1" />
+    <PackageReference Include="MongoDB.Driver" Version="2.17.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\E-auction.Business\E-auction.Business.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>
